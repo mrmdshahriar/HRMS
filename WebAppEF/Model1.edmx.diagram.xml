@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5bcc2af297a8421295a0c5208ceb045b" Name="Diagram1">
+        <EntityTypeShape EntityType="masterModel.AdvanceSalary" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Applied" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.ApplyCandidate" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Arrear" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AspNetUserRole" Width="1.5" PointX="6" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AspNetUser" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Attendance" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.BonusSetup" Width="1.5" PointX="11.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.City" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.CostingTab" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Country" Width="1.5" PointX="0.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Deduction" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Department" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Designation" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.EmployeeCost" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.EmployeeGroup" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.EmployeeTransfer" Width="1.5" PointX="16.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.EmployeeVisaDetail" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployeeEducation" Width="1.5" PointX="5.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployeeHealth" Width="1.5" PointX="7.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployeementHistory" Width="1.5" PointX="19.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployeeRefrence" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployeeRelation" Width="1.5" PointX="9.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmEmployee" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmInternalRequisition" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmInterviewDetail" Width="1.5" PointX="17.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmInterview" Width="1.5" PointX="15" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmJobPost" Width="1.5" PointX="12.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmJobType" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmSkill" Width="1.5" PointX="11.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.InterviewAssessment" Width="1.5" PointX="13.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.JobRequisition" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Job" Width="1.5" PointX="21.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.KeyObjective" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.KeyResult" Width="1.5" PointX="10.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.LeavePolicy" Width="1.5" PointX="20.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.LeaveRequest" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.LoanSanction" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.LoanType" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.OfferLetter" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Organization" Width="1.5" PointX="23.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.OverTimeSetup" Width="1.5" PointX="15.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.PayRollCutOff" Width="1.5" PointX="17.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Region" Width="1.5" PointX="1.5" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.SalarySetup" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.ShiftMaster" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.SpecialAllowance" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.State" Width="1.5" PointX="24.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Termination" Width="1.5" PointX="22.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.TradeLicens" Width="1.5" PointX="24.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.User" Width="1.5" PointX="2.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.UserType" Width="1.5" PointX="4.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.Allowance" Width="1.5" PointX="25.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AllowancesDeduction" Width="1.5" PointX="6.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.AllowanceType" Width="1.5" PointX="8.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.HrmAttendance" Width="1.5" PointX="10.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.LeaveType" Width="1.5" PointX="12.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.MSreplication_options" Width="1.5" PointX="19.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.PublicHoliday" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_db" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_dev" Width="1.5" PointX="26.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_fallback_usg" Width="1.5" PointX="26.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.spt_monitor" Width="1.5" PointX="26.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="masterModel.tbl_EmployeeAttendanceCalculations" Width="1.5" PointX="26.75" PointY="25.75" IsExpanded="true" />
+        <AssociationConnector Association="masterModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Cities_CityId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_Countries_dbo_Regions_RegionId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_KeyResults_KeyResults" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_KeyObjectives_KeyObjectives" ManuallyRouted="false" />
+        <AssociationConnector Association="masterModel.FK_KeyResults_KeyObjectives" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
