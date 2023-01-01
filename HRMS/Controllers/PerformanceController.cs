@@ -595,7 +595,7 @@ namespace HRMS.Controllers
                     EligibleForBonus=S.EligibleForBonus,
                     EligibleForIncrementPercentage=S.EligibleForIncrementPercentage,
                     Active = S.Active,         
-                }).ToList();
+                }).FirstOrDefault();
 
                 return Json(result, JsonRequestBehavior.AllowGet);
             }

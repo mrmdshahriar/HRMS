@@ -10,6 +10,7 @@
 
 
 
+
 <!-- base:css -->
 <link rel="stylesheet" href="~/Content/Assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="~/Content/Assets/vendors/base/vendor.bundle.base.css">
@@ -52,6 +53,7 @@
     <center>
         <div>
             <h3>Departments</h3>
+
             <div>
                 @foreach (var dept in (List<Department>)ViewBag.deptName)
                 {
@@ -659,43 +661,23 @@
 
                 url: "/Performance/GetManagerKeyResultList",
 
-                success: function (data) {
+                success: function (obj) {
 
                     debugger;
 
-                    console.log(data);
+                    console.log(obj);
 
-                    str += '<table class="table table-bordered table-striped table-condensed">' +
-                        '<thead>' +
-                        '<tr>' + 'Date Of Joining'+ '</tr>' +
-                        '<tr>' + 'Gross Salary'+ '</tr>' +
-                        '<tr>' + 'Fit For Promotion'+ '</tr>' +
-                        '<tr>' + 'Fit In Current Possition'+ '</tr>' +
-                        '<tr>' + 'Not Fit For Promotion But Likely To Become'+ '</tr>' +
-                        '<tr>' + 'Unfit For Promotion Has Reached His Ceiling'+ '</tr>' +
-                        '<tr>' + 'Eligible For Bonus'+ '</tr>' +
-                        '<tr>' + 'Eligible For Increment Percentage'+ '</tr>' +
-                        '</thead>' +
-                        '<tbody>';
-
-                    $(data).each(function (index, obj) {
-
-                        str += '<tr><td>' + obj.DateOfJoining + '</td><td>' + obj.GrossSalary + '</td><td>' + obj.FitForPromotion  + '</td>' +
-                            '<td>' + obj.FitInCurrentPossition  + '</td>' +
-                            '<td>' + obj.NotFitForPromotionButLikelyToBecome  + '</td>' +
-                            '<td>' + obj.NotFitForPromotionButLikelyToBecome  + '</td>' +
-                            '<td>' + obj.EligibleForBonus  + '</td>' +
-                            '<td>' + obj.EligibleForIncrementPercentage  + '</td>' +
-                            '<button style="border:none; font-size:11px;" onclick="LoadingEditData(' + obj.Id + ');"><i class="fa fa-pencil"></i></button>' +
-                            '</td>' +
-                            '</tr > ';
-
-                    });
-
-                    str += '</tbody></table>';
+                  str = '<table class="table table-bordered table-striped table-condensed" style="margin-top:80px;">' +
+                        '<tr><th style="width:50%;">Date Of Joining : </th><td>' + obj.DateOfJoining + '</td></tr>' +
+                        '<tr><th>Gross Salary : </th><td>' + obj.GrossSalary + '</td></tr>' +
+                        '<tr><th>Fit For Promotion : </th><td><input type="checkbox" ' + (obj.FitForPromotion ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Fit In Current Possition : </th><td><input type="checkbox" ' + (obj.FitInCurrentPossition ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Not Fit For Promotion But Likely To Become : </th><td><input type="checkbox" ' + (obj.NotFitForPromotionButLikelyToBecome ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Eligible For Bonus : </th><td><input type="checkbox" ' + (obj.EligibleForBonus ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Eligible For Increment Percentage : </th><td>' + obj.EligibleForIncrementPercentage + '</td></tr>' +
+                        '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadingEditData(' + obj.Id + ');"><i class="fa fa-pencil"></i></button></td></tr></table>';
 
                     $("#ManagerKeyResults").html(str);
-
                 },
                 error: function (error) {
                     console.log(error);
@@ -703,7 +685,6 @@
                 cache: false
             });
         }
-
 
     </script>
 
