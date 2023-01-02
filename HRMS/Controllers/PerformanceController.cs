@@ -604,15 +604,29 @@ namespace HRMS.Controllers
                 throw ex;
             }
         }
-        [HttpGet]
+        [HttpPost]
         public ActionResult EditManagerKeyResult(int id)
         {
             _hrms.Configuration.ProxyCreationEnabled = false;
 
-            var result = _hrms.ManagerKeyResults.Where(x => x.Id == id).FirstOrDefault<ManagerKeyResult>();
+            var ManagerKeyResultList = _hrms.ManagerKeyResults.Where(x => x.Id == id && x.Active == true).ToList();
+
+
+            var result = ManagerKeyResultList.Select(x => new
+            {
+                Active = x.Active,
+                DateOfJoining = x.DateOfJoining?.ToString("yyyy-MM-dd"),
+                EligibleForBonus  = x.EligibleForBonus,
+                EligibleForIncrementPercentage = x.EligibleForIncrementPercentage,
+                EmpId = x.EmpId,
+                FitForPromotion = x.FitForPromotion,
+                FitInCurrentPossition = x.FitInCurrentPossition,
+                GrossSalary = x.GrossSalary,
+                NotFitForPromotionButLikelyToBecome = x.NotFitForPromotionButLikelyToBecome
+
+            }).FirstOrDefault();
+
             return Json(result, JsonRequestBehavior.AllowGet);
-
-
         }
 
         [HttpPost]
