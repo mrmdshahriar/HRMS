@@ -145,7 +145,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header">
-                    <h4 class="modal-title" style="color:white">Manager Key Results</h4>
+                    <h4 class="modal-title" style="color:white">Add/Update Manager Key Results</h4>
                     <button type="button" class="close" data-bs-dismiss="modal">X</button>
                 </div>
                 <div class="modal-body">
@@ -154,7 +154,18 @@
 
                         <input type="hidden" value="" id="Id" />
 
-                        <input type="hidden" value="" id="EmpId" />
+                        @*<input type="hidden" value="" id="EmpId" />*@
+
+                        <div class="col-sm-12">
+                            <div class="form-group g-mb-30">
+                                <label class="g-mb-10 bg-classification" for="inputGroupStatus">Employee</label> <span style="color:red">*</span>
+                                <div class="form-group u-select--v3 g-pos-rel g-brd-gray-light-v7 g-rounded-4 mb-0">
+                                    <select id="EmpId" name="EmpId" class="form-control classification-select">
+                                        <option value="-1" selected="selected">Select Employee</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-sm-12">
                             <div class="form-group g-mb-30">
@@ -201,6 +212,14 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Unfit For Promotion Has Reached His Ceiling
+                                    <input type="checkbox" class="form-check-input" id="UnfitForPromotionHasReachedHisCeiling">
+                                </label>
+                            </div>
+                        </div>
 
                         <div class="col-sm-12">
                             <div class="form-check">
@@ -320,6 +339,37 @@
             GetEmployeeId();
             GetDepartmentList();
         });
+
+        function GetEmployeeIdForManagerKeyResultsModal() {
+
+            debugger;
+
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "/Performance/Employeesddl",
+                success: function (data) {
+
+                    if (data != 0) {
+
+                        $('#EmpId').empty();
+                        $('#EmpId').append('<option value="-1" selected disabled>Select Employee</option>');
+                        $.each(data, function (i, tweet) {
+                            $('#EmpId').append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                        });
+                    }
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                },
+                cache: false,
+
+            });
+        }
 
 
         function viewDetails() {
@@ -667,6 +717,8 @@
 
             $("#ManagerKeyResults").empty();
 
+  
+
             var JobId = btn.value;
 
 
@@ -683,6 +735,8 @@
                     debugger;
 
                     onSuccessEmployeeCostDetails(data);
+
+                    GetEmployeeIdForManagerKeyResultsModal();
                 },
                 error: function (error) {
 
@@ -807,6 +861,8 @@
 
             var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
 
+            var UnfitForPromotionHasReachedHisCeiling = $("#UnfitForPromotionHasReachedHisCeiling").prop("checked");
+
             var FitForPromotion = $("#FitForPromotion").prop("checked");
 
             var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
@@ -820,6 +876,7 @@
                 Active: Active,
                 EligibleForBonus: EligibleForBonus,
                 NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                UnfitForPromotionHasReachedHisCeiling: UnfitForPromotionHasReachedHisCeiling,
                 FitForPromotion: FitForPromotion,
                 FitInCurrentPossition: FitInCurrentPossition,
             };
@@ -887,11 +944,15 @@
         function CreateManagerKeyResults() {
             debugger;
 
+            GetEmployeeIdForManagerKeyResultsModal();
+
             ClearManagerKeyResultsFields();
 
             $("#Save").show();
 
             $("#Update").hide();
+
+            $("#EmpId").prop("disabled", false);
 
             $("#ManagerKeyResultModal").modal('show');
         }
@@ -902,6 +963,7 @@
 
             console.log(ID);
 
+            $("#EmpId").prop("disabled", true);
             $("#Save").hide();
             $("#Update").show();
 
@@ -936,6 +998,8 @@
                     $("#EligibleForBonus").prop("checked", data.EligibleForBonus);
 
                     $("#NotFitForPromotionButLikelyToBecome").prop("checked", data.NotFitForPromotionButLikelyToBecome);
+
+                    $("#UnfitForPromotionHasReachedHisCeiling").prop("checked", data.UnfitForPromotionHasReachedHisCeiling);
 
                     $("#FitForPromotion").prop("checked", data.FitForPromotion);
 
@@ -975,6 +1039,8 @@
 
             var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
 
+            var UnfitForPromotionHasReachedHisCeiling = $("#UnfitForPromotionHasReachedHisCeiling").prop("checked");
+
             var FitForPromotion = $("#FitForPromotion").prop("checked");
 
             var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
@@ -988,6 +1054,7 @@
                     Active: Active,
                     EligibleForBonus: EligibleForBonus,
                     NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                    UnfitForPromotionHasReachedHisCeiling: UnfitForPromotionHasReachedHisCeiling,
                     FitForPromotion: FitForPromotion,
                     FitInCurrentPossition: FitInCurrentPossition,
                    };
@@ -1042,6 +1109,8 @@
             $("#EligibleForBonus").prop("checked", true);
 
             $("#NotFitForPromotionButLikelyToBecome").prop("checked", true);
+
+            $("#UnfitForPromotionHasReachedHisCeiling").prop("checked", true);
 
             $("#FitForPromotion").prop("checked", true);
 

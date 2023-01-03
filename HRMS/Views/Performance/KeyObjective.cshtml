@@ -635,11 +635,8 @@
                         $('#AssignedTo').append('<option value="-1" selected disabled>Select Employee</option>');
                         $.each(data, function (i, tweet) {
                             $('#AssignedTo').append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
-
                         });
-
                     }
-
                 },
                 error: function (error) {
                     Swal.fire({

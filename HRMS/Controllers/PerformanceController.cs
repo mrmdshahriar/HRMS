@@ -623,7 +623,8 @@ namespace HRMS.Controllers
                 FitForPromotion = x.FitForPromotion,
                 FitInCurrentPossition = x.FitInCurrentPossition,
                 GrossSalary = x.GrossSalary,
-                NotFitForPromotionButLikelyToBecome = x.NotFitForPromotionButLikelyToBecome
+                NotFitForPromotionButLikelyToBecome = x.NotFitForPromotionButLikelyToBecome,
+                UnfitForPromotionHasReachedHisCeiling = x.UnfitForPromotionHasReachedHisCeiling
 
             }).FirstOrDefault();
 
@@ -727,6 +728,25 @@ namespace HRMS.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult Employeesddl()
+        {
+            var deptName = Session["DeptName"]?.ToString();
+
+            List<HrmEmployee> empList = _hrms.HrmEmployees.Include(x=>x.Department).Where(y=>y.Department.Name == deptName).ToList();
+
+            var data = (from emp in _hrms.HrmEmployees
+                        join dpt in _hrms.Departments 
+                        on emp.DepartmentId equals dpt.Id
+                        where dpt.Name == deptName
+                        select new
+                        {
+                            Id = emp.Id,
+                            Name = emp.FirstName + " " + emp.LastName
+                        }).ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion ManagerKeyResult
     }
