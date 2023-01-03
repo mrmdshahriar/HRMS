@@ -748,6 +748,22 @@ namespace HRMS.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult GetAllEmployesForModalEdit()
+        {
+            // var data = _hrms.HrmEmployees.Where(x => x.Active == true).ToList();
+
+            List<HrmEmployee> empList = _hrms.HrmEmployees.Where(x => x.Active == true).ToList<HrmEmployee>();
+
+            var result = empList.Select(S => new
+            {
+                Id = S.Id,
+                Name = S.FirstName + " " + S.LastName
+            });
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion ManagerKeyResult
     }
 }

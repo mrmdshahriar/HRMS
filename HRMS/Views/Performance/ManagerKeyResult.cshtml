@@ -734,9 +734,7 @@
 
                     debugger;
 
-                    onSuccessEmployeeCostDetails(data);
-
-                    GetEmployeeIdForManagerKeyResultsModal();
+                    onSuccessEmployeeCostDetails(data);             
                 },
                 error: function (error) {
 
@@ -750,6 +748,10 @@
 
         function ShowEmployeeData(AssignedTo) {
             debugger;
+
+            $("#ManagerKeyResults").html("");
+
+            $("#EmployeeKeyResults").html("");
 
             AssignedToID = AssignedTo;
 
@@ -963,7 +965,7 @@
 
             console.log(ID);
 
-            $("#EmpId").prop("disabled", true);
+            GetAllEmployesForModalEdit();
             $("#Save").hide();
             $("#Update").show();
 
@@ -1006,6 +1008,8 @@
                     $("#FitInCurrentPossition").prop("checked", data.FitInCurrentPossition);
 
                     $("#FitForPromotion").prop("checked", data.FitForPromotion);
+
+                    $("#EmpId").prop("disabled", true);
 
                     $("#ManagerKeyResultModal").modal('show');
                 },
@@ -1117,6 +1121,40 @@
             $("#FitInCurrentPossition").prop("checked", true);
 
             $("#FitForPromotion").prop("checked", true);
+        }
+
+        function GetAllEmployesForModalEdit() {
+
+            debugger;
+
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "/Performance/GetAllEmployesForModalEdit",
+                success: function (data) {
+
+                    if (data != 0) {
+
+                        $('#EmpId').empty();
+                        $('#EmpId').append('<option value="-1" selected disabled>Select Employee</option>');
+                        $.each(data, function (i, tweet) {
+                            $('#EmpId').append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+
+                        });
+
+                    }
+
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                },
+                cache: false,
+
+            });
         }
 
     </script>
