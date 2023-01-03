@@ -227,8 +227,8 @@ C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Twitter.xml
 C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.OAuth.xml
 C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CoreCompileInputs.cache
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CopyComplete
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.dll
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.pdb
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache

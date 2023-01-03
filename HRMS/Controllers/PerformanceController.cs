@@ -618,6 +618,7 @@ namespace HRMS.Controllers
                 DateOfJoining = x.DateOfJoining?.ToString("yyyy-MM-dd"),
                 EligibleForBonus  = x.EligibleForBonus,
                 EligibleForIncrementPercentage = x.EligibleForIncrementPercentage,
+                Id = x.Id,
                 EmpId = x.EmpId,
                 FitForPromotion = x.FitForPromotion,
                 FitInCurrentPossition = x.FitInCurrentPossition,
@@ -658,18 +659,36 @@ namespace HRMS.Controllers
 
         [HttpPost]
         public ActionResult UpdateManagerKeyResult(ManagerKeyResult obj)
-        {
-            obj.Id = 1;
-
+        {      
             try
             {
+                ManagerKeyResult ManagerObj = _hrms.ManagerKeyResults.Find(obj.Id);
 
-                _hrms.Entry(obj).State = EntityState.Modified;
+                ManagerObj.EmpId = obj.EmpId;
+
+                ManagerObj.DateOfJoining = obj.DateOfJoining;
+
+                ManagerObj.GrossSalary = obj.GrossSalary;
+
+                ManagerObj.FitForPromotion = obj.FitForPromotion;
+
+                ManagerObj.FitInCurrentPossition = obj.FitInCurrentPossition;
+
+                ManagerObj.NotFitForPromotionButLikelyToBecome = obj.NotFitForPromotionButLikelyToBecome;
+
+                ManagerObj.EligibleForBonus = obj.EligibleForBonus;
+
+                ManagerObj.EligibleForIncrementPercentage = obj.EligibleForIncrementPercentage;
+
+                ManagerObj.Active = obj.Active;
+
+                ManagerObj.LastModifiedOn = DateTime.Now;
+
+                _hrms.Entry(ManagerObj).State = EntityState.Modified;
+
                 _hrms.SaveChanges();
 
                 return Json(new { success = true, message = "Updated Successfully", JsonRequestBehavior.AllowGet });
-
-
             }
             catch (Exception ex)
             {

@@ -152,6 +152,8 @@
 
                     <div class="row">
 
+                        <input type="hidden" value="" id="Id" />
+
                         <input type="hidden" value="" id="EmpId" />
 
                         <div class="col-sm-12">
@@ -232,7 +234,8 @@
 
                 </div>
                 <div class="modal-footer" id="divAddTask">
-                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="AddTask" onclick="SaveData();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Update" onclick="Update();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Save" onclick="Save();"><i class="fas fa-plus tm-fa-plus"></i>Save</button>
                 </div>
             </div>
         </div>
@@ -330,7 +333,6 @@
             ///alert(deptValue);
 
             window.location.href = "/Performance/KeyResults?deptName=" + deptValue;
-
 
         }
 
@@ -790,6 +792,9 @@
 
             console.log(ID);
 
+            $("#Save").hide();
+            $("#Update").show();
+
             //Mode = "Update";
             //$("#AddTask").hide();
             //$(".updateTask").hide();
@@ -805,6 +810,8 @@
 
                 success: function (data) {
                     debugger
+
+                    $("#Id").val(data.Id);
 
                     $("#EmpId").val(data.EmpId);
 
@@ -836,6 +843,108 @@
 
             });
 
+        }
+
+
+        function Update() {
+            debugger;
+
+            var Id = $("#Id").val();
+
+            var EmpId = $("#EmpId").val();
+
+            var DateOfJoining = $("#DateOfJoining").val();
+
+            var GrossSalary = $("#GrossSalary").val();
+
+            var EligibleForIncrementPercentage = $("#EligibleForIncrementPercentage").val();
+
+            var Active = $("#Active").prop("checked");
+
+            var EligibleForBonus = $("#EligibleForBonus").prop("checked");
+
+            var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
+
+            var FitForPromotion = $("#FitForPromotion").prop("checked");
+
+            var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
+
+
+            //var DefineKeyResult = $("#DefineKeyResult").val();
+            //var Status = $('#Status').val();
+            //var CompletedPercentage = $('#CompletedPercentage').val();
+            //var Active = $('#Activechk').is(":checked");
+
+           var Data = {
+                    Id: Id,
+                    EmpId: EmpId,
+                    DateOfJoining: DateOfJoining,
+                    GrossSalary: GrossSalary,
+                    EligibleForIncrementPercentage: EligibleForIncrementPercentage,
+                    Active: Active,
+                    EligibleForBonus: EligibleForBonus,
+                    NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                    FitForPromotion: FitForPromotion,
+                    FitInCurrentPossition: FitInCurrentPossition,
+                   };
+
+            $.ajax({
+                type: "POST",
+                data: Data,
+                url: "/Performance/UpdateManagerKeyResult",
+                success: onSuccessUpdate,
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong to Insert new Reord!',
+                    });
+                },
+                cache: false,
+            });
+        }
+        function onSuccessUpdate(data) {
+            debugger;
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: 'Saved Successfully.',
+            }).then(function () {
+                $("#ManagerKeyResultModal").modal('hide');
+
+                $("#Save").show();
+                $("#Update").hide();
+            });
+
+            ClearManagerKeyResultsFields();
+
+            ShowManagerKeyResults(AssignedToID);
+        }
+
+
+        function ClearManagerKeyResultsFields() {
+
+            $("#Id").val("");
+
+            $("#EmpId").val("");
+
+            $("#DateOfJoining").val("");
+
+            $("#GrossSalary").val("");
+
+            $("#EligibleForIncrementPercentage").val("");
+
+            $("#Active").prop("checked", false);
+
+            $("#EligibleForBonus").prop("checked", false);
+
+            $("#NotFitForPromotionButLikelyToBecome").prop("checked", false);
+
+            $("#FitForPromotion").prop("checked", false);
+
+            $("#FitInCurrentPossition").prop("checked", false);
+
+            $("#FitForPromotion").prop("checked", false);
         }
 
     </script>

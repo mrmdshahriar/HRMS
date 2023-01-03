@@ -18,11 +18,10 @@ namespace HRMS.Models
         public bool? EligibleForBonus { get; set; }
         public int? EligibleForIncrementPercentage { get; set; }
         public bool? Active { get; set; }
-         public long? CreatedBy { get; set; }
-     public DateTime? CreatedOn { get; set; }
-     public long? LastModifiedBy { get; set; }
-     public DateTime? LastModifiedOn { get; set; }
-     public bool? IsDeleted { get; set; }
-
+        public long? CreatedBy { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public long? LastModifiedBy { get; set; }
+        public DateTime? LastModifiedOn { get; set; }
+        public bool? IsDeleted { get; set; }
     }
 }
