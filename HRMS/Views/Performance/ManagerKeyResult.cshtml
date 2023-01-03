@@ -775,7 +775,7 @@
                         '<tr><th>Not Fit For Promotion But Likely To Become : </th><td><input type="checkbox" ' + (obj.NotFitForPromotionButLikelyToBecome ? 'checked' : '') +'/></td></tr>' +
                         '<tr><th>Eligible For Bonus : </th><td><input type="checkbox" ' + (obj.EligibleForBonus ? 'checked' : '') +'/></td></tr>' +
                         '<tr><th>Eligible For Increment Percentage : </th><td>' + obj.EligibleForIncrementPercentage + '</td></tr>' +
-                        '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadEditDataInModal(' + obj.Id + ');"><i class="fa fa-pencil"></i></button></td></tr></table>';
+                      '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadEditDataInModal(' + obj.Id + ');"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="DeleteManagerKeyResults(' + obj.Id + ');"><i class="fa fa-trash"></i></button></td></tr></table>';
 
                     $("#ManagerKeyResults").html(str);
                 },
@@ -784,6 +784,34 @@
                 },
                 cache: false
             });
+        }
+
+        function DeleteManagerKeyResults(Id) {
+            debugger;
+
+            if (confirm("Are You Sure To Delete This Data?")) {
+
+                $.ajax({
+                    type: "POST",
+                    data: { Id: Id },
+                    url: "/Performance/DeleteManagerKeyResult",
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Info',
+                            text: 'Deleted Successfully.',
+                        });
+                    },
+                    error: function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong to Insert new Reord!',
+                        });
+                    },
+                    cache: false,
+                });
+            }
         }
 
         function LoadEditDataInModal(ID) {
@@ -868,12 +896,6 @@
             var FitForPromotion = $("#FitForPromotion").prop("checked");
 
             var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
-
-
-            //var DefineKeyResult = $("#DefineKeyResult").val();
-            //var Status = $('#Status').val();
-            //var CompletedPercentage = $('#CompletedPercentage').val();
-            //var Active = $('#Activechk').is(":checked");
 
            var Data = {
                     Id: Id,
