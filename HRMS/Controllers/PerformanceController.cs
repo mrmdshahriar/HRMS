@@ -635,20 +635,13 @@ namespace HRMS.Controllers
         {
             try
             {
+                 obj.CreatedOn = DateTime.Now;
+
                 _hrms.ManagerKeyResults.Add(obj);
+
                 _hrms.SaveChanges();
-                return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
-                //bool IsrecExisit = _hrms.CostingTabs.Any(x => x.Name == obj.Name);
-                //if (IsrecExisit != true)
-                //{
 
-
-                //}
-                //else
-                //{
-                //    return Json(new { success = false, message = "Region Name is Already Exists.", JsonRequestBehavior.AllowGet });
-
-                //}
+                return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

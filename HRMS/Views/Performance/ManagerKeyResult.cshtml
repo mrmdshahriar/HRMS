@@ -145,8 +145,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header">
-                    <h4 class="modal-title" style="color:white">Update Manager Key Results</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                    <h4 class="modal-title" style="color:white">Manager Key Results</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">X</button>
                 </div>
                 <div class="modal-body">
 
@@ -235,7 +235,7 @@
                 </div>
                 <div class="modal-footer" id="divAddTask">
                     <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Update" onclick="Update();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
-                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Save" onclick="Save();"><i class="fas fa-plus tm-fa-plus"></i>Save</button>
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Save" onclick="SaveManagerKeyResults();"><i class="fas fa-plus tm-fa-plus"></i>Save</button>
                 </div>
             </div>
         </div>
@@ -786,6 +786,74 @@
             });
         }
 
+        function SaveManagerKeyResults() {
+            debugger;
+
+            var Id = $("#Id").val();
+
+            var EmpId = $("#EmpId").val();
+
+            var DateOfJoining = $("#DateOfJoining").val();
+
+            var GrossSalary = $("#GrossSalary").val();
+
+            var EligibleForIncrementPercentage = $("#EligibleForIncrementPercentage").val();
+
+            var Active = $("#Active").prop("checked");
+
+            var EligibleForBonus = $("#EligibleForBonus").prop("checked");
+
+            var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
+
+            var FitForPromotion = $("#FitForPromotion").prop("checked");
+
+            var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
+
+            var Data = {
+                Id: Id,
+                EmpId: EmpId,
+                DateOfJoining: DateOfJoining,
+                GrossSalary: GrossSalary,
+                EligibleForIncrementPercentage: EligibleForIncrementPercentage,
+                Active: Active,
+                EligibleForBonus: EligibleForBonus,
+                NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                FitForPromotion: FitForPromotion,
+                FitInCurrentPossition: FitInCurrentPossition,
+            };
+
+            $.ajax({
+                type: "POST",
+                data: Data,
+                url: "/Performance/AddManagerKeyResult",
+                success: function (data) {
+                    debugger;
+
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Info',
+                        text: 'Saved Successfully.',
+                    }).then(function () {
+                        $("#ManagerKeyResultModal").modal('hide');
+                        $("#Save").show();
+                        $("#Update").hide();
+                    });
+
+                    ClearManagerKeyResultsFields();
+
+                    ShowManagerKeyResults(AssignedToID);
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong to Insert new Reord!',
+                    });
+                },
+                cache: false,
+            });
+        }
+
         function DeleteManagerKeyResults(Id) {
             debugger;
 
@@ -945,7 +1013,6 @@
                 text: 'Saved Successfully.',
             }).then(function () {
                 $("#ManagerKeyResultModal").modal('hide');
-
                 $("#Save").show();
                 $("#Update").hide();
             });
