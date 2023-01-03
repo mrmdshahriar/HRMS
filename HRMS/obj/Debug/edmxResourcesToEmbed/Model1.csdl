@@ -1,0 +1,1905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdvanceSalary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PayoutMonth" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Applied">
+    <Key>
+      <PropertyRef Name="AppliedId" />
+    </Key>
+    <Property Name="AppliedId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddvertiseNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CandidateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JobType" Type="Int32" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="Int64" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="ShiftId" Type="Int64" />
+    <Property Name="MinExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MInQualification" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Skills" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AppliedFrom" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ApplyDate" Type="DateTime" Precision="3" />
+    <Property Name="AvailableDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpectedSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Currency" Type="Int32" />
+    <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ApplyCandidate">
+    <Key>
+      <PropertyRef Name="AppliedId" />
+    </Key>
+    <Property Name="AppliedId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobId" Type="Int64" />
+    <Property Name="CandidateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppliedFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplyDate" Type="DateTime" Precision="3" />
+    <Property Name="AvailableDate" Type="DateTime" Precision="3" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Arrear">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PayoutMonth" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleCategoryId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetUserRoles" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="AspNetRoles" ToRole="HrmEmployees" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfJoining" Type="DateTime" Precision="3" />
+    <Property Name="AccountRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="CellNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="AspNetUsers" ToRole="HrmEmployees" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="AttendaceId" />
+    </Key>
+    <Property Name="AttendaceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="TimeIn" Type="Time" Precision="7" />
+    <Property Name="TimeOut" Type="Time" Precision="7" />
+    <Property Name="IsPresent" Type="Boolean" />
+    <Property Name="IsAbsent" Type="Boolean" />
+    <Property Name="IsLeave" Type="Boolean" />
+    <Property Name="LeaveType" Type="Int64" />
+    <Property Name="IsHoliDay" Type="Boolean" />
+    <Property Name="HoliDay" Type="Int64" />
+    <Property Name="IsHalfDay" Type="Boolean" />
+    <Property Name="IsLate" Type="Boolean" />
+    <Property Name="IsEarly" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+  </EntityType>
+  <EntityType Name="BonusSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PayoutMonth" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="Cities" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="Cities" ToRole="HrmEmployees" />
+  </EntityType>
+  <EntityType Name="CostingTab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegionId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryPhoneCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Countries" ToRole="Regions" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="Countries" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="Countries" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees2" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="Countries" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees3" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="Countries" ToRole="HrmEmployees" />
+  </EntityType>
+  <EntityType Name="Deduction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeductionMode" Type="Int32" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="7" />
+    <Property Name="LastModifiedBy" Type="Int32" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="7" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="EmployeeId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="ParentDepartmentId" Type="Int32" />
+    <Property Name="DepartmentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HrmDepartmentHeadId" Type="Int32" />
+    <Property Name="ReferenceId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="IsSubDepartment" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Departments1" Relationship="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Departments" ToRole="Departments1" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Departments1" ToRole="Departments" />
+    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="Departments" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="Departments" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="HrmJobPosts1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="HrmJobPosts2" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReferenceId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="Designations" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="EmployeeCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="CostingTab" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmployeeGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmployeeTransfer">
+    <Key>
+      <PropertyRef Name="TransferId" />
+    </Key>
+    <Property Name="TransferId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="DesignationId" Type="Int64" />
+    <Property Name="NewDesignationId" Type="Int64" />
+    <Property Name="FromDepartmentId" Type="Int64" />
+    <Property Name="ToDepartmentId" Type="Int64" />
+    <Property Name="TrasnferReason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TrasnferDate" Type="DateTime" Precision="3" />
+    <Property Name="TrasnferedBy" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EmployeeVisaDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisaTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VisaNumber" Type="Int64" />
+    <Property Name="VisaIssuanceDate" Type="DateTime" Precision="7" />
+    <Property Name="VisaExpiryDate" Type="DateTime" Precision="7" />
+    <Property Name="LabourCardNumber" Type="Int64" />
+    <Property Name="LabourCardCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LabourCardExpiry" Type="DateTime" Precision="7" />
+    <Property Name="InsuranceCardNumber" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HrmEmployeeEducation">
+    <Key>
+      <PropertyRef Name="EducationId" />
+    </Key>
+    <Property Name="EducationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="QualificationType" Type="Int32" />
+    <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Division" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="GPA" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="TotalGPA" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PassingYear" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Institutes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HrmEmployeeHealth">
+    <Key>
+      <PropertyRef Name="EmpHealthId" />
+    </Key>
+    <Property Name="EmpHealthId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="DiseasName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="FromSuffering" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Treatment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HrmEmployeementHistory">
+    <Key>
+      <PropertyRef Name="EmpExpId" />
+    </Key>
+    <Property Name="EmpExpId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="JobType" Type="Int32" />
+    <Property Name="Organization" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OrganizationAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ReasonForLeaaving" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JobDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HrmEmployeeRefrence">
+    <Key>
+      <PropertyRef Name="ReferenceId" />
+    </Key>
+    <Property Name="ReferenceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="ReferenceType" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="Int64" />
+    <Property Name="Organization" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PeriodOfKowing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HrmEmployeeRelation">
+    <Key>
+      <PropertyRef Name="RelationId" />
+    </Key>
+    <Property Name="RelationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="RelationType" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HrmEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleId" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Middlename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherHusbandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="IdentityCardNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdentityExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="ReligionId" Type="Int32" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dependants" Type="Int32" />
+    <Property Name="NationalCountryId" Type="Int32" />
+    <Property Name="EthnicityId" Type="Int32" />
+    <Property Name="BloodGroup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HrmLanguageId" Type="Int32" />
+    <Property Name="DisabilitiesId" Type="Int32" />
+    <Property Name="EmployeeType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeGroupId" Type="Int32" />
+    <Property Name="HrmLocationOficeId" Type="Int32" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="ReportToId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="SubDepartmentId" Type="Int32" />
+    <Property Name="HrmGradeId" Type="Int32" />
+    <Property Name="MachineId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="ProbationPeriod" Type="Int32" />
+    <Property Name="ConfirmationDate" Type="DateTime" Precision="3" />
+    <Property Name="ContractExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="BasicSalary" Type="Double" />
+    <Property Name="ContacNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LivingCountryId" Type="Int32" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="ZipCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentCountryId" Type="Int32" />
+    <Property Name="CurrentStateId" Type="Int32" />
+    <Property Name="CurrentCityId" Type="Int32" />
+    <Property Name="CurrentZipCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IswebloginAllowed" Type="Boolean" />
+    <Property Name="SoftRoleinformation" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CostCenterId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Country_Id" Type="Int32" />
+    <Property Name="BiometricCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DrivingLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthCountryId" Type="Int32" />
+    <Property Name="HrmLanguage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProbationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficialEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegionId" Type="Int32" />
+    <Property Name="PermnantAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PassportExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="ShiftId" Type="Int64" />
+    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="HrmEmployees" ToRole="AspNetRoles" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="HrmEmployees" ToRole="AspNetUsers" />
+    <NavigationProperty Name="City" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="HrmEmployees" ToRole="Cities" />
+    <NavigationProperty Name="City1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="HrmEmployees" ToRole="Cities" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="HrmEmployees" ToRole="Countries" />
+    <NavigationProperty Name="Country1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="HrmEmployees" ToRole="Countries" />
+    <NavigationProperty Name="Country2" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="HrmEmployees" ToRole="Countries" />
+    <NavigationProperty Name="Country3" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="HrmEmployees" ToRole="Countries" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="HrmEmployees" ToRole="Departments" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="HrmEmployees" ToRole="Departments" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="HrmEmployees" ToRole="Departments" />
+    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="HrmEmployees" ToRole="Designations" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployees" ToRole="HrmEmployees1" />
+    <NavigationProperty Name="HrmEmployee1" Relationship="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployees1" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmEmployees" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmInterviewDetails" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmInterviewDetails" />
+    <NavigationProperty Name="HrmInterviews" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmEmployees" ToRole="HrmInterviews" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="HrmInternalRequisition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="RequisitionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="SubDepartmentId" Type="Int32" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="HrmGradeId" Type="Int32" />
+    <Property Name="ContractDuration" Type="Int32" />
+    <Property Name="RequestedBy" Type="Int32" />
+    <Property Name="PositionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="ReplacePositionId" Type="Int32" />
+    <Property Name="RepalceToId" Type="Int32" />
+    <Property Name="RepalceToGradeId" Type="Int32" />
+    <Property Name="NoOfPositions" Type="Int32" />
+    <Property Name="Qualification" Type="Int32" />
+    <Property Name="MinExperience" Type="Int32" />
+    <Property Name="ShiftRotation" Type="Boolean" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="HrmInternalRequisitions" ToRole="Departments" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="HrmInternalRequisitions" ToRole="Departments" />
+    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="HrmInternalRequisitions" ToRole="Designations" />
+    <NavigationProperty Name="Designation1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="HrmInternalRequisitions" ToRole="Designations" />
+    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInternalRequisitions" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployee1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmInternalRequisitions" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmInternalRequisitions" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="HrmInterviewDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HrmInterviewId" Type="Int32" />
+    <Property Name="HrmEmployeeId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Venue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="EarnedScore" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInterviewDetails" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInterview" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterviewDetails" ToRole="HrmInterviews" />
+  </EntityType>
+  <EntityType Name="HrmInterview">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HrmApplyFormId" Type="Int32" />
+    <Property Name="HrmJobPostId" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalScore" Type="Int32" />
+    <Property Name="TotalEarned" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="HrmEmployee_Id" Type="Int32" />
+    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmInterviews" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInterviewDetails" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterviews" ToRole="HrmInterviewDetails" />
+    <NavigationProperty Name="HrmJobPost" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmInterviews" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="HrmJobPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HrmInternalRequisitionId" Type="Int32" />
+    <Property Name="JobPostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HrmJobType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DurationMonths" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="HrmShiftId" Type="Int32" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="Req" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="SubDepartmentId" Type="Int32" />
+    <Property Name="TotalPosition" Type="Int32" />
+    <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="ExperienceYears" Type="Double" />
+    <Property Name="MinSalaryRange" Type="Double" />
+    <Property Name="MaxSalaryRange" Type="Double" />
+    <Property Name="Qualification" Type="Int32" />
+    <Property Name="JoDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="EndedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Department_Id" Type="Int32" />
+    <Property Name="HrmJobType_Id" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="HrmJobPosts" ToRole="Departments" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="HrmJobPosts" ToRole="Departments" />
+    <NavigationProperty Name="Department2" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="HrmJobPosts" ToRole="Departments" />
+    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="HrmJobPosts" ToRole="Designations" />
+    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmJobPosts" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmInternalRequisition" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmJobPosts" ToRole="HrmInternalRequisitions" />
+    <NavigationProperty Name="HrmInterviews" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmJobPosts" ToRole="HrmInterviews" />
+    <NavigationProperty Name="HrmJobType1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobPosts" ToRole="HrmJobTypes" />
+  </EntityType>
+  <EntityType Name="HrmJobType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobTypes" ToRole="HrmJobPosts" />
+  </EntityType>
+  <EntityType Name="HrmSkill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="EmployeeId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="InterviewAssessment">
+    <Key>
+      <PropertyRef Name="PK_InterviewId" />
+    </Key>
+    <Property Name="PK_InterviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppliedId" Type="Int64" />
+    <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ComputerLiteracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Intelligence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExperienceInterviewed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExperienceCompanyBusiness" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JobKnowledgeSkill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Personality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommunicationSkills" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DevelopmentMotivation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PersonalAptitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="JobRequisition">
+    <Key>
+      <PropertyRef Name="ReqId" />
+    </Key>
+    <Property Name="ReqId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddvertiseNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobType" Type="Int32" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="Int64" />
+    <Property Name="DepartmentId" Type="Int64" />
+    <Property Name="ShiftId" Type="Int64" />
+    <Property Name="MinExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MInQualification" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Skills" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpectedSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Attachment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobType" Type="Int32" />
+    <Property Name="ShiftId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="MinExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MaxExpereince" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MInQualification" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfposition" Type="Int32" />
+    <Property Name="ClosingDate" Type="DateTime" Precision="3" />
+    <Property Name="Location" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Skills" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SalaryRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="jobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="KeyObjective">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DefineObjective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepId" Type="Int64" />
+    <Property Name="AssignedTo" Type="Int64" />
+    <Property Name="AssignDate" Type="DateTime" Precision="7" />
+    <Property Name="EndDate" Type="DateTime" Precision="7" />
+    <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssignedPercentage" Type="Int32" />
+    <Property Name="CompletedPercentage" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <NavigationProperty Name="KeyObjectives1" Relationship="Self.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjectives" ToRole="KeyObjectives1" />
+    <NavigationProperty Name="KeyObjective1" Relationship="Self.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjectives1" ToRole="KeyObjectives" />
+    <NavigationProperty Name="KeyResults" Relationship="Self.FK_KeyResults_KeyObjectives" FromRole="KeyObjectives" ToRole="KeyResults" />
+  </EntityType>
+  <EntityType Name="KeyResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DefineKeyResult" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KeyObjectiveId" Type="Int64" />
+    <Property Name="AssignedTo" Type="Int64" />
+    <Property Name="AssignDate" Type="DateTime" Precision="7" />
+    <Property Name="EndDate" Type="DateTime" Precision="7" />
+    <Property Name="Priority" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssignedPercentage" Type="Int32" />
+    <Property Name="CompletedPercentage" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompletionDate" Type="DateTime" Precision="7" />
+    <Property Name="PendingDays" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+    <NavigationProperty Name="KeyObjective" Relationship="Self.FK_KeyResults_KeyObjectives" FromRole="KeyResults" ToRole="KeyObjectives" />
+  </EntityType>
+  <EntityType Name="LeavePolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveTypeId" Type="Int64" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LeaveRequest">
+    <Key>
+      <PropertyRef Name="Pk_LeaveRequest" />
+    </Key>
+    <Property Name="Pk_LeaveRequest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee" Type="Int64" />
+    <Property Name="LeaveTypeId" Type="Int64" />
+    <Property Name="DateFrom" Type="DateTime" Precision="3" />
+    <Property Name="DateTo" Type="DateTime" Precision="3" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LoanSanction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="LoanAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DateIssued" Type="DateTime" Precision="3" />
+    <Property Name="TentativeReturnDate" Type="DateTime" Precision="3" />
+    <Property Name="EmiCalculation" Type="Int32" />
+    <Property Name="LoanDefermentDate" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LoanType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int32" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="OfferLetter">
+    <Key>
+      <PropertyRef Name="PK_OfferLetterId" />
+    </Key>
+    <Property Name="PK_OfferLetterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="0" />
+    <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupOfCompaniesID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BaseCurrency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="OverTimeSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OverTimeType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OverTimeRate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PayRollCutOff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CutOffDate" Type="DateTime" Precision="7" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Regions" ToRole="Countries" />
+  </EntityType>
+  <EntityType Name="SalarySetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="Allowances" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ShiftMaster">
+    <Key>
+      <PropertyRef Name="ShiftId" />
+    </Key>
+    <Property Name="ShiftId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="GressTime" Type="Time" Precision="7" />
+    <Property Name="EarlyLeave" Type="Time" Precision="7" />
+    <Property Name="HalfDay" Type="Time" Precision="7" />
+    <Property Name="IsFridayOff" Type="Boolean" />
+    <Property Name="IsSaturdayOff" Type="Boolean" />
+    <Property Name="IsSundayOff" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+  </EntityType>
+  <EntityType Name="SpecialAllowance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="AllowanceType" Type="Int64" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PayRollMonth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Effect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Termination">
+    <Key>
+      <PropertyRef Name="TerminatinId" />
+    </Key>
+    <Property Name="TerminatinId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="DesignationId" Type="Int64" />
+    <Property Name="DepartmentId" Type="Int64" />
+    <Property Name="ToDepartmentId" Type="Int64" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="LastWorkingDate" Type="DateTime" Precision="3" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="TerminationBy" Type="Int64" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TradeLicens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MOLCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradeLicenseExpiry" Type="DateTime" Precision="3" />
+    <Property Name="MOLExpiry" Type="DateTime" Precision="3" />
+    <Property Name="VisaQuotaAvailability" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" />
+    <Property Name="UserTypeId" Type="Int32" />
+    <Property Name="LoginId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Allowance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AllowanceTypeId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AllowancesDeduction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FK_AllowanceId" Type="Int64" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GLCode" Type="Int32" />
+    <Property Name="Effect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AllowanceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HrmAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="TimeIn" Type="DateTime" Precision="3" />
+    <Property Name="TimeOut" Type="DateTime" Precision="3" />
+    <Property Name="IsPresent" Type="Boolean" />
+    <Property Name="IsAbsent" Type="Boolean" />
+    <Property Name="IsLeave" Type="Boolean" />
+    <Property Name="LeaveType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsHoliday" Type="Boolean" />
+    <Property Name="Holiday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsHalfDay" Type="Boolean" />
+    <Property Name="IsLate" Type="Boolean" />
+    <Property Name="IsEarly" Type="Boolean" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Employee" Type="Int32" />
+    <Property Name="Month" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PublicHoliday">
+    <Key>
+      <PropertyRef Name="Pk_PublicId" />
+      <PropertyRef Name="DateFrom" />
+    </Key>
+    <Property Name="Pk_PublicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateTo" Type="DateTime" Precision="0" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="Color" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_EmployeeAttendanceCalculations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PresentDays" Type="Int32" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="AbsentDays" Type="Int32" />
+    <Property Name="TotalHoursWorked" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NormalOTHours" Type="Int32" />
+    <Property Name="WeekendOTHours" Type="Int32" />
+    <Property Name="PublicHolidaysOTHours" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1" />
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="SoftRoleinformation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="ApplicationUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Cities_CityId">
+    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId">
+    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="CurrentCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Countries_dbo_Regions_RegionId">
+    <End Role="Regions" Type="Self.Region" Multiplicity="0..1" />
+    <End Role="Countries" Type="Self.Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Countries_Country_Id">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="Country_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="CurrentCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="LivingCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="NationalCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Departments_dbo_Departments_ParentDepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Departments1" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments1">
+        <PropertyRef Name="ParentDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="HrmDepartmentHeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Departments_DepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="SubDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="SubDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_Department_Id">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="SubDepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_Designations_DesignationId">
+    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId">
+    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId">
+    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="ReplacePositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_Designations_DesignationId">
+    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmEmployees1" Type="Self.HrmEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmEmployees1">
+        <PropertyRef Name="ReportToId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="RequestedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInternalRequisitions">
+        <PropertyRef Name="RepalceToId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmInterviewDetails" Type="Self.HrmInterviewDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInterviewDetails">
+        <PropertyRef Name="HrmEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInterviews">
+        <PropertyRef Name="HrmEmployee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId">
+    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="Req" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId">
+    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmInternalRequisitions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="HrmInternalRequisitionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId">
+    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="0..1" />
+    <End Role="HrmInterviewDetails" Type="Self.HrmInterviewDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmInterviews">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInterviewDetails">
+        <PropertyRef Name="HrmInterviewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId">
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="0..1" />
+    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmJobPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmInterviews">
+        <PropertyRef Name="HrmJobPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id">
+    <End Role="HrmJobTypes" Type="Self.HrmJobType" Multiplicity="0..1" />
+    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HrmJobTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HrmJobPosts">
+        <PropertyRef Name="HrmJobType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeyObjectives_KeyObjectives">
+    <End Role="KeyObjectives" Type="Self.KeyObjective" Multiplicity="1" />
+    <End Role="KeyObjectives1" Type="Self.KeyObjective" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="KeyObjectives">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KeyObjectives1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KeyResults_KeyObjectives">
+    <End Role="KeyObjectives" Type="Self.KeyObjective" Multiplicity="0..1" />
+    <End Role="KeyResults" Type="Self.KeyResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeyObjectives">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="KeyResults">
+        <PropertyRef Name="KeyObjectiveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdvanceSalarys" EntityType="Self.AdvanceSalary" />
+    <EntitySet Name="Applieds" EntityType="Self.Applied" />
+    <EntitySet Name="ApplyCandidates" EntityType="Self.ApplyCandidate" />
+    <EntitySet Name="Arrears" EntityType="Self.Arrear" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="BonusSetups" EntityType="Self.BonusSetup" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="CostingTabs" EntityType="Self.CostingTab" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Deductions" EntityType="Self.Deduction" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Designations" EntityType="Self.Designation" />
+    <EntitySet Name="EmployeeCosts" EntityType="Self.EmployeeCost" />
+    <EntitySet Name="EmployeeGroups" EntityType="Self.EmployeeGroup" />
+    <EntitySet Name="EmployeeTransfers" EntityType="Self.EmployeeTransfer" />
+    <EntitySet Name="EmployeeVisaDetails" EntityType="Self.EmployeeVisaDetail" />
+    <EntitySet Name="HrmEmployeeEducations" EntityType="Self.HrmEmployeeEducation" />
+    <EntitySet Name="HrmEmployeeHealths" EntityType="Self.HrmEmployeeHealth" />
+    <EntitySet Name="HrmEmployeementHistories" EntityType="Self.HrmEmployeementHistory" />
+    <EntitySet Name="HrmEmployeeRefrences" EntityType="Self.HrmEmployeeRefrence" />
+    <EntitySet Name="HrmEmployeeRelations" EntityType="Self.HrmEmployeeRelation" />
+    <EntitySet Name="HrmEmployees" EntityType="Self.HrmEmployee" />
+    <EntitySet Name="HrmInternalRequisitions" EntityType="Self.HrmInternalRequisition" />
+    <EntitySet Name="HrmInterviewDetails" EntityType="Self.HrmInterviewDetail" />
+    <EntitySet Name="HrmInterviews" EntityType="Self.HrmInterview" />
+    <EntitySet Name="HrmJobPosts" EntityType="Self.HrmJobPost" />
+    <EntitySet Name="HrmJobTypes" EntityType="Self.HrmJobType" />
+    <EntitySet Name="HrmSkills" EntityType="Self.HrmSkill" />
+    <EntitySet Name="InterviewAssessments" EntityType="Self.InterviewAssessment" />
+    <EntitySet Name="JobRequisitions" EntityType="Self.JobRequisition" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="KeyObjectives" EntityType="Self.KeyObjective" />
+    <EntitySet Name="KeyResults" EntityType="Self.KeyResult" />
+    <EntitySet Name="LeavePolicies" EntityType="Self.LeavePolicy" />
+    <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequest" />
+    <EntitySet Name="LoanSanctions" EntityType="Self.LoanSanction" />
+    <EntitySet Name="LoanTypes" EntityType="Self.LoanType" />
+    <EntitySet Name="OfferLetters" EntityType="Self.OfferLetter" />
+    <EntitySet Name="Organizations" EntityType="Self.Organization" />
+    <EntitySet Name="OverTimeSetups" EntityType="Self.OverTimeSetup" />
+    <EntitySet Name="PayRollCutOffs" EntityType="Self.PayRollCutOff" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="SalarySetups" EntityType="Self.SalarySetup" />
+    <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMaster" />
+    <EntitySet Name="SpecialAllowances" EntityType="Self.SpecialAllowance" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="Terminations" EntityType="Self.Termination" />
+    <EntitySet Name="TradeLicenses" EntityType="Self.TradeLicens" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+    <EntitySet Name="Allowances" EntityType="Self.Allowance" />
+    <EntitySet Name="AllowancesDeductions" EntityType="Self.AllowancesDeduction" />
+    <EntitySet Name="AllowanceTypes" EntityType="Self.AllowanceType" />
+    <EntitySet Name="HrmAttendances" EntityType="Self.HrmAttendance" />
+    <EntitySet Name="LeaveTypes" EntityType="Self.LeaveType" />
+    <EntitySet Name="PublicHolidays" EntityType="Self.PublicHoliday" />
+    <EntitySet Name="tbl_EmployeeAttendanceCalculations" EntityType="Self.tbl_EmployeeAttendanceCalculations" />
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" Association="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" Association="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CityId" Association="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" Association="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Countries_dbo_Regions_RegionId" Association="Self.FK_dbo_Countries_dbo_Regions_RegionId">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_Country_Id" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Departments_dbo_Departments_ParentDepartmentId" Association="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Departments1" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" Association="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId">
+      <End Role="Designations" EntitySet="Designations" />
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId">
+      <End Role="Designations" EntitySet="Designations" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId">
+      <End Role="Designations" EntitySet="Designations" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId">
+      <End Role="Designations" EntitySet="Designations" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" Association="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmEmployees1" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmInterviewDetails" EntitySet="HrmInterviewDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" Association="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId">
+      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" Association="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId">
+      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
+      <End Role="HrmInterviewDetails" EntitySet="HrmInterviewDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" Association="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId">
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id">
+      <End Role="HrmJobTypes" EntitySet="HrmJobTypes" />
+      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyObjectives_KeyObjectives" Association="Self.FK_KeyObjectives_KeyObjectives">
+      <End Role="KeyObjectives" EntitySet="KeyObjectives" />
+      <End Role="KeyObjectives1" EntitySet="KeyObjectives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyResults_KeyObjectives" Association="Self.FK_KeyResults_KeyObjectives">
+      <End Role="KeyObjectives" EntitySet="KeyObjectives" />
+      <End Role="KeyResults" EntitySet="KeyResults" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -10,6 +10,7 @@
 
 
 
+
 <!-- base:css -->
 <link rel="stylesheet" href="~/Content/Assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="~/Content/Assets/vendors/base/vendor.bundle.base.css">
@@ -52,6 +53,7 @@
     <center>
         <div>
             <h3>Departments</h3>
+
             <div>
                 @foreach (var dept in (List<Department>)ViewBag.deptName)
                 {
@@ -138,6 +140,104 @@
     </div>
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="ManagerKeyResultModal" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modal-header">
+                    <h4 class="modal-title" style="color:white">Update Manager Key Results</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <input type="hidden" value="" id="EmpId" />
+
+                        <div class="col-sm-12">
+                            <div class="form-group g-mb-30">
+                                <label class="g-mb-10 md-name" for="inputGroup-1_1"> Date Of Joining </label> <span style="color:red">*</span>
+                                <div class="g-pos-rel">
+                                    <input id="DateOfJoining" class="form-control" type="date" placeholder="DateOfJoining" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group g-mb-30">
+                                <label class="g-mb-10 md-name" for="inputGroup-1_1"> Gross Salary </label> <span style="color:red">*</span>
+                                <div class="g-pos-rel">
+                                    <input id="GrossSalary" class="form-control" type="number" placeholder="GrossSalary">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Fit For Promotion
+                                    <input type="checkbox" class="form-check-input" id="FitForPromotion">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Fit In Current Possition
+                                    <input type="checkbox" class="form-check-input" id="FitInCurrentPossition">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Not Fit For Promotion But Likely To Become
+                                    <input type="checkbox" class="form-check-input" id="NotFitForPromotionButLikelyToBecome">
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Eligible For Bonus
+                                    <input type="checkbox" class="form-check-input" id="EligibleForBonus">
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12">
+                            <div class="form-group g-mb-30">
+                                <label class="g-mb-10 md-name" for="inputGroup-1_1">Eligible For Increment Percentage</label> <span style="color:red">*</span>
+                                <div class="g-pos-rel">
+                                    <input id="EligibleForIncrementPercentage" class="form-control" type="number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-2">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Active
+                                    <input type="checkbox" class="form-check-input" id="Active">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer" id="divAddTask">
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="AddTask" onclick="SaveData();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Country List -->
     <div class="row">
@@ -160,7 +260,7 @@
                     </div>
                 </div>
 
-            </div>         
+            </div>
         </div>
 
     </div>
@@ -618,7 +718,7 @@
                         '<th>DefineKey Result</th>' +
                         '<th>Completed Percentage</th>' +
                         '<th>Status</th>' +
-                        '<th> Action </th>' +
+ /*                       '<th> Action </th>' +*/
 
                         '</tr>' +
                         '</thead>' +
@@ -627,9 +727,9 @@
                     $(data).each(function (index, obj) {
 
                         str += '<tr><td>' + obj.DefineKeyResult + '</td><td>' + obj.CompletedPercentage + '</td><td>' + obj.Status + '</td>' +
-                            '<td>' +
-                            '<button style="border:none; font-size:11px;" onclick="LoadingEditData(' + obj.Id + ');"><i class="fa fa-pencil"></i></button>' +
-                            '</td>' +
+                            //'<td>' +
+                            //'<button style="border:none; font-size:11px;" onclick="LoadingEditData(' + obj.Id + ');"><i class="fa fa-pencil"></i></button>' +
+                            //'</td>' +
                             '</tr > ';
 
                     });
@@ -659,43 +759,23 @@
 
                 url: "/Performance/GetManagerKeyResultList",
 
-                success: function (data) {
+                success: function (obj) {
 
                     debugger;
 
-                    console.log(data);
+                    console.log(obj);
 
-                    str += '<table class="table table-bordered table-striped table-condensed">' +
-                        '<thead>' +
-                        '<tr>' + 'Date Of Joining'+ '</tr>' +
-                        '<tr>' + 'Gross Salary'+ '</tr>' +
-                        '<tr>' + 'Fit For Promotion'+ '</tr>' +
-                        '<tr>' + 'Fit In Current Possition'+ '</tr>' +
-                        '<tr>' + 'Not Fit For Promotion But Likely To Become'+ '</tr>' +
-                        '<tr>' + 'Unfit For Promotion Has Reached His Ceiling'+ '</tr>' +
-                        '<tr>' + 'Eligible For Bonus'+ '</tr>' +
-                        '<tr>' + 'Eligible For Increment Percentage'+ '</tr>' +
-                        '</thead>' +
-                        '<tbody>';
-
-                    $(data).each(function (index, obj) {
-
-                        str += '<tr><td>' + obj.DateOfJoining + '</td><td>' + obj.GrossSalary + '</td><td>' + obj.FitForPromotion  + '</td>' +
-                            '<td>' + obj.FitInCurrentPossition  + '</td>' +
-                            '<td>' + obj.NotFitForPromotionButLikelyToBecome  + '</td>' +
-                            '<td>' + obj.NotFitForPromotionButLikelyToBecome  + '</td>' +
-                            '<td>' + obj.EligibleForBonus  + '</td>' +
-                            '<td>' + obj.EligibleForIncrementPercentage  + '</td>' +
-                            '<button style="border:none; font-size:11px;" onclick="LoadingEditData(' + obj.Id + ');"><i class="fa fa-pencil"></i></button>' +
-                            '</td>' +
-                            '</tr > ';
-
-                    });
-
-                    str += '</tbody></table>';
+                  str = '<table class="table table-bordered table-striped table-condensed" style="margin-top:80px;">' +
+                        '<tr><th style="width:50%;">Date Of Joining : </th><td>' + obj.DateOfJoining + '</td></tr>' +
+                        '<tr><th>Gross Salary : </th><td>' + obj.GrossSalary + '</td></tr>' +
+                        '<tr><th>Fit For Promotion : </th><td><input type="checkbox" ' + (obj.FitForPromotion ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Fit In Current Possition : </th><td><input type="checkbox" ' + (obj.FitInCurrentPossition ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Not Fit For Promotion But Likely To Become : </th><td><input type="checkbox" ' + (obj.NotFitForPromotionButLikelyToBecome ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Eligible For Bonus : </th><td><input type="checkbox" ' + (obj.EligibleForBonus ? 'checked' : '') +'/></td></tr>' +
+                        '<tr><th>Eligible For Increment Percentage : </th><td>' + obj.EligibleForIncrementPercentage + '</td></tr>' +
+                        '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadEditDataInModal(' + obj.Id + ');"><i class="fa fa-pencil"></i></button></td></tr></table>';
 
                     $("#ManagerKeyResults").html(str);
-
                 },
                 error: function (error) {
                     console.log(error);
@@ -704,6 +784,59 @@
             });
         }
 
+        function LoadEditDataInModal(ID) {
+
+            debugger;
+
+            console.log(ID);
+
+            //Mode = "Update";
+            //$("#AddTask").hide();
+            //$(".updateTask").hide();
+
+            //$("#divAddTask").append(" <button type='button' class='btn btn-inverse-primary  my-auto ml-auto updateTask' id='updateTask' onclick='UpdateMetaData(" + ID + ");'>Update</button>");
+
+            $.ajax({
+                type: "POST",
+
+                url: "/Performance/EditManagerKeyResult",
+
+                data: { id: ID },
+
+                success: function (data) {
+                    debugger
+
+                    $("#EmpId").val(data.EmpId);
+
+                    $("#DateOfJoining").val(data.DateOfJoining);
+
+                    $("#GrossSalary").val(data.GrossSalary);
+
+                    $("#EligibleForIncrementPercentage").val(data.EligibleForIncrementPercentage);
+
+                    $("#Active").prop("checked", data.Active);
+
+                    $("#EligibleForBonus").prop("checked", data.EligibleForBonus);
+
+                    $("#NotFitForPromotionButLikelyToBecome").prop("checked", data.NotFitForPromotionButLikelyToBecome);
+
+                    $("#FitForPromotion").prop("checked", data.FitForPromotion);
+
+                    $("#FitInCurrentPossition").prop("checked", data.FitInCurrentPossition);
+
+                    $("#FitForPromotion").prop("checked", data.FitForPromotion);
+
+                    $("#ManagerKeyResultModal").modal('show');
+                },
+
+                error: function (error) {
+                    alert("error", error);
+                },
+                cache: false
+
+            });
+
+        }
 
     </script>
 

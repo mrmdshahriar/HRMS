@@ -1,0 +1,631 @@
+﻿
+@{
+    ViewBag.Title = "AttendaceForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HiliteUI Admin</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="~/Content/Assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Content/Assets/vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/Assets/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Content/Assets/images/favicon.png" />
+</head>
+
+<style>
+    .ChkBox {
+        width: 43px;
+        height: 20px;
+    }
+</style>
+
+<script>
+
+
+
+    function IsPresentChck() {
+        var checkBox = document.getElementById("IsPresent");
+
+        if (checkBox.checked == true) {
+           /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("IsEarly").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+           /* document.getElementById("LeaveTyped").style.display = "none";*/
+        }
+    }
+
+    function IsAbsentChck() {
+        var checkBox = document.getElementById("IsAbsent");
+
+        if (checkBox.checked == true) {
+            /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("IsEarly").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+            /* document.getElementById("LeaveTyped").style.display = "none";*/
+        }
+    }
+
+    function IsLeaveChck() {
+        var checkBox = document.getElementById("IsLeave");
+     
+        if (checkBox.checked == true) {
+            document.getElementById("LeaveTyped").style.display = "block";
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("IsEarly").checked = false;
+
+        } else {
+            document.getElementById("LeaveTyped").style.display = "none";
+        }
+    }
+
+    function IsHoliDayChck() {
+        var checkBox = document.getElementById("IsHoliDay");
+
+        if (checkBox.checked == true) {
+            /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("HoliDayd").style.display = "block";
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("IsEarly").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+            document.getElementById("HoliDayd").style.display = "none";
+        }
+    }
+
+    function IsHalfDayChck() {
+        var checkBox = document.getElementById("IsHalfDay");
+
+        if (checkBox.checked == true) {
+            /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("IsEarly").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+           /* document.getElementById("HoliDayd").style.display = "none";*/
+        }
+    }
+
+    function IsLateChck() {
+        var checkBox = document.getElementById("IsLate");
+
+        if (checkBox.checked == true) {
+            /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsEarly").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+            /* document.getElementById("HoliDayd").style.display = "none";*/
+        }
+    }
+
+    function IsEarlyChck() {
+        var checkBox = document.getElementById("IsEarly");
+
+        if (checkBox.checked == true) {
+            /* document.getElementById("LeaveTyped").style.display = "block";*/
+            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsPresent").checked = false;
+            document.getElementById("IsAbsent").checked = false;
+            document.getElementById("HoliDayd").style.display = "none";
+            document.getElementById("IsHoliDay").checked = false;
+            document.getElementById("IsHalfDay").checked = false;
+            document.getElementById("IsLate").checked = false;
+            document.getElementById("LeaveTyped").style.display = "none";
+
+        } else {
+            /* document.getElementById("HoliDayd").style.display = "none";*/
+        }
+    }
+
+    function DateChange() {
+        var EmpId = $("#ddlEmployee").val();
+        var Date = $("#date").val();
+
+        var Data = JSON.stringify(
+            {
+                Date: Date,
+                EmpId: EmpId,
+                
+            });
+        $.ajax({
+            type: "POST",
+            data: Data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",           
+            url: "/Attendance/GetLeaveByEmployee",
+            success:
+                function (response) {
+                    
+                    var responseData = jQuery.parseJSON(response);
+                    if (response != "[]") {
+                        if (responseData[0].Status == "Approved") {
+                            document.getElementById("IsLeave").checked = true;
+                            document.getElementById("LeaveTyped").style.display = "block";
+                            $('#LeaveTypeD').val(responseData[0].LeaveTypeId).select;
+
+                            document.getElementById("IsLeave").readOnly = "readonly";
+                            document.getElementById("TimeIn").readOnly  = true;
+                            document.getElementById("TimeOut").readOnly  = true;
+                            document.getElementById("LeaveTypeD").readOnly  = true;
+                            document.getElementById("LeaveTyped").readOnly  = true;
+                            document.getElementById("IsPresent").readOnly  = true;
+                            document.getElementById("IsAbsent").readOnly  = true;
+                            document.getElementById("IsHoliDay").readOnly  = true;
+                            document.getElementById("HoliDayd").style.display = "none";
+                            document.getElementById("IsHalfDay").readOnly  = true;
+                            document.getElementById("IsLate").readOnly  = true;
+                            document.getElementById("IsEarly").readOnly  = true;
+
+                        }
+                        else {
+                            document.getElementById("IsLeave").checked = false;
+                            document.getElementById("LeaveTyped").style.display = "none";
+
+                            document.getElementById("IsLeave").disabled = false;
+                            document.getElementById("TimeIn").disabled = false;
+                            document.getElementById("TimeOut").disabled = false;
+                            document.getElementById("LeaveTypeD").disabled = false;
+                            document.getElementById("LeaveTyped").disabled = false;
+                            document.getElementById("IsPresent").disabled = false;
+                            document.getElementById("IsAbsent").disabled = false;
+                            document.getElementById("IsHoliDay").disabled = false;
+                            document.getElementById("HoliDayd").style.display = "none";
+                            document.getElementById("IsHalfDay").disabled = false;
+                            document.getElementById("IsLate").disabled = false;
+                            document.getElementById("IsEarly").disabled = false;
+
+                        }
+                    }
+                    else {
+                        document.getElementById("IsLeave").checked = false;
+                        document.getElementById("LeaveTyped").style.display = "none";
+
+                        document.getElementById("IsLeave").disabled = false;
+                        document.getElementById("TimeIn").disabled = false;
+                        document.getElementById("TimeOut").disabled = false;
+                        document.getElementById("LeaveTypeD").disabled = false;
+                        document.getElementById("LeaveTyped").disabled = false;
+                        document.getElementById("IsPresent").disabled = false;
+                        document.getElementById("IsAbsent").disabled = false;
+                        document.getElementById("IsHoliDay").disabled = false;
+                        document.getElementById("HoliDayd").style.display = "none";
+                        document.getElementById("IsHalfDay").disabled = false;
+                        document.getElementById("IsLate").disabled = false;
+                        document.getElementById("IsEarly").disabled = false;
+
+                    }
+                   
+                },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }         
+        });
+       
+       
+    }
+
+
+
+    /*Add Tem Record into Table*/
+
+    function AddTempRecord() {
+         document.getElementById("IsPresent");
+
+        //Create data Object
+        var data = {};
+        data.ddlEmployee = $('#ddlEmployee').val();
+        data.date = $('#date').val();
+        data.TimeIn = $('#TimeIn').val();
+        data.TimeOut = $('#TimeOut').val();
+        data.IsPresent = document.getElementById("IsPresent");
+        data.IsAbsent = document.getElementById("IsAbsent");
+        data.IsLeave = document.getElementById("IsLeave");
+        data.LeaveTypeD = $('#LeaveTypeD').val();
+        data.IsHoliDay = document.getElementById("IsHoliDay");
+        data.Holidayd = $('#Holidayd').val();
+        data.IsHalfDay = document.getElementById("IsHalfDay");
+        data.IsLate = document.getElementById("IsLate");
+        data.IsEarly = document.getElementById("IsEarly");
+
+
+
+        //Validate required fields  
+        var Errors = ""; // Main Error Messages Variable  
+
+        //validate Title 
+        if (data.ddlEmployee.trim().length == 0) {
+            Errors += "Required field.<br>";
+            $('#ddlEmployee').addClass("border-danger");
+        } else {
+            $('#ddlEmployee').removeClass("border-danger");
+        }
+
+        if (data.date.trim().length == 0) {
+            Errors += "Required field.<br>";
+            $('#date').addClass("border-danger");
+        } else {
+            $('#date').removeClass("border-danger");
+        }
+        //if (data.TimeIn.trim().length == 0) {
+        //    Errors += "Required field.<br>";
+        //    $('#TimeIn').addClass("border-danger");
+        //} else {
+        //    $('#TimeIn').removeClass("border-danger");
+        //}
+
+        //if (data.TimeOut.trim().length == 0) {
+        //    Errors += "Required field.<br>";
+        //    $('#TimeOut').addClass("border-danger");
+        //} else {
+        //    $('#TimeOut').removeClass("border-danger");
+        //}
+
+     
+
+      
+        if (Errors.length > 0) {//if errors detected then notify user and cancel transaction  
+            ShowMsn(Errors);
+            return false; //exit function  
+        }
+        //end validation required  
+
+        //Validate no duplicated Titles  
+        var ExistTitle = false; // < -- Main indicator  
+        $('#table-information > tbody  > tr').each(function () {
+            var Title = $(this).find('.TitleCol').text(); // get text of current row by class selector  
+            if (data.Title.toLowerCase() == Title.toLowerCase()) { //Compare provided and existing title
+                ExistTitle = true;
+                return false;
+            }
+        });
+
+        //Add data if title is not duplicated otherwise show error
+        if (ExistTitle === false) {
+        
+            //Create Row element with provided data  
+            var Row = $('<tr>');
+            $('<td >').html(data.ddlEmployee).addClass("TitleCol").appendTo(Row);
+            $('<td>').html(data.date).appendTo(Row);
+            $('<td>').html(data.TimeIn).appendTo(Row);
+            $('<td>').html(data.TimeOut).appendTo(Row);
+            $('<td>').html(data.IsPresent).appendTo(Row);
+            $('<td>').html(data.IsAbsent).appendTo(Row);
+            $('<td>').html(data.IsLeave).appendTo(Row);
+            $('<td>').html(data.LeaveTypeD).appendTo(Row);
+            $('<td>').html(data.IsHoliDay).appendTo(Row);
+            $('<td>').html(data.Holidayd).appendTo(Row);
+            $('<td>').html(data.IsHalfDay).appendTo(Row);
+            $('<td>').html(data.IsLate).appendTo(Row);
+            $('<td>').html(data.IsEarly).appendTo(Row);
+           
+            $('<td>').html("<div class='text-center'><button class='btn btn-danger btn-sm' onclick='Delete($(this))'>Remove</button></div>").appendTo(Row);
+
+            //Append row to table's body  
+            $('#table-body').append(Row);
+            CheckSubmitBtn(); // Enable submit button  
+        }
+        else {
+            ShowMsn("Title can not be duplicated.");
+        }
+    }
+
+    function CheckSubmitBtn() {
+        if ($('#table-information > tbody  > tr').length > 0) { // count items in table if at least 1 item is found then enable button  
+            $('#BtnAddRecord').removeAttr("disabled");
+        } else {
+            $('#BtnAddRecord').attr("disabled", "disabled");
+        }
+    }
+</script>
+
+<body>
+
+
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_settings-panel.html -->
+
+
+            <div class="main-panel">
+                <div class="content-wrapper" id="dt" style="width:1450px">
+                    <h2>Manual Attendace </h2>
+                    <div class="row grid-margin">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    @*@using (Html.BeginForm("AddAttendance", "Attendance", FormMethod.Post))
+                                    {*@
+                                        <form class="cmxform" id="commentForm" method="get" action="#">
+                                            <fieldset>
+                                                <div class="row">
+                                                    @*<div class="form-group col-lg-3">
+                                                        <label for="cname">Employee</label>
+                                                        <input id="Employee" class="form-control" name="Employee" minlength="2" type="text" required>
+                                                    </div>*@
+                                                    <div class="form-group col-lg-3" id="Employeeddl" style="display:block">
+                                                        <label for="cname">Employee</label>
+                                                        @Html.DropDownList("EmployeeDLL", new SelectList(ViewBag.EmployeeDDl, "Id", "FirstName"), "--Select Employee--", new { @style = "color:black;", @class = "form-control", id = "ddlEmployee" })
+
+                                                    </div>
+
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cemail">Date</label>
+                                                        <input id="date" class="form-control" type="date" onchange="DateChange()" name="date" required>
+                                                    </div>
+
+
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="ccomment">Time In</label>
+                                                        <input id="TimeIn" class="form-control" type="time" name="TimeIn" required>
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="ccomment">Time Out</label>
+                                                        <input id="TimeOut" class="form-control" type="time" name="TimeOut" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is Present</label><br />
+                                                       
+                                                        <input type="checkbox"  id="IsPresent" name="IsPresent" class="ChkBox" onclick="IsPresentChck()">
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is Absent</label><br />
+                                                        <input type="checkbox" id="IsAbsent" name="IsAbsent" class="ChkBox" onclick="IsAbsentChck()">
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is Leave</label><br />
+                                                        <input type="checkbox"  id="IsLeave" name="IsLeave" class="ChkBox" onclick="IsLeaveChck()">
+                                                    </div>
+
+
+                                                    <div class="form-group col-lg-3" id="LeaveTyped"  style="display:none">
+                                                        <label for="cname">Leave Type</label>
+                                                        @Html.DropDownList("LeaveTypeDDL", new SelectList(ViewBag.LeaveTypeDDL, "Id", "Name"), "--Select Leave Type--",new { @style = "color:black;", @class = "form-control", id = "LeaveTypeD",name = "LeaveTypeD" })
+                                                       
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="row">
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is HoliDay</label><br />
+                                                        <input type="checkbox" id="IsHoliDay" name="IsHoliDay" class="ChkBox" onclick="IsHoliDayChck()">
+                                                    </div>
+                                                    <div class="form-group col-lg-3" id="HoliDayd" style="display:none">
+                                                        <label for="cname">Holi Day</label>
+                                                        @Html.DropDownList("HoliDayDDL", new SelectList(ViewBag.HoliDays, "Pk_PublicId", "Name"), "--Select HoliDay--", new { @style = "color:black;", @class = "form-control", id = "Holidayd", name= "Holidayd" })
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is HalfDay</label><br />
+                                                        <input type="checkbox" id="IsHalfDay" name="IsLeave" class="ChkBox" onclick="IsHalfDayChck()">
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is Late</label><br />
+                                                        <input type="checkbox" id="IsLate" class="ChkBox" name="IsLate" onclick="IsLateChck()">
+                                                       
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="row">
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="cname">Is Early</label><br />
+                                                        <input type="checkbox" id="IsEarly" class="ChkBox" name="IsEarly" onclick="IsEarlyChck()">
+                                                    </div>
+
+                                                </div>
+                                                <input class="btn btn-primary" type="submit" id="BtnAddRecord" value="Submit" onclick="AddTempRecord()">
+                                            </fieldset>
+                                        </form>
+                                    @*}*@
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- content-wrapper ends -->
+
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+
+ 
+
+        <!-- partial:../../partials/_settings-panel.html -->
+
+
+    <div class="main-panel" style="margin-top: -250px;">
+  
+        <div class="content-wrapper" id="dt" style="width:1450px">
+            <div class="card">
+
+                <div class="card-body">
+
+
+                    <h3 class="card-title">Manual Attendace</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="table-information " class="table">
+                                    <thead>
+                                        <tr style="background-color:cornflowerblue">
+                                            <th>Employee</th>
+                                            <th>Date</th>
+                                            <th>Time In</th>
+                                            <th>Time Out</th>
+                                            <th>Is Present</th>
+                                            <th>Is Absent</th>
+                                            <th>Is Leave</th>
+                                            <th>Leave Type</th>
+                                            <th>Is HoliDay</th>
+                                            <th>Holi Day</th>
+                                            <th>Is Half Day</th>
+                                            <th>Is Late</th>
+                                            <th>Is Early</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        @*@if (ViewBag.TempAttednace != null)
+                                        {
+                                            foreach (var item in ViewBag.TempAttednace)
+                                            {
+                                                <tr>
+                                                    <td>@item.EmployeeId</td>
+                                                    <td>2012/08/03</td>
+                                                    <td>27</td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>1</td>
+                                                    <td>Ghazi</td>
+                                                    <td>2012/08/03</td>
+                                                    <td>27</td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <i class='fas fa-pen'></i>
+                                                        <i class='fas fa-trash' style="margin-left:18px;"></i>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td>Ghazi</td>
+                                                <td>2012/08/03</td>
+                                                <td>27</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>Ghazi</td>
+                                                <td>2012/08/03</td>
+                                                <td>27</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>
+                                                    <i class='fas fa-pen'></i>
+                                                    <i class='fas fa-trash' style="margin-left:18px;"></i>
+                                                </td>
+                                            </tr>
+                                        }*@
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <!-- partial -->
+    </div>
+        <!-- main-panel ends -->
+        <!-- page-body-wrapper ends -->
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- container-scroller -->
+    <!-- base:js -->
+    <script src="~/Content/Assets/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/Content/Assets/js/off-canvas.js"></script>
+    <script src="~/Content/Assets/js/hoverable-collapse.js"></script>
+    <script src="~/Content/Assets/js/template.js"></script>
+    <script src="~/Content/Assets/js/settings.js"></script>
+    <script src="~/Content/Assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script src="~/Content/Assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Content/Assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page-->
+    <script src="~/Content/Assets/js/form-validation.js"></script>
+    <script src="~/Content/Assets/js/bt-maxLength.js"></script>
+    <!-- End custom js for this page-->
+</body>

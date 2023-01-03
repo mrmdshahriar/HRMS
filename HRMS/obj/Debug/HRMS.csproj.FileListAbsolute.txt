@@ -115,120 +115,120 @@ F:\Zaru ji HRMS Project in Office\HRMS\HRMS\bin\roslyn\vbc.exe.config
 F:\Zaru ji HRMS Project in Office\HRMS\HRMS\bin\roslyn\vbc.rsp
 F:\Zaru ji HRMS Project in Office\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe
 F:\Zaru ji HRMS Project in Office\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.dll.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.pdb
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csc.exe
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csc.exe.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csc.rsp
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csi.exe
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csi.exe.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\csi.rsp
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.Managed.Core.targets
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\Microsoft.Win32.Primitives.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.AppContext.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Collections.Immutable.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Console.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.StackTrace.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Globalization.Calendars.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.IO.Compression.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.IO.Compression.ZipFile.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.IO.FileSystem.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Net.Http.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Net.Sockets.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Reflection.Metadata.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Text.Encoding.CodePages.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.ValueTuple.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Xml.ReaderWriter.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Xml.XmlDocument.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Xml.XPath.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\System.Xml.XPath.XDocument.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\vbc.exe
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\vbc.exe.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\vbc.rsp
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe.config
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Antlr3.Runtime.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\BouncyCastle.Crypto.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\EntityFramework.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\EntityFramework.SqlServer.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\itextsharp.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\LinqToExcel.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Core.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Owin.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Azure.Insights.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Host.SystemWeb.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Cookies.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Facebook.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Google.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.OAuth.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Twitter.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Web.Infrastructure.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Newtonsoft.Json.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Owin.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Remotion.Linq.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Helpers.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Mvc.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Optimization.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Razor.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.Deployment.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.Razor.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\WebGrease.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\EntityFramework.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\EntityFramework.SqlServer.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\itextsharp.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\LinqToExcel.pdb
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Azure.Insights.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Remotion.Linq.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Helpers.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Mvc.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Optimization.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.Razor.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.Deployment.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\System.Web.WebPages.Razor.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Newtonsoft.Json.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Antlr3.Runtime.pdb
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Core.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Owin.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Host.SystemWeb.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Facebook.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Cookies.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Google.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Twitter.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.Owin.Security.OAuth.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CoreCompileInputs.cache
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CopyComplete
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.dll
-F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.pdb
+C:\HRMS With Git\HRMS\HRMS\bin\HRMS.dll.config
+C:\HRMS With Git\HRMS\HRMS\bin\HRMS.dll
+C:\HRMS With Git\HRMS\HRMS\bin\HRMS.pdb
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csc.exe
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csc.exe.config
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csc.rsp
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csi.exe
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csi.exe.config
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\csi.rsp
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.AppContext.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Collections.Immutable.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Console.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Globalization.Calendars.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.IO.Compression.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.IO.FileSystem.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Net.Http.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Net.Sockets.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.ValueTuple.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Xml.XPath.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\vbc.exe
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\vbc.exe.config
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\vbc.rsp
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe
+C:\HRMS With Git\HRMS\HRMS\bin\roslyn\VBCSCompiler.exe.config
+C:\HRMS With Git\HRMS\HRMS\bin\Antlr3.Runtime.dll
+C:\HRMS With Git\HRMS\HRMS\bin\BouncyCastle.Crypto.dll
+C:\HRMS With Git\HRMS\HRMS\bin\EntityFramework.dll
+C:\HRMS With Git\HRMS\HRMS\bin\EntityFramework.SqlServer.dll
+C:\HRMS With Git\HRMS\HRMS\bin\itextsharp.dll
+C:\HRMS With Git\HRMS\HRMS\bin\LinqToExcel.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Azure.Insights.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Google.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Web.Infrastructure.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Newtonsoft.Json.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Owin.dll
+C:\HRMS With Git\HRMS\HRMS\bin\Remotion.Linq.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Helpers.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Mvc.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Optimization.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Razor.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.Deployment.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.dll
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.Razor.dll
+C:\HRMS With Git\HRMS\HRMS\bin\WebGrease.dll
+C:\HRMS With Git\HRMS\HRMS\bin\EntityFramework.xml
+C:\HRMS With Git\HRMS\HRMS\bin\EntityFramework.SqlServer.xml
+C:\HRMS With Git\HRMS\HRMS\bin\itextsharp.xml
+C:\HRMS With Git\HRMS\HRMS\bin\LinqToExcel.pdb
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Azure.Insights.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Remotion.Linq.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Helpers.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Mvc.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Optimization.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.Razor.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.Deployment.xml
+C:\HRMS With Git\HRMS\HRMS\bin\System.Web.WebPages.Razor.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Newtonsoft.Json.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Antlr3.Runtime.pdb
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Google.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\HRMS With Git\HRMS\HRMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CoreCompileInputs.cache
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CopyComplete
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.dll
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.pdb

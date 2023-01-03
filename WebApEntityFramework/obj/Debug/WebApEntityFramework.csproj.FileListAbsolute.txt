@@ -1,0 +1,214 @@
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\WebApEntityFramework.dll.config
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\WebApEntityFramework.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\WebApEntityFramework.pdb
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csc.exe
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csc.exe.config
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csc.rsp
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csi.exe
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csi.exe.config
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\csi.rsp
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.Managed.Core.targets
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.AppContext.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Collections.Immutable.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Console.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Globalization.Calendars.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.IO.Compression.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.IO.FileSystem.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Net.Http.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Net.Sockets.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Reflection.Metadata.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.ValueTuple.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Xml.XmlDocument.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Xml.XPath.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\vbc.exe
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\vbc.exe.config
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\vbc.rsp
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\VBCSCompiler.exe
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\roslyn\VBCSCompiler.exe.config
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Antlr3.Runtime.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\EntityFramework.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\EntityFramework.SqlServer.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Core.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Cookies.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Facebook.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Google.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.OAuth.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Twitter.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Web.Infrastructure.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Newtonsoft.Json.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Owin.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Helpers.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Mvc.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Optimization.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Razor.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.Deployment.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.Razor.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\WebGrease.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Helpers.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Mvc.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Optimization.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.Razor.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.Deployment.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\System.Web.WebPages.Razor.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Newtonsoft.Json.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Antlr3.Runtime.pdb
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\EntityFramework.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\EntityFramework.SqlServer.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Core.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Facebook.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Cookies.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Google.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Twitter.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.OAuth.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.AssemblyReference.cache
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CoreCompileInputs.cache
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CopyComplete
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.dll
+D:\desktopdata\p1\Project Repository\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.pdb
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\WebApEntityFramework.dll.config
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\WebApEntityFramework.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\WebApEntityFramework.pdb
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csc.exe
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csc.exe.config
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csc.rsp
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csi.exe
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csi.exe.config
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\csi.rsp
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.Managed.Core.targets
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.AppContext.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Collections.Immutable.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Console.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Globalization.Calendars.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.IO.Compression.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.IO.FileSystem.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Net.Http.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Net.Sockets.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Reflection.Metadata.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.ValueTuple.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Xml.XmlDocument.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Xml.XPath.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\vbc.exe
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\vbc.exe.config
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\vbc.rsp
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\VBCSCompiler.exe
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\roslyn\VBCSCompiler.exe.config
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Antlr3.Runtime.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\EntityFramework.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\EntityFramework.SqlServer.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Core.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Cookies.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Facebook.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Google.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.OAuth.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Twitter.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Web.Infrastructure.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Newtonsoft.Json.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Owin.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Helpers.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Mvc.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Optimization.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Razor.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.Deployment.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.Razor.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\WebGrease.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Helpers.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Mvc.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Optimization.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.Razor.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.Deployment.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\System.Web.WebPages.Razor.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Newtonsoft.Json.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Antlr3.Runtime.pdb
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\EntityFramework.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\EntityFramework.SqlServer.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Core.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Facebook.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Cookies.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Google.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.Twitter.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.Owin.Security.OAuth.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.AssemblyReference.cache
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CoreCompileInputs.cache
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CopyComplete
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\obj\Debug\WebApEntityFramework.dll
+C:\HRMS Zaru ji Database\full Project\WebApEntityFramework\obj\Debug\WebApEntityFramework.pdb
