@@ -618,11 +618,13 @@ namespace HRMS.Controllers
                 DateOfJoining = x.DateOfJoining?.ToString("yyyy-MM-dd"),
                 EligibleForBonus  = x.EligibleForBonus,
                 EligibleForIncrementPercentage = x.EligibleForIncrementPercentage,
+                Id = x.Id,
                 EmpId = x.EmpId,
                 FitForPromotion = x.FitForPromotion,
                 FitInCurrentPossition = x.FitInCurrentPossition,
                 GrossSalary = x.GrossSalary,
-                NotFitForPromotionButLikelyToBecome = x.NotFitForPromotionButLikelyToBecome
+                NotFitForPromotionButLikelyToBecome = x.NotFitForPromotionButLikelyToBecome,
+                UnfitForPromotionHasReachedHisCeiling = x.UnfitForPromotionHasReachedHisCeiling
 
             }).FirstOrDefault();
 
@@ -634,20 +636,13 @@ namespace HRMS.Controllers
         {
             try
             {
+                 obj.CreatedOn = DateTime.Now;
+
                 _hrms.ManagerKeyResults.Add(obj);
+
                 _hrms.SaveChanges();
-                return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
-                //bool IsrecExisit = _hrms.CostingTabs.Any(x => x.Name == obj.Name);
-                //if (IsrecExisit != true)
-                //{
 
-
-                //}
-                //else
-                //{
-                //    return Json(new { success = false, message = "Region Name is Already Exists.", JsonRequestBehavior.AllowGet });
-
-                //}
+                return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -658,18 +653,36 @@ namespace HRMS.Controllers
 
         [HttpPost]
         public ActionResult UpdateManagerKeyResult(ManagerKeyResult obj)
-        {
-            obj.Id = 1;
-
+        {      
             try
             {
+                ManagerKeyResult ManagerObj = _hrms.ManagerKeyResults.Find(obj.Id);
 
-                _hrms.Entry(obj).State = EntityState.Modified;
+                ManagerObj.EmpId = obj.EmpId;
+
+                ManagerObj.DateOfJoining = obj.DateOfJoining;
+
+                ManagerObj.GrossSalary = obj.GrossSalary;
+
+                ManagerObj.FitForPromotion = obj.FitForPromotion;
+
+                ManagerObj.FitInCurrentPossition = obj.FitInCurrentPossition;
+
+                ManagerObj.NotFitForPromotionButLikelyToBecome = obj.NotFitForPromotionButLikelyToBecome;
+
+                ManagerObj.EligibleForBonus = obj.EligibleForBonus;
+
+                ManagerObj.EligibleForIncrementPercentage = obj.EligibleForIncrementPercentage;
+
+                ManagerObj.Active = obj.Active;
+
+                ManagerObj.LastModifiedOn = DateTime.Now;
+
+                _hrms.Entry(ManagerObj).State = EntityState.Modified;
+
                 _hrms.SaveChanges();
 
                 return Json(new { success = true, message = "Updated Successfully", JsonRequestBehavior.AllowGet });
-
-
             }
             catch (Exception ex)
             {
@@ -715,6 +728,41 @@ namespace HRMS.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult Employeesddl()
+        {
+            var deptName = Session["DeptName"]?.ToString();
+
+            List<HrmEmployee> empList = _hrms.HrmEmployees.Include(x=>x.Department).Where(y=>y.Department.Name == deptName).ToList();
+
+            var data = (from emp in _hrms.HrmEmployees
+                        join dpt in _hrms.Departments 
+                        on emp.DepartmentId equals dpt.Id
+                        where dpt.Name == deptName
+                        select new
+                        {
+                            Id = emp.Id,
+                            Name = emp.FirstName + " " + emp.LastName
+                        }).ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult GetAllEmployesForModalEdit()
+        {
+            // var data = _hrms.HrmEmployees.Where(x => x.Active == true).ToList();
+
+            List<HrmEmployee> empList = _hrms.HrmEmployees.Where(x => x.Active == true).ToList<HrmEmployee>();
+
+            var result = empList.Select(S => new
+            {
+                Id = S.Id,
+                Name = S.FirstName + " " + S.LastName
+            });
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion ManagerKeyResult
     }

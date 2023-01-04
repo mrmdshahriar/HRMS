@@ -145,14 +145,27 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header modal-header">
-                    <h4 class="modal-title" style="color:white">Update Manager Key Results</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                    <h4 class="modal-title" style="color:white">Add/Update Manager Key Results</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">X</button>
                 </div>
                 <div class="modal-body">
 
                     <div class="row">
 
-                        <input type="hidden" value="" id="EmpId" />
+                        <input type="hidden" value="" id="Id" />
+
+                        @*<input type="hidden" value="" id="EmpId" />*@
+
+                        <div class="col-sm-12">
+                            <div class="form-group g-mb-30">
+                                <label class="g-mb-10 bg-classification" for="inputGroupStatus">Employee</label> <span style="color:red">*</span>
+                                <div class="form-group u-select--v3 g-pos-rel g-brd-gray-light-v7 g-rounded-4 mb-0">
+                                    <select id="EmpId" name="EmpId" class="form-control classification-select">
+                                        <option value="-1" selected="selected">Select Employee</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="col-sm-12">
                             <div class="form-group g-mb-30">
@@ -199,6 +212,14 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    Unfit For Promotion Has Reached His Ceiling
+                                    <input type="checkbox" class="form-check-input" id="UnfitForPromotionHasReachedHisCeiling">
+                                </label>
+                            </div>
+                        </div>
 
                         <div class="col-sm-12">
                             <div class="form-check">
@@ -232,21 +253,20 @@
 
                 </div>
                 <div class="modal-footer" id="divAddTask">
-                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="AddTask" onclick="SaveData();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Update" onclick="Update();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
+                    <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Save" onclick="SaveManagerKeyResults();"><i class="fas fa-plus tm-fa-plus"></i>Save</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!-- Country List -->
     <div class="row">
         <div class="col-12">
             @*<h4 class="all-md">Employee List</h4>*@
             <hr />
-            @* <button type="button" class="btn btn-inverse-primary u-btn-3d  d-block ml-auto" data-toggle="modal" data-target="#DeductionModal" onclick="clearfields()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>*@
-            <br />
-            <div class="row">
+             <button type="button" class="btn btn-inverse-primary u-btn-3d  d-block ml-auto" onclick="CreateManagerKeyResults()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>
+             <div class="row">
                 <div class="col-md-2" @*style="border:1px solid blue*@>
                     <div class="table-responsive-xl table-bordered cell-border g-mb-40" id="AllDeductionList"></div>
                 </div>
@@ -320,6 +340,37 @@
             GetDepartmentList();
         });
 
+        function GetEmployeeIdForManagerKeyResultsModal() {
+
+            debugger;
+
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "/Performance/Employeesddl",
+                success: function (data) {
+
+                    if (data != 0) {
+
+                        $('#EmpId').empty();
+                        $('#EmpId').append('<option value="-1" selected disabled>Select Employee</option>');
+                        $.each(data, function (i, tweet) {
+                            $('#EmpId').append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+                        });
+                    }
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                },
+                cache: false,
+
+            });
+        }
+
 
         function viewDetails() {
 
@@ -330,7 +381,6 @@
             ///alert(deptValue);
 
             window.location.href = "/Performance/KeyResults?deptName=" + deptValue;
-
 
         }
 
@@ -512,6 +562,8 @@
 
             var Id = $("#EmployeeResultsId").val();
 
+            $("#ManagerKeyResults").html("");
+
             ShowEmployeeData(AssignedToID);
 
             Swal.fire({
@@ -663,6 +715,10 @@
 
             $("#EmployeeKeyResults").empty();
 
+            $("#ManagerKeyResults").empty();
+
+  
+
             var JobId = btn.value;
 
 
@@ -678,7 +734,7 @@
 
                     debugger;
 
-                    onSuccessEmployeeCostDetails(data);
+                    onSuccessEmployeeCostDetails(data);             
                 },
                 error: function (error) {
 
@@ -692,6 +748,10 @@
 
         function ShowEmployeeData(AssignedTo) {
             debugger;
+
+            $("#ManagerKeyResults").html("");
+
+            $("#EmployeeKeyResults").html("");
 
             AssignedToID = AssignedTo;
 
@@ -773,7 +833,7 @@
                         '<tr><th>Not Fit For Promotion But Likely To Become : </th><td><input type="checkbox" ' + (obj.NotFitForPromotionButLikelyToBecome ? 'checked' : '') +'/></td></tr>' +
                         '<tr><th>Eligible For Bonus : </th><td><input type="checkbox" ' + (obj.EligibleForBonus ? 'checked' : '') +'/></td></tr>' +
                         '<tr><th>Eligible For Increment Percentage : </th><td>' + obj.EligibleForIncrementPercentage + '</td></tr>' +
-                        '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadEditDataInModal(' + obj.Id + ');"><i class="fa fa-pencil"></i></button></td></tr></table>';
+                      '<tr><th>Action : </th><td><button class="btn btn-primary" onclick="LoadEditDataInModal(' + obj.Id + ');"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger" onclick="DeleteManagerKeyResults(' + obj.Id + ');"><i class="fa fa-trash"></i></button></td></tr></table>';
 
                     $("#ManagerKeyResults").html(str);
                 },
@@ -784,11 +844,130 @@
             });
         }
 
+        function SaveManagerKeyResults() {
+            debugger;
+
+            var Id = $("#Id").val();
+
+            var EmpId = $("#EmpId").val();
+
+            var DateOfJoining = $("#DateOfJoining").val();
+
+            var GrossSalary = $("#GrossSalary").val();
+
+            var EligibleForIncrementPercentage = $("#EligibleForIncrementPercentage").val();
+
+            var Active = $("#Active").prop("checked");
+
+            var EligibleForBonus = $("#EligibleForBonus").prop("checked");
+
+            var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
+
+            var UnfitForPromotionHasReachedHisCeiling = $("#UnfitForPromotionHasReachedHisCeiling").prop("checked");
+
+            var FitForPromotion = $("#FitForPromotion").prop("checked");
+
+            var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
+
+            var Data = {
+                Id: Id,
+                EmpId: EmpId,
+                DateOfJoining: DateOfJoining,
+                GrossSalary: GrossSalary,
+                EligibleForIncrementPercentage: EligibleForIncrementPercentage,
+                Active: Active,
+                EligibleForBonus: EligibleForBonus,
+                NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                UnfitForPromotionHasReachedHisCeiling: UnfitForPromotionHasReachedHisCeiling,
+                FitForPromotion: FitForPromotion,
+                FitInCurrentPossition: FitInCurrentPossition,
+            };
+
+            $.ajax({
+                type: "POST",
+                data: Data,
+                url: "/Performance/AddManagerKeyResult",
+                success: function (data) {
+                    debugger;
+
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Info',
+                        text: 'Saved Successfully.',
+                    }).then(function () {
+                        $("#ManagerKeyResultModal").modal('hide');
+                        $("#Save").show();
+                        $("#Update").hide();
+                    });
+
+                    ClearManagerKeyResultsFields();
+
+                    ShowManagerKeyResults(AssignedToID);
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong to Insert new Reord!',
+                    });
+                },
+                cache: false,
+            });
+        }
+
+        function DeleteManagerKeyResults(Id) {
+            debugger;
+
+            if (confirm("Are You Sure To Delete This Data?")) {
+
+                $.ajax({
+                    type: "POST",
+                    data: { Id: Id },
+                    url: "/Performance/DeleteManagerKeyResult",
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Info',
+                            text: 'Deleted Successfully.',
+                        });
+                    },
+                    error: function (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong to Insert new Reord!',
+                        });
+                    },
+                    cache: false,
+                });
+            }
+        }
+
+        function CreateManagerKeyResults() {
+            debugger;
+
+            GetEmployeeIdForManagerKeyResultsModal();
+
+            ClearManagerKeyResultsFields();
+
+            $("#Save").show();
+
+            $("#Update").hide();
+
+            $("#EmpId").prop("disabled", false);
+
+            $("#ManagerKeyResultModal").modal('show');
+        }
+
         function LoadEditDataInModal(ID) {
 
             debugger;
 
             console.log(ID);
+
+            GetAllEmployesForModalEdit();
+            $("#Save").hide();
+            $("#Update").show();
 
             //Mode = "Update";
             //$("#AddTask").hide();
@@ -806,6 +985,8 @@
                 success: function (data) {
                     debugger
 
+                    $("#Id").val(data.Id);
+
                     $("#EmpId").val(data.EmpId);
 
                     $("#DateOfJoining").val(data.DateOfJoining);
@@ -820,11 +1001,15 @@
 
                     $("#NotFitForPromotionButLikelyToBecome").prop("checked", data.NotFitForPromotionButLikelyToBecome);
 
+                    $("#UnfitForPromotionHasReachedHisCeiling").prop("checked", data.UnfitForPromotionHasReachedHisCeiling);
+
                     $("#FitForPromotion").prop("checked", data.FitForPromotion);
 
                     $("#FitInCurrentPossition").prop("checked", data.FitInCurrentPossition);
 
                     $("#FitForPromotion").prop("checked", data.FitForPromotion);
+
+                    $("#EmpId").prop("disabled", true);
 
                     $("#ManagerKeyResultModal").modal('show');
                 },
@@ -836,6 +1021,140 @@
 
             });
 
+        }
+
+
+        function Update() {
+            debugger;
+
+            var Id = $("#Id").val();
+
+            var EmpId = $("#EmpId").val();
+
+            var DateOfJoining = $("#DateOfJoining").val();
+
+            var GrossSalary = $("#GrossSalary").val();
+
+            var EligibleForIncrementPercentage = $("#EligibleForIncrementPercentage").val();
+
+            var Active = $("#Active").prop("checked");
+
+            var EligibleForBonus = $("#EligibleForBonus").prop("checked");
+
+            var NotFitForPromotionButLikelyToBecome = $("#NotFitForPromotionButLikelyToBecome").prop("checked");
+
+            var UnfitForPromotionHasReachedHisCeiling = $("#UnfitForPromotionHasReachedHisCeiling").prop("checked");
+
+            var FitForPromotion = $("#FitForPromotion").prop("checked");
+
+            var FitInCurrentPossition = $("#FitInCurrentPossition").prop("checked");
+
+           var Data = {
+                    Id: Id,
+                    EmpId: EmpId,
+                    DateOfJoining: DateOfJoining,
+                    GrossSalary: GrossSalary,
+                    EligibleForIncrementPercentage: EligibleForIncrementPercentage,
+                    Active: Active,
+                    EligibleForBonus: EligibleForBonus,
+                    NotFitForPromotionButLikelyToBecome: NotFitForPromotionButLikelyToBecome,
+                    UnfitForPromotionHasReachedHisCeiling: UnfitForPromotionHasReachedHisCeiling,
+                    FitForPromotion: FitForPromotion,
+                    FitInCurrentPossition: FitInCurrentPossition,
+                   };
+
+            $.ajax({
+                type: "POST",
+                data: Data,
+                url: "/Performance/UpdateManagerKeyResult",
+                success: onSuccessUpdate,
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong to Insert new Reord!',
+                    });
+                },
+                cache: false,
+            });
+        }
+        function onSuccessUpdate(data) {
+            debugger;
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: 'Saved Successfully.',
+            }).then(function () {
+                $("#ManagerKeyResultModal").modal('hide');
+                $("#Save").show();
+                $("#Update").hide();
+            });
+
+            ClearManagerKeyResultsFields();
+
+            ShowManagerKeyResults(AssignedToID);
+        }
+
+
+        function ClearManagerKeyResultsFields() {
+
+            $("#Id").val("");
+
+            $("#EmpId").val("");
+
+            $("#DateOfJoining").val("");
+
+            $("#GrossSalary").val("");
+
+            $("#EligibleForIncrementPercentage").val("");
+
+            $("#Active").prop("checked", true);
+
+            $("#EligibleForBonus").prop("checked", true);
+
+            $("#NotFitForPromotionButLikelyToBecome").prop("checked", true);
+
+            $("#UnfitForPromotionHasReachedHisCeiling").prop("checked", true);
+
+            $("#FitForPromotion").prop("checked", true);
+
+            $("#FitInCurrentPossition").prop("checked", true);
+
+            $("#FitForPromotion").prop("checked", true);
+        }
+
+        function GetAllEmployesForModalEdit() {
+
+            debugger;
+
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: "/Performance/GetAllEmployesForModalEdit",
+                success: function (data) {
+
+                    if (data != 0) {
+
+                        $('#EmpId').empty();
+                        $('#EmpId').append('<option value="-1" selected disabled>Select Employee</option>');
+                        $.each(data, function (i, tweet) {
+                            $('#EmpId').append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+
+                        });
+
+                    }
+
+                },
+                error: function (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                },
+                cache: false,
+
+            });
         }
 
     </script>
