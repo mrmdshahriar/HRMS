@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="~/Content/Assets/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/Content/Assets/images/favicon.png" />
+    <script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
 </head>
 
 <style>
@@ -58,7 +62,7 @@
 
         if (checkBox.checked == true) {
             /* document.getElementById("LeaveTyped").style.display = "block";*/
-            document.getElementById("IsLeave").checked = false;
+            document.getElementById("IsLeave").checked = false;            
             document.getElementById("IsPresent").checked = false;
             document.getElementById("IsHoliDay").checked = false;
             document.getElementById("HoliDayd").style.display = "none";
@@ -259,15 +263,16 @@
     /*Add Tem Record into Table*/
 
     function AddTempRecord() {
-         document.getElementById("IsPresent");
+         var dd = document.getElementById("IsPresent");
 
         //Create data Object
         var data = {};
+    
         data.ddlEmployee = $('#ddlEmployee').val();
         data.date = $('#date').val();
         data.TimeIn = $('#TimeIn').val();
         data.TimeOut = $('#TimeOut').val();
-        data.IsPresent = document.getElementById("IsPresent");
+        data.IsPresent = dd;
         data.IsAbsent = document.getElementById("IsAbsent");
         data.IsLeave = document.getElementById("IsLeave");
         data.LeaveTypeD = $('#LeaveTypeD').val();
@@ -340,6 +345,7 @@
             $('<td>').html(data.TimeOut).appendTo(Row);
             $('<td>').html(data.IsPresent).appendTo(Row);
             $('<td>').html(data.IsAbsent).appendTo(Row);
+            
             $('<td>').html(data.IsLeave).appendTo(Row);
             $('<td>').html(data.LeaveTypeD).appendTo(Row);
             $('<td>').html(data.IsHoliDay).appendTo(Row);
@@ -348,10 +354,11 @@
             $('<td>').html(data.IsLate).appendTo(Row);
             $('<td>').html(data.IsEarly).appendTo(Row);
            
-            $('<td>').html("<div class='text-center'><button class='btn btn-danger btn-sm' onclick='Delete($(this))'>Remove</button></div>").appendTo(Row);
+            $('<td>').html("<i class='fas fa-pen' title='Edit'></i> <i class='fas fa-trash' style='margin-left: 18px;' title='Delete'></i>").appendTo(Row);
 
             //Append row to table's body  
             $('#table-body').append(Row);
+            document.getElementById("IsLeave").style.display = "block";
             CheckSubmitBtn(); // Enable submit button  
         }
         else {
@@ -361,9 +368,9 @@
 
     function CheckSubmitBtn() {
         if ($('#table-information > tbody  > tr').length > 0) { // count items in table if at least 1 item is found then enable button  
-            $('#BtnAddRecord').removeAttr("disabled");
+            /*$('#BtnAddRecord').removeAttr("disabled");*/
         } else {
-            $('#BtnAddRecord').attr("disabled", "disabled");
+           /* $('#BtnAddRecord').attr("disabled", "disabled");*/
         }
     }
 </script>
@@ -544,7 +551,7 @@
                                                     <td>1</td>
                                                     <td>1</td>
                                                     <td>
-                                                        <i class='fas fa-pen'></i>
+                                                        <i class='fas fa-pen'></i><i class='fas fa-trash' style="margin-left:18px;"></i>
                                                         <i class='fas fa-trash' style="margin-left:18px;"></i>
                                                     </td>
                                                 </tr>

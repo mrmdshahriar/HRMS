@@ -4,5 +4,361 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ManualAttendace</h2>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HiliteUI Admin</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="~/Content/Assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Content/Assets/vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/Assets/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Content/Assets/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+<style>
+    .prevent-select {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+    });
+  function chdate(){
+        
+        var selection = "ghazi@gmail.com";
+        if (selection.length > 0) {
+            $.post("/Attendance/DepartmentChange", { email: selection },
+                function (data) {
+                    alert(data);
+                })
+        }
+    };
+
+   
+    function DateChange() {
+        var EmpId = $("#ddlEmployee").val();
+        var Date = $("#date").val();
+
+        var Data = JSON.stringify(
+            {
+                Date: Date,
+                EmpId: EmpId,
+
+            });
+        $.ajax({
+            type: "POST",
+            data: Data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "/Attendance/GetLeaveByEmployee",
+            success:
+                function (response) {
+
+                    var responseData = jQuery.parseJSON(response);
+                   
+
+                },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        });
+
+
+    }
+    function DepartmentChange1() {
+
+   
+        var Ecs = JSON.stringify(
+            {
+                Id: 2,
+                Name : "ghazi"
+
+            });
+        $.ajax({
+            type: "POST",
+            data: Ecs,
+            url: "/Attendance/DepartmentChange",
+            dataType: 'json',
+            contentType: "application/json", dataType: "json",
+            processData: false,
+            success: function (response) {
+                if (response.success) {
+                    alert(response.responseText);
+                } else {
+                    // DoSomethingElse()
+                    alert(response.responseText);
+                }
+            },
+            error: function (response) {
+                alert("error!");  // 
+            }
+
+        });
+
+
+        //$.ajax({
+        //    type: "POST",
+        //    data: Data,            
+        //    contentType: "application/json", dataType: "json",
+        //    dataType: "json",           
+        //    url: "/Attendance/DepartmentChange",
+        //    success:
+        //        function (response) {
+
+        //            var responseData = jQuery.parseJSON(response);
+                   
+
+        //        },
+        //    error:
+        //        function (response) {
+        //            alert("Error: " + response);
+        //        }
+        //});
+    }
+
+</script>
+
+<script>
+    //  Will be called on Click of Signin Button
+    function onSigninClick() {
+        var now = new Date(); //  javascript datetime object
+        var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();  // Time in HH:MM:SS format
+        document.getElementById("month").value = now.getMonth()  // Set the value of Select Tag
+        getMonth(now.getMonth())  // Update the table based on current month
+        document.getElementById("signin_" + now.getDate()).innerHTML = time  // print the signin date on respective date
+    }
+
+    // function to get total days in a particular month
+    function get_days_in_month(month, year) {
+        return new Date(year, month, 0).getDate();
+    };
+
+    // function to render the month table
+    function getMonth(selected_month) {
+        var current_year = new Date().getFullYear() // current year
+        var selected_month = (parseInt(selected_month) + 1)  // selected month
+
+        if (!month)  // if month not selected alert user
+            alert("Please select Month");
+        else {
+            var finTab = "<tr><th>Date</th><th>Time In</th><th>Time Out</th><th>Is Present</th><th> Is Absent</th><th>Is Leave</th><th>Leave Type</th><th>Is HoliDay</th><th>Holi Day</th><th>Is Half Day</th><th>Is Late</th><th>Is Early</th><th>Actions</th></tr> ";
+            var days_in_month = get_days_in_month(selected_month, current_year)
+            for (i = 1; i <= days_in_month; i++) {
+                finTab = finTab + "<tr>";
+                finTab = finTab + "<td>" + i + "/" + selected_month + "/" + current_year + "</td><td id=Date><input id=TimeIn class=form-control type=time name=TimeIn required></td><td><input id=TimeIn class=form-control type=time name=TimeIn required></td><td id=IsPresent><input type='checkbox' id=IsPresent name=IsPresent></td><td id=IsAbsent><input type='checkbox' id=IsAbsent name=IsAbsent></td><td id=IsLeave><input type='checkbox' id=IsLeave name=IsLeave></td><td id=LeaveType><input type='textbox' disabled=disabled  id=LeaveType name=LeaveType></td><td id=isHoliDay><input type='checkbox' id=isHoliDay name=isHoliDay></td><td id=HoliDay><input type='textbox' disabled=disabled  id=HoliDay name=HoliDay></td><td id=isHalfDay><input type='checkbox' id=isHalfDay name=isHalfDay></td><td id=isLate><input type='checkbox' id=isLate name=isLate></td><td id=isEarly><input type='checkbox' id=isEarly name=isEarly></td><td id=signin_><i class='fas fa-pen'></i><i class='fas fa-trash' style='margin - left: 18px;'></i></td>";
+                finTab = finTab + "<tr>";
+            }
+            document.getElementById("monData").innerHTML = finTab;  // will push the string in the element.
+        }
+    }
+</script>
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_settings-panel.html -->
+
+
+            <div class="main-panel">
+                <div class="content-wrapper" id="dt" style="width:1450px">
+                    <h2>Manual Attendace </h2>
+                    <div class="row grid-margin">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body" id="MainBody">
+                                    @*@using (Html.BeginForm("AddAttendance", "Attendance", FormMethod.Post))
+        {*@
+                                    <form class="cmxform" id="commentForm" method="get" action="#">
+                                        <fieldset>
+                                            <div class="row">
+                                                @*<div class="form-group col-lg-3" id="Employeeddl" style="display:block">
+            <label for="cname">Employee Group</label>
+            @Html.DropDownList("EmployeeGroupDLL", new SelectList(ViewBag.EmployeeGroupDLL, "Id", "Name"), "--Select Employee Group--", new { @style = "color:black;", @class = "form-control", id = "ddlEmployeeGroup",name= "ddlEmployeeGroup" })
+
+        </div>*@
+                                                <div class="form-group col-lg-3" id="Departmentdiv" style="display:block">
+                                                    <label for="cname">Department</label>
+                                                    @Html.DropDownList("DepartmentDLL", new SelectList(ViewBag.DepartmentDLL, "Id", "Name"), "--Select Department--", new { @style = "color:black;", @class = "form-control", id = "ddlDepartment", name = "ddlDepartment", onchange = "DepartmentChange1()" })
+
+                                                </div>
+                                                <div class="form-group col-lg-3" id="Employeediv" style="display:block">
+                                                    <label for="cname">Employee</label>
+                                                    @Html.DropDownList("EmployeeDLL", new SelectList(ViewBag.EmployeeDLL, "Id", "FirstName"), "--Select Employee--", new { @style = "color:black;", @class = "form-control", id = "ddlEmployee", name = "ddlEmployee", onchange = "Chng()" })
+
+                                                </div>
+                                                <div class="form-group col-lg-3" id="month" style="display:block">
+                                                    <label for="cname">Month</label>
+                                                    <select name="month" id="month" class="form-control" onchange="getMonth(this.value)">
+                                                        <option value="">Select Month</option>
+                                                        <option value="0">January</option>
+                                                        <option value="1">February</option>
+                                                        <option value="2">March</option>
+                                                        <option value="3">April</option>
+                                                        <option value="4">May</option>
+                                                        <option value="5">June</option>
+                                                        <option value="6">July</option>
+                                                        <option value="7">August</option>
+                                                        <option value="8">September</option>
+                                                        <option value="9">October</option>
+                                                        <option value="10">Novermber</option>
+                                                        <option value="11">December</option>
+                                                    </select>
+
+                                                </div>
+
+
+                                                <div class="form-group col-lg-3">
+                                                  
+                                                    @*<label for="cemail">Date From</label>
+            <input id="datefrom" class="form-control" type="date" onchange="DateChange()" name="date" required>*@
+                                                </div>
+
+                                                @*<div class="form-group col-lg-3">
+            <label for="cemail">Date To</label>
+            <input id="dateto" class="form-control" onchange="chdate()" type="date" name="date" required>
+        </div>*@
+
+                                            </div>
+
+                                            <input class="btn btn-primary" type="submit" id="BtnAddRecord" value="Submit">
+                                        </fieldset>
+                                    </form>
+                                    @*}*@
+
+
+
+
+
+                            
+                                        <div align="right" style="display:none">
+                                            <button onclick="onSigninClick()">Sign In</button>
+                                            <button>Sign out</button>
+                                        </div>
+                                     
+                                     
+                                        <table id="monData" class="table" cellpadding="15">
+                                            @*<tr background-color:cornflowerblue>
+                                                
+                                                <th>Date</th>
+                                                <th>Time In</th>
+                                                <th>Time Out</th>
+                                                <th>Is Present</th>
+                                                <th>Is Absent</th>
+                                                <th>Is Leave</th>
+                                                <th>Leave Type</th>
+                                                <th>Is HoliDay</th>
+                                                <th>Holi Day</th>
+                                                <th>Is Half Day</th>
+                                                <th>Is Late</th>
+                                                <th>Is Early</th>
+                                                <th>Actions</th>
+                                            </tr>*@
+                                        </table>
+                                 
+
+
+
+
+
+
+
+
+                                    <div class="row" style="margin-top: 30px;display:none">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">#</th>
+                                                        <th class="text-center">Day</th>
+                                                        <th class="text-center">Number of Clients</th>
+                                                        <th class="text-center"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="text-center">
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><input name="amountOfClients[]" type="number"></td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Grid code here-->
+                            <div class="main-panel" id="griddata" style="display:none">
+                                <div class="content-wrapper">
+                                    <div class="row grid-margin">
+                                        <div class="col-12">
+                                            <div class="card" style="margin-left: -35px; }">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Basic Table</h4>
+                                                    <p class="card-description">A basic example of js-grid</p>
+                                                    <div id="js-grid" class="pt-3"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- content-wrapper ends -->
+
+                            </div>
+                            <!---End Grid Code here-->
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- content-wrapper ends -->
+
+            </div>
+            <!-- main-panel ends -->
+
+        </div>
+
+        <!-- page-body-wrapper ends -->
+    </div>
+
+    <!-- container-scroller -->
+    <!-- base:js -->
+    <script src="~/Content/Assets/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/Content/Assets/js/off-canvas.js"></script>
+    <script src="~/Content/Assets/js/hoverable-collapse.js"></script>
+    <script src="~/Content/Assets/js/template.js"></script>
+    <script src="~/Content/Assets/js/settings.js"></script>
+    <script src="~/Content/Assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script src="~/Content/Assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Content/Assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page-->
+    <script src="~/Content/Assets/js/form-validation.js"></script>
+    <script src="~/Content/Assets/js/bt-maxLength.js"></script>
+</body>
 

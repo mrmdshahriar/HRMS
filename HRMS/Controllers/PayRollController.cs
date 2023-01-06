@@ -1552,8 +1552,16 @@ namespace HRMS.Controllers
         }
 
 
-        
+
         #endregion SpecialAllowance
 
+        #region Payroll Calculation
+
+        public ActionResult PayrollCalculation()
+        {   
+            return View();
+        }
+
+        #endregion Payroll Calculation
     }
 }
