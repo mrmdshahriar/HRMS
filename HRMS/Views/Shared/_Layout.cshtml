@@ -22,6 +22,47 @@
     <link rel="stylesheet" href="~/Content/Assets/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/Content/Assets/images/favicon.png" />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#lastDiv").nextAll("center").remove();
+
+            setTimeout(function () {
+
+                $("#lastDiv").nextAll("div").remove();
+
+            }, 500);
+
+            setTimeout(function () {
+
+                $("#lastDiv").nextAll("div").remove();
+
+            }, 2000);
+
+            setTimeout(function () {
+
+                $("#lastDiv").nextAll("div").remove();
+
+            }, 5000);
+
+            setTimeout(function () {
+
+                $("#lastDiv").nextAll("div").remove();
+
+            }, 10000);
+
+        });
+
+    </script>
 </head>
 
 
@@ -898,10 +939,6 @@
     <!-- End custom js for this page-->
 
 
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
