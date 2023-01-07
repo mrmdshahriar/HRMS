@@ -12,7 +12,6 @@ namespace HRMS.Models
         public string Allowances { get; set; }
         public string AllowanceId { get; set; }
         public decimal? TotalAmount { get; set; }
-
         public bool? OverTime { get; set; }
         public bool? Active { get; set; }
         public long? CreatedBy { get; set; }

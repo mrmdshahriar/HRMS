@@ -1566,12 +1566,14 @@ namespace HRMS.Controllers
         {
             try
             {
-                var data = (from cs in _hrms.SalarySetups
+                var data = (from cs in _hrms.SalarySetups.AsEnumerable()
                             join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
-                            join dsg in _hrms.Designations on emp.DesignationId equals dsg.Id
-                            join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id
-                            join alw in _hrms.Allowances on cs.Id equals alw.Id
-                            join alwde in _hrms.AllowancesDeductions on cs.Id equals alwde.FK_AllowanceId
+                            join ds in _hrms.Designations on emp.DesignationId equals ds.Id into DesignationGroup
+                            from dsg in DesignationGroup.DefaultIfEmpty()
+                            join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id into DepartmentGroup
+                            from dptg in DepartmentGroup.DefaultIfEmpty()
+                                //join alw in _hrms.Allowances on cs.Id equals alw.Id
+                                //join alwde in _hrms.AllowancesDeductions on cs.Id equals alwde.FK_AllowanceId
 
                             select new
                             {
@@ -1579,21 +1581,26 @@ namespace HRMS.Controllers
                                 EmployeeId = cs.EmployeeId,
                                 EmployeeNumber = emp.EmployeeCode,
                                 EmployeeName = emp.FirstName + " " + emp.LastName,
+                                DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
                                 Designation = dsg.Name,
-                                Department = dpt.Name,
+                                Department = dptg.Name,
                                 BasicSalary = emp.BasicSalary,
                                 Allowances = cs.Allowances,
                                 TotalAmount = cs.TotalAmount,
                                 OverTime = cs.OverTime,
-                                Name = alw.Name,
-                                Amount = alwde.Amount
+                                //Name = alw.Name,
+                                //Amount = alwde.Amount
                             }).ToList();
+
+                //var data = (from sstp in _hrms.SalarySetups
+                //            select sstp).ToList();
+
 
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
