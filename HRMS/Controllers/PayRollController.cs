@@ -1566,35 +1566,72 @@ namespace HRMS.Controllers
         {
             try
             {
-                var data = (from cs in _hrms.SalarySetups.AsEnumerable()
-                            join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
-                            join ds in _hrms.Designations on emp.DesignationId equals ds.Id into DesignationGroup
-                            from dsg in DesignationGroup.DefaultIfEmpty()
-                            join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id into DepartmentGroup
-                            from dptg in DepartmentGroup.DefaultIfEmpty()
-                                //join alw in _hrms.Allowances on cs.Id equals alw.Id
-                                //join alwde in _hrms.AllowancesDeductions on cs.Id equals alwde.FK_AllowanceId
+                //var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
+                //            join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                //            join ds in _hrms.Designations on emp.DesignationId equals ds.Id into DesignationGroup
+                //            from dsg in DesignationGroup.DefaultIfEmpty()
+                //            join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id into DepartmentGroup
+                //            from dptg in DepartmentGroup.DefaultIfEmpty()
+                //                //join alw in _hrms.Allowances on cs.Id equals alw.Id
+                //                //join alwde in _hrms.AllowancesDeductions on cs.Id equals alwde.FK_AllowanceId
 
-                            select new
-                            {
-                                Id = cs.Id,
-                                EmployeeId = cs.EmployeeId,
-                                EmployeeNumber = emp.EmployeeCode,
-                                EmployeeName = emp.FirstName + " " + emp.LastName,
-                                DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
-                                Designation = dsg.Name,
-                                Department = dptg.Name,
-                                BasicSalary = emp.BasicSalary,
-                                Allowances = cs.Allowances,
-                                TotalAmount = cs.TotalAmount,
-                                OverTime = cs.OverTime,
-                                //Name = alw.Name,
-                                //Amount = alwde.Amount
-                            }).ToList();
+                //            select new
+                //            {
+                //                Id = cs.Id,
+                //                EmployeeId = cs.EmployeeId,
+                //                EmployeeNumber = emp.EmployeeCode,
+                //                EmployeeName = emp.FirstName + " " + emp.LastName,
+                //                DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
+                //                Designation = dsg.Name,
+                //                Department = dptg.Name,
+                //                BasicSalary = emp.BasicSalary,
+                //                Allowances = cs.Allowances,
+                //                TotalAmount = cs.TotalAmount,
+                //                OverTime = cs.OverTime,
+                //                //Name = alw.Name,
+                //                //Amount = alwde.Amount
+                //            }).ToList();
 
-                //var data = (from sstp in _hrms.SalarySetups
-                //            select sstp).ToList();
 
+                var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
+                             join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                             join ds in _hrms.Designations on emp.DesignationId equals ds.Id into DesignationGroup
+                             from dsg in DesignationGroup.DefaultIfEmpty()
+                             join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id into DepartmentGroup
+                             from dptg in DepartmentGroup.DefaultIfEmpty()
+
+                             select new
+                             {
+                                 Id = cs.Id,
+                                 EmployeeId = cs.EmployeeId,
+                                 EmployeeNumber = emp.EmployeeCode,
+                                 EmployeeName = emp.FirstName + " " + emp.LastName,
+                                 DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
+                                 Designation = dsg.Name,
+                                 Department = dptg.Name,
+                                 BasicSalary = emp.BasicSalary,
+                                 Allowances = cs.Allowances,
+                                 TotalAmount = cs.TotalAmount,
+                                 OverTime = cs.OverTime,
+                                 //Name = alw.Name,
+                                 //Amount = alwde.Amount
+                             }).ToList();
+
+                var data = data1.GroupBy(x => x.EmployeeId).Select(y => new
+                {
+                    Id = y.ToList().Select(z => z.Id).FirstOrDefault(),
+                    EmployeeId = y.ToList().Select(z => z.EmployeeId).FirstOrDefault(),
+                    EmployeeNumber = y.ToList().Select(z => z.EmployeeNumber).FirstOrDefault(),
+                    EmployeeName = y.ToList().Select(z => z.EmployeeName).FirstOrDefault(),
+                    DateofJoining = y.ToList().Select(z => z.DateofJoining).FirstOrDefault(),
+                    Designation = y.ToList().Select(z => z.Designation).FirstOrDefault(),
+                    Department = y.ToList().Select(z => z.Department).FirstOrDefault(),
+                    BasicSalary = y.ToList().Select(z => z.BasicSalary).FirstOrDefault(),
+                    Allowances1 = y.ToList().Select(z => z.TotalAmount).FirstOrDefault(),    //Skip(), Take()
+                    Allowances2 = y.ToList().Select(z => z.TotalAmount).LastOrDefault(),
+                    TotalAmount = y.ToList().Select(z => z.TotalAmount).FirstOrDefault()
+
+                }).ToList();
 
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
