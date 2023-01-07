@@ -1562,6 +1562,41 @@ namespace HRMS.Controllers
             return View();
         }
 
+        public ActionResult GetPayrollCalculationTableData()
+        {
+            try
+            {
+                var data = (from cs in _hrms.SalarySetups
+                            join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                            join dsg in _hrms.Designations on emp.DesignationId equals dsg.Id
+                            join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id
+                            join alw in _hrms.Allowances on cs.Id equals alw.Id
+                            join alwde in _hrms.AllowancesDeductions on cs.Id equals alwde.FK_AllowanceId
+
+                            select new
+                            {
+                                Id = cs.Id,
+                                EmployeeId = cs.EmployeeId,
+                                EmployeeNumber = emp.EmployeeCode,
+                                EmployeeName = emp.FirstName + " " + emp.LastName,
+                                Designation = dsg.Name,
+                                Department = dpt.Name,
+                                BasicSalary = emp.BasicSalary,
+                                Allowances = cs.Allowances,
+                                TotalAmount = cs.TotalAmount,
+                                OverTime = cs.OverTime,
+                                Name = alw.Name,
+                                Amount = alwde.Amount
+                            }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         #endregion Payroll Calculation
-    }
+        }
 }
