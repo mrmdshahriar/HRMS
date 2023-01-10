@@ -3,6 +3,7 @@
     ViewBag.Title = "PayrollCalculation";
 }
 
+
 <center><h2>Payroll Calculation</h2></center>
 
 <input type="button" value="View Payroll" onclick="viewPayroll();" class="btn btn-primary" style="width:200px;" />
@@ -11,7 +12,7 @@
 <div style="height:700px;width:84%;overflow:auto;">
 
 
-            <table class="table table-bordered table-condensed table-responsive table-striped" style="width:100%;height:100%;">
+            <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:100%;">
                 <thead>
                     <tr>
                         <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
@@ -26,14 +27,15 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th style="width:100px;">Emp ID</th>
-                                        <th>Emp Name</th>
+                                        <th style="width:200px;">Emp ID</th>
+                                        <th style="width:200px;">Emp Name</th>
                                         <th>Date of Joining</th>
                                         <th>Designation</th>
                                         <th>Department</th>
                                         <th>Basic Salary</th>
                                         <th>Allowance 1</th>
                                         <th>Allowance 2</th>
+                                        <th>Allowance 3</th>
                                         <th>Total Salary</th>
                                         <th>Salary Month</th>
                                         <th>Total Payable Days</th>
@@ -96,16 +98,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
     <script>
 
         function viewPayroll() {
@@ -144,11 +136,14 @@
                                         '<td>' +
                                         obj.Allowances1 +
                                     '</td>' +
-                                        '<td>' +
+                                     '<td>' +
                                         obj.Allowances2 +
+                                     '</td>' +
+                                    '<td>' +
+                                        obj.Allowances3 +
                                     '</td>' +
-                                        '<td>' +
-                                       (obj.BasicSalary + obj.Allowances1 + obj.Allowances2) +
+                                     '<td>' +
+                                        (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
                                     '</td>' +
                                         '<td>' +
                                            'NULL' +

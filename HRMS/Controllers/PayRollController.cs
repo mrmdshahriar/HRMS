@@ -1594,6 +1594,7 @@ namespace HRMS.Controllers
 
 
                 var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
+                             join alw in _hrms.Allowances on cs.AllowanceId equals alw.Id.ToString()
                              join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
                              join ds in _hrms.Designations on emp.DesignationId equals ds.Id into DesignationGroup
                              from dsg in DesignationGroup.DefaultIfEmpty()
@@ -1610,10 +1611,10 @@ namespace HRMS.Controllers
                                  Designation = dsg.Name,
                                  Department = dptg.Name,
                                  BasicSalary = emp.BasicSalary,
-                                 Allowances = cs.Allowances,
+                                 //Allowances = cs.Allowances,
                                  TotalAmount = cs.TotalAmount,
                                  OverTime = cs.OverTime,
-                                 //Name = alw.Name,
+                                 AllowanceName = alw.Name,
                                  //Amount = alwde.Amount
                              }).ToList();
 
@@ -1627,9 +1628,12 @@ namespace HRMS.Controllers
                     Designation = y.ToList().Select(z => z.Designation).FirstOrDefault(),
                     Department = y.ToList().Select(z => z.Department).FirstOrDefault(),
                     BasicSalary = y.ToList().Select(z => z.BasicSalary).FirstOrDefault(),
-                    Allowances1 = y.ToList().Select(z => z.TotalAmount).FirstOrDefault(),    //Skip(), Take()
-                    Allowances2 = y.ToList().Select(z => z.TotalAmount).LastOrDefault(),
-                    TotalAmount = y.ToList().Select(z => z.TotalAmount).FirstOrDefault()
+                    Allowances1 = y.ToList().Select(z => z.AllowanceName).FirstOrDefault(),    //Skip(), Take()
+                    Allowances2 = y.ToList().Select(z => z.AllowanceName).Skip(1).FirstOrDefault(),
+                    Allowances3 = y.ToList().Select(z => z.AllowanceName).Skip(2).FirstOrDefault(),
+                    TotalAmount1 = y.ToList().Select(z => z.TotalAmount).FirstOrDefault(),   
+                    TotalAmount2 = y.ToList().Select(z => z.TotalAmount).Skip(1).FirstOrDefault(),
+                    TotalAmount3 = y.ToList().Select(z => z.TotalAmount).Skip(2).FirstOrDefault(),
 
                 }).ToList();
 
