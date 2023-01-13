@@ -1565,6 +1565,7 @@ namespace HRMS.Controllers
 
         public ActionResult GetPayrollCalculationDeductionData()
         {
+            var sll = _hrms.AdvaceSalarys.ToList();
 
             var data = (from setup in _hrms.SalarySetups.AsEnumerable()
                         join emp in _hrms.HrmEmployees
