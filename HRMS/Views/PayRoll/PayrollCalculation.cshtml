@@ -155,11 +155,29 @@
                     });
 
                     $("#FixedSectionPerMonth").html(str);
+
+                    TaxCalculation();
                 },
                 error: function (data) {
                     console.log(data);
                 }
             });
+        }
+
+        function TaxCalculation() {
+            debugger;
+
+            $.ajax({
+
+                type: "GET",
+                url: "/PayRoll/GetPayrollCalculationDeductionData",
+                success: function (data) {
+                    debugger;
+
+
+                }
+            });
+
         }
 
     </script>

@@ -231,7 +231,6 @@ C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CoreCompileInputs.cache
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CopyComplete
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.dll
 C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.pdb
-C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.dll.config
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.dll
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\bin\HRMS.pdb

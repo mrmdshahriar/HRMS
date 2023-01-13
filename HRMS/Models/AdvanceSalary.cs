@@ -7,9 +7,9 @@ namespace HRMS.Models
 {
     public class AdvanceSalary
     {
-      public long Id { get; set; }
-        public long? EmployeeId { get; set; }
-      public decimal? Amount { get; set; }
+        public long Id { get; set; }
+        public int? EmployeeId { get; set; }
+        public decimal? Amount { get; set; }
         public long? PayoutMonth { get; set; }
         public bool? Active { get; set; }
         public long? CreatedBy { get; set; }

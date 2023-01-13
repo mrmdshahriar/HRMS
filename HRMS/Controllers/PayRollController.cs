@@ -1562,6 +1562,120 @@ namespace HRMS.Controllers
             return View();
         }
 
+
+        public ActionResult GetPayrollCalculationDeductionData()
+        {
+            //var data = (from setup in _hrms.SalarySetups.AsEnumerable()
+            //            join emp in _hrms.HrmEmployees
+            //            on setup.EmployeeId equals emp.Id
+            //            join dedct in _hrms.Deductions
+            //            on emp.Id equals dedct.EmployeeId
+            //            join loan in _hrms.LoanSanctions
+            //            on emp.Id equals loan.EmployeeId
+            //            join advc in _hrms.AdvaceSalarys
+            //            on emp.Id equals advc.EmployeeId
+            //            select new
+            //            {
+            //                Id = emp.Id,
+            //                BasicSalary = emp.BasicSalary,
+            //                AnnualSalary = emp.BasicSalary * 12,
+            //                IncomeTax = IncomeTaxCalculation(emp?.BasicSalary * 12),
+            //                ProvidentFund = ProvidentFundCalculation(),
+            //                EOBI = ((emp.BasicSalary * 1) / 100),
+            //                Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
+            //                Deductions = dedct.Amount,
+            //                Advance = advc.Amount,
+            //                Loan = loan.LoanAmount
+
+            //            }).ToList();
+
+            var data = (
+                        from emp in _hrms.HrmEmployees.AsEnumerable()
+                        join dedct in _hrms.Deductions
+                        on emp.Id equals dedct.EmployeeId into DeductionsGroup
+                        from dedctg in DeductionsGroup.DefaultIfEmpty()
+                        join loan in _hrms.LoanSanctions
+                        on emp.Id equals loan.EmployeeId into LoanSanctionsGroup
+                        from loang in LoanSanctionsGroup.DefaultIfEmpty()
+                        //join advc in _hrms.AdvaceSalarys
+                        //on emp.Id equals advc.EmployeeId into AdvaceSalarysGroup
+                        //from advcg in AdvaceSalarysGroup.DefaultIfEmpty()
+                        select new
+                        {
+                            Id = emp.Id,
+                            BasicSalary = emp.BasicSalary,
+                            AnnualSalary = emp.BasicSalary * 12,
+                            IncomeTax = IncomeTaxCalculation(emp?.BasicSalary * 12),
+                            ProvidentFund = ProvidentFundCalculation(),
+                            EOBI = ((emp.BasicSalary * 1) / 100),
+                            Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
+                            Deductions = dedctg?.Amount,
+                            //Advance = advcg?.Amount,
+                            Loan = loang?.LoanAmount
+
+                        }).ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public double GraduityCalculation(DateTime? joiningDate, double? BasicSalary)
+        {
+            var Year = DateTime.Now.Year - joiningDate.Value.Year;
+
+            if(DateTime.Now.Month < joiningDate.Value.Month)
+            {
+                Year = Year - 1; 
+            }
+
+            return (BasicSalary.Value)/26*15*Year;
+        }
+
+
+            public double ProvidentFundCalculation()
+        {
+            double providentFund = 0.0;
+
+            providentFund = ((15000 * 12) / 100) * ((3.67 * 15000) / 100);
+
+            return providentFund;
+        }
+
+            public double IncomeTaxCalculation(double? salary)
+        {
+            double totalTax = 0.0;
+
+            if(salary <= 600000)       ////1111
+            {
+                totalTax = 0.0;
+            }
+            else if(salary >= 600000 && salary <= 1200000){   ///222222
+
+                totalTax = (((salary.Value - 600000) * 2.5) / 100);
+            }
+            else if (salary >= 1200000 && salary <= 2400000) //////333333
+            {
+                totalTax = 15000 + (((salary.Value - 1200000) * 12.5) / 100);
+            }
+            else if (salary >= 2400000 && salary <= 3600000)   /////4444444
+            {
+                totalTax = 165000 + (((salary.Value - 2400000) * 20) / 100);
+            }
+            else if (salary >= 3600000 && salary <= 6000000)   /////55555555
+            {
+                totalTax = 405000 + (((salary.Value - 3600000) * 25) / 100);
+            }
+            else if (salary >= 6000000 && salary <= 12000000)   /////66666666
+            {
+                totalTax = 1005000 + (((salary.Value - 6000000) * 32.5) / 100);
+            }
+            else if (salary > 12000000)   /////77777
+            {
+                totalTax = 2955000 + (((salary.Value - 12000000) * 35) / 100);
+            }
+
+            return totalTax;
+        }
+
         public ActionResult GetPayrollCalculationTableData()
         {
             try

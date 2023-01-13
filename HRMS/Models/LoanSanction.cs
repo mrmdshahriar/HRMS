@@ -7,8 +7,8 @@ namespace HRMS.Models
 {
     public class LoanSanction
     {
-       public long Id {get; set;}
-       public long EmployeeId { get; set; }
+        public long Id {get; set;}
+        public int? EmployeeId { get; set; }
         public decimal? LoanAmount { get; set; }
         public DateTime? DateIssued { get; set; }
         public DateTime? TentativeReturnDate { get; set; }
