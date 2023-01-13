@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace HRMS.Models
 {
+    [Table("AdvanceSalarys")]
     public class AdvanceSalary
     {
         public long Id { get; set; }
@@ -17,6 +20,5 @@ namespace HRMS.Models
         public long? LastModifiedBy { get; set; }
         public DateTime? LastModifiedOn { get; set; }
         public bool? IsDeleted { get; set; }
-
     }
 }

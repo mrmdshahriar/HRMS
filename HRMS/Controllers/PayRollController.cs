@@ -1565,44 +1565,22 @@ namespace HRMS.Controllers
 
         public ActionResult GetPayrollCalculationDeductionData()
         {
-            //var data = (from setup in _hrms.SalarySetups.AsEnumerable()
-            //            join emp in _hrms.HrmEmployees
-            //            on setup.EmployeeId equals emp.Id
-            //            join dedct in _hrms.Deductions
-            //            on emp.Id equals dedct.EmployeeId
-            //            join loan in _hrms.LoanSanctions
-            //            on emp.Id equals loan.EmployeeId
-            //            join advc in _hrms.AdvaceSalarys
-            //            on emp.Id equals advc.EmployeeId
-            //            select new
-            //            {
-            //                Id = emp.Id,
-            //                BasicSalary = emp.BasicSalary,
-            //                AnnualSalary = emp.BasicSalary * 12,
-            //                IncomeTax = IncomeTaxCalculation(emp?.BasicSalary * 12),
-            //                ProvidentFund = ProvidentFundCalculation(),
-            //                EOBI = ((emp.BasicSalary * 1) / 100),
-            //                Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
-            //                Deductions = dedct.Amount,
-            //                Advance = advc.Amount,
-            //                Loan = loan.LoanAmount
 
-            //            }).ToList();
-
-            var data = (
-                        from emp in _hrms.HrmEmployees.AsEnumerable()
+            var data = (from setup in _hrms.SalarySetups.AsEnumerable()
+                        join emp in _hrms.HrmEmployees
+                        on setup.EmployeeId equals emp.Id
                         join dedct in _hrms.Deductions
                         on emp.Id equals dedct.EmployeeId into DeductionsGroup
                         from dedctg in DeductionsGroup.DefaultIfEmpty()
                         join loan in _hrms.LoanSanctions
                         on emp.Id equals loan.EmployeeId into LoanSanctionsGroup
                         from loang in LoanSanctionsGroup.DefaultIfEmpty()
-                        //join advc in _hrms.AdvaceSalarys
-                        //on emp.Id equals advc.EmployeeId into AdvaceSalarysGroup
-                        //from advcg in AdvaceSalarysGroup.DefaultIfEmpty()
+                        join advc in _hrms.AdvaceSalarys
+                        on emp.Id equals advc.EmployeeId into AdvaceSalarysGroup
+                        from advcg in AdvaceSalarysGroup.DefaultIfEmpty()
                         select new
                         {
-                            Id = emp.Id,
+                            EmployeeId = emp.Id,
                             BasicSalary = emp.BasicSalary,
                             AnnualSalary = emp.BasicSalary * 12,
                             IncomeTax = IncomeTaxCalculation(emp?.BasicSalary * 12),
@@ -1610,12 +1588,27 @@ namespace HRMS.Controllers
                             EOBI = ((emp.BasicSalary * 1) / 100),
                             Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
                             Deductions = dedctg?.Amount,
-                            //Advance = advcg?.Amount,
+                            Advance = advcg?.Amount,
                             Loan = loang?.LoanAmount
 
                         }).ToList();
 
-            return Json(data, JsonRequestBehavior.AllowGet);
+            var groupData = data.GroupBy(x => x.EmployeeId).Select(y => new
+            {
+                EmployeeId = y.ToList().Select(z => z.EmployeeId).FirstOrDefault(),
+                BasicSalary = y.ToList().Select(z => z.BasicSalary).FirstOrDefault(),
+                AnnualSalary = y.ToList().Select(z => z.AnnualSalary).FirstOrDefault(),
+                IncomeTax = y.ToList().Select(z => z.IncomeTax).FirstOrDefault(),
+                ProvidentFund = y.ToList().Select(z => z.ProvidentFund).FirstOrDefault(),
+                EOBI = y.ToList().Select(z => z.EOBI).FirstOrDefault(),
+                Graduity = y.ToList().Select(z => z.Graduity).FirstOrDefault(),
+                Deductions = y.ToList().Select(z => z.Deductions).FirstOrDefault(),
+                Advance = y.ToList().Select(z => z.Advance).FirstOrDefault(),
+                Loan = y.ToList().Select(z => z.Loan).FirstOrDefault(),
+
+            }).ToList();
+
+            return Json(groupData, JsonRequestBehavior.AllowGet);
         }
 
         public double GraduityCalculation(DateTime? joiningDate, double? BasicSalary)
@@ -1631,7 +1624,7 @@ namespace HRMS.Controllers
         }
 
 
-            public double ProvidentFundCalculation()
+        public double ProvidentFundCalculation()
         {
             double providentFund = 0.0;
 
@@ -1640,7 +1633,7 @@ namespace HRMS.Controllers
             return providentFund;
         }
 
-            public double IncomeTaxCalculation(double? salary)
+        public double IncomeTaxCalculation(double? salary)
         {
             double totalTax = 0.0;
 

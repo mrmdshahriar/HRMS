@@ -81,7 +81,7 @@
                                         <th>Provident Fund</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="Deductions">
                                 </tbody>
                             </table>
                         </td>
@@ -156,7 +156,7 @@
 
                     $("#FixedSectionPerMonth").html(str);
 
-                    TaxCalculation();
+                    DeductionsAndTaxCalculations();
                 },
                 error: function (data) {
                     console.log(data);
@@ -164,8 +164,10 @@
             });
         }
 
-        function TaxCalculation() {
+        function DeductionsAndTaxCalculations() {
             debugger;
+
+            var str2 = '';
 
             $.ajax({
 
@@ -174,6 +176,31 @@
                 success: function (data) {
                     debugger;
 
+                    $.each(data, function (index, obj) {
+
+                      str2 += '<tr>' +
+                                '<td>' +
+                                obj.Deductions +
+                                '</td>' +
+                                '<td>' +
+                                obj.Advance +
+                                '</td>' +
+                                '<td>' +
+                                obj.Loan +
+                                '</td>' +
+                                '<td>' +
+                                obj.IncomeTax +
+                                '</td>' +
+                                '<td>' +
+                                obj.EOBI +
+                                '</td>' +
+                                '<td>' +
+                                obj.ProvidentFund +
+                                '</td>' +
+                             '</tr>';
+                    });
+
+                    $("#Deductions").html(str2);
 
                 }
             });
