@@ -4,207 +4,215 @@
 }
 
 
-<center><h2>Payroll Calculation</h2></center>
+<center>
 
-<input type="button" value="View Payroll" onclick="viewPayroll();" class="btn btn-primary" style="width:200px;" />
+    <h2>Payroll Calculation</h2>
+
+    <input type="button" value="View Payroll" onclick="viewPayroll();" class="btn btn-primary" />
+
+    <input type="button" value="Submit" onclick="viewPayroll();" class="btn btn-primary" />
+
+    <input type="button" value="Process Payroll" onclick="viewPayroll();" class="btn btn-primary"/>
+
+    <input type="button" value="Download Sheet" onclick="viewPayroll();" class="btn btn-primary" />
+
+</center>
+
+<div style="height:500px;width:84%;overflow:auto;">
 
 
-<div style="height:700px;width:84%;overflow:auto;">
+    <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:100%;">
+        <thead>
+            <tr>
+                <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
+                <th style="text-align: center; background-color: lightgreen;">Total Salary</th>
+                <th style="text-align: center; background-color: lightyellow;">Deductions</th>
+                <th style="text-align: center; background-color: lightblue;">Gross Payable Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:200px;">Emp ID</th>
+                                <th style="width:200px;">Emp Name</th>
+                                <th>Date of Joining</th>
+                                <th>Designation</th>
+                                <th>Department</th>
+                                <th>Basic Salary</th>
+                                <th>Allowance 1</th>
+                                <th>Allowance 2</th>
+                                <th>Allowance 3</th>
+                                <th>Total Salary</th>
+                                <th>Salary Month</th>
+                                <th>Total Payable Days</th>
+                            </tr>
+                        </thead>
+                        <tbody id="FixedSectionPerMonth">
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Monthly Salary</th>
+                                <th>Normal OT Hours</th>
+                                <th>Normal OT1 Salary</th>
+                                <th>Weekend OT</th>
+                                <th>Weekend OT Salary</th>
+                                <th>Public Holiday OT Hours</th>
+                                <th>Public Holiday OT Salary</th>
+                                <th>OT4</th>
+                                <th>OT5</th>
+                                <th>Arrears</th>
+                                <th>Bonus</th>
+                                <th>Total Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
+                </td>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Deductions</th>
+                                <th>Advance</th>
+                                <th>Loan</th>
+                                <th>Income Tax</th>
+                                <th>EOBI</th>
+                                <th>Provident Fund</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Deductions">
+                        </tbody>
+                    </table>
+                </td>
+                <td>
 
-            <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:100%;">
-                <thead>
-                    <tr>
-                        <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
-                        <th style="text-align: center; background-color: lightgreen;">Total Salary</th>
-                        <th style="text-align: center; background-color: lightyellow;">Deductions</th>
-                        <th style="text-align: center; background-color: lightblue;">Gross Payable Salary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th style="width:200px;">Emp ID</th>
-                                        <th style="width:200px;">Emp Name</th>
-                                        <th>Date of Joining</th>
-                                        <th>Designation</th>
-                                        <th>Department</th>
-                                        <th>Basic Salary</th>
-                                        <th>Allowance 1</th>
-                                        <th>Allowance 2</th>
-                                        <th>Allowance 3</th>
-                                        <th>Total Salary</th>
-                                        <th>Salary Month</th>
-                                        <th>Total Payable Days</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="FixedSectionPerMonth">
+                    <h1>Demo</h1>
 
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Monthly Salary</th>
-                                        <th>Normal OT Hours</th>
-                                        <th>Normal OT1 Salary</th>
-                                        <th>Weekend OT</th>
-                                        <th>Weekend OT Salary</th>
-                                        <th>Public Holiday OT Hours</th>
-                                        <th>Public Holiday OT Salary</th>
-                                        <th>OT4</th>
-                                        <th>OT5</th>
-                                        <th>Arrears</th>
-                                        <th>Bonus</th>
-                                        <th>Total Salary</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-
-                        </td>
-                        <td>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Deductions</th>
-                                        <th>Advance</th>
-                                        <th>Loan</th>
-                                        <th>Income Tax</th>
-                                        <th>EOBI</th>
-                                        <th>Provident Fund</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="Deductions">
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-
-                           <h1>Demo</h1>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 
 </div>
 
 
-    <script>
+<script>
 
-        function viewPayroll() {
-            debugger;
+    function viewPayroll() {
+        debugger;
 
-            var str = '';
+        var str = '';
 
-            $.ajax({
+        $.ajax({
 
-                type: "GET",
-                url: "/PayRoll/GetPayrollCalculationTableData",
-                success: function (data) {
-                    debugger;
+            type: "GET",
+            url: "/PayRoll/GetPayrollCalculationTableData",
+            success: function (data) {
+                debugger;
 
-                    $.each(data, function (index, obj) {
+                $.each(data, function (index, obj) {
 
-                        str += '<tr>'+
-                                    '<td>' +
-                                       obj.EmployeeId +
-                                    '</td>' +
-                                    '<td>' +
-                                       obj.EmployeeName +
-                                    '</td>' +
-                                     '<td>' +
-                                        obj.DateofJoining +
-                                    '</td>' +
-                                     '<td>' +
-                                        obj.Designation +
-                                    '</td>' +
-                                     '<td>' +
-                                        obj.Department +
-                                    '</td>' +
-                                     '<td>' +
-                                        obj.BasicSalary +
-                                    '</td>' +
-                                        '<td>' +
-                                        obj.Allowances1 +
-                                    '</td>' +
-                                     '<td>' +
-                                        obj.Allowances2 +
-                                     '</td>' +
-                                    '<td>' +
-                                        obj.Allowances3 +
-                                    '</td>' +
-                                     '<td>' +
-                                        (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
-                                    '</td>' +
-                                        '<td>' +
-                                           'NULL' +
-                                    '</td>' +
-                                        '<td>' +
-                                           'NULL' +
-                                    '</td>' +
-                                '</tr>';
-                    });
+                    str += '<tr>' +
+                        '<td>' +
+                        obj.EmployeeId +
+                        '</td>' +
+                        '<td>' +
+                        obj.EmployeeName +
+                        '</td>' +
+                        '<td>' +
+                        obj.DateofJoining +
+                        '</td>' +
+                        '<td>' +
+                        obj.Designation +
+                        '</td>' +
+                        '<td>' +
+                        obj.Department +
+                        '</td>' +
+                        '<td>' +
+                        obj.BasicSalary +
+                        '</td>' +
+                        '<td>' +
+                        obj.Allowances1 +
+                        '</td>' +
+                        '<td>' +
+                        obj.Allowances2 +
+                        '</td>' +
+                        '<td>' +
+                        obj.Allowances3 +
+                        '</td>' +
+                        '<td>' +
+                        (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
+                        '</td>' +
+                        '<td>' +
+                        'NULL' +
+                        '</td>' +
+                        '<td>' +
+                        'NULL' +
+                        '</td>' +
+                        '</tr>';
+                });
 
-                    $("#FixedSectionPerMonth").html(str);
+                $("#FixedSectionPerMonth").html(str);
 
-                    DeductionsAndTaxCalculations();
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-        }
+                DeductionsAndTaxCalculations();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    }
 
-        function DeductionsAndTaxCalculations() {
-            debugger;
+    function DeductionsAndTaxCalculations() {
+        debugger;
 
-            var str2 = '';
+        var str2 = '';
 
-            $.ajax({
+        $.ajax({
 
-                type: "GET",
-                url: "/PayRoll/GetPayrollCalculationDeductionData",
-                success: function (data) {
-                    debugger;
+            type: "GET",
+            url: "/PayRoll/GetPayrollCalculationDeductionData",
+            success: function (data) {
+                debugger;
 
-                    $.each(data, function (index, obj) {
+                $.each(data, function (index, obj) {
 
-                      str2 += '<tr>' +
-                                '<td>' +
-                                obj.Deductions +
-                                '</td>' +
-                                '<td>' +
-                                obj.Advance +
-                                '</td>' +
-                                '<td>' +
-                                obj.Loan +
-                                '</td>' +
-                                '<td>' +
-                                obj.IncomeTax +
-                                '</td>' +
-                                '<td>' +
-                                obj.EOBI +
-                                '</td>' +
-                                '<td>' +
-                                obj.ProvidentFund +
-                                '</td>' +
-                             '</tr>';
-                    });
+                    str2 += '<tr>' +
+                        '<td>' +
+                        obj.Deductions +
+                        '</td>' +
+                        '<td>' +
+                        obj.Advance +
+                        '</td>' +
+                        '<td>' +
+                        obj.Loan +
+                        '</td>' +
+                        '<td>' +
+                        obj.IncomeTax +
+                        '</td>' +
+                        '<td>' +
+                        obj.EOBI +
+                        '</td>' +
+                        '<td>' +
+                        obj.ProvidentFund +
+                        '</td>' +
+                        '</tr>';
+                });
 
-                    $("#Deductions").html(str2);
+                $("#Deductions").html(str2);
 
-                }
-            });
+            }
+        });
 
-        }
+    }
 
-    </script>
+</script>

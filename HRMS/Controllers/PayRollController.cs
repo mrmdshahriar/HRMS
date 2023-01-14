@@ -1629,7 +1629,9 @@ namespace HRMS.Controllers
         {
             double providentFund = 0.0;
 
-            providentFund = ((15000 * 12) / 100) * ((3.67 * 15000) / 100);
+            // providentFund = ((15000 * 12) / 100) * ((3.67 * 15000) / 100);
+
+            providentFund = 15 * 15000 / 100;
 
             return providentFund;
         }
