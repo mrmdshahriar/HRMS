@@ -23,7 +23,7 @@
 
         <input type="button" value="Submit" onclick="viewPayroll();" class="btn btn-primary" />
 
-        <input type="button" value="Process Payroll" onclick="viewPayroll();" class="btn btn-primary" />
+        <input type="button" value="Process Payroll" onclick="ProcessPayroll();" class="btn btn-primary" />
 
         <input type="button" value="Download Sheet" onclick="DownloadSheet();" class="btn btn-primary" />
 
@@ -120,117 +120,107 @@
 
 
 <div class="modal fade" id="DownloadSheet" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+    <div class="modal-dialog" role="document" style="display:flex;justify-content:center;align-items:center;">
+        <div class="modal-content" style="width:1400px;">
             <div class="modal-header modal-header">
-                <h4 class="modal-title" style="color:white">Download Sheet</h4>
+                <h5 class="modal-title" style="color:white">Salary Sheet Details</h5>
                 <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
 
-                <div class="row">
+                @*<div class="row">*@
 
-                    <input type="hidden" value="" id="Id" />
+                    <div style="height: 600px; width: 100%; overflow: auto;">
 
-                    <div class="col-sm-12">
-                        <div class="form-group g-mb-30">
-                            <label class="g-mb-10 bg-classification" for="inputGroupStatus">Employee</label> <span style="color:red">*</span>
-                            <div class="form-group u-select--v3 g-pos-rel g-brd-gray-light-v7 g-rounded-4 mb-0">
-                                <select id="EmpId" name="EmpId" class="form-control classification-select">
-                                    <option value="-1" selected="selected">Select Employee</option>
-                                </select>
-                            </div>
-                        </div>
+                        <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:100%;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
+                                    <th style="text-align: center; background-color: lightgreen;">Total Salary</th>
+                                    <th style="text-align: center; background-color: lightyellow;">Deductions</th>
+                                    <th style="text-align: center; background-color: lightblue;">Gross Payable Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" id="checkAll" onchange="SelectAll();" />Select All</th>
+                                                    <th style="width:200px;">Emp ID</th>
+                                                    <th style="width:200px;">Emp Name</th>
+                                                    <th>Date of Joining</th>
+                                                    <th>Designation</th>
+                                                    <th>Department</th>
+                                                    <th>Basic Salary</th>
+                                                    <th>Allowance 1</th>
+                                                    <th>Allowance 2</th>
+                                                    <th>Allowance 3</th>
+                                                    <th>Total Salary</th>
+                                                    <th>Salary Month</th>
+                                                    <th>Total Payable Days</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="FixedSectionPerMonthModal">
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Monthly Salary</th>
+                                                    <th>Normal OT Hours</th>
+                                                    <th>Normal OT1 Salary</th>
+                                                    <th>Weekend OT</th>
+                                                    <th>Weekend OT Salary</th>
+                                                    <th>Public Holiday OT Hours</th>
+                                                    <th>Public Holiday OT Salary</th>
+                                                    <th>OT4</th>
+                                                    <th>OT5</th>
+                                                    <th>Arrears</th>
+                                                    <th>Bonus</th>
+                                                    <th>Total Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Deductions</th>
+                                                    <th>Advance</th>
+                                                    <th>Loan</th>
+                                                    <th>Income Tax</th>
+                                                    <th>EOBI</th>
+                                                    <th>Provident Fund</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="DeductionsModal">
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+
+                                        <h1>Demo</h1>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
 
-                    <div class="col-sm-12">
-                        <div class="form-group g-mb-30">
-                            <label class="g-mb-10 md-name" for="inputGroup-1_1"> Date Of Joining </label> <span style="color:red">*</span>
-                            <div class="g-pos-rel">
-                                <input id="DateOfJoining" class="form-control" type="date" placeholder="DateOfJoining" value="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-group g-mb-30">
-                            <label class="g-mb-10 md-name" for="inputGroup-1_1"> Gross Salary </label> <span style="color:red">*</span>
-                            <div class="g-pos-rel">
-                                <input id="GrossSalary" class="form-control" type="number" placeholder="GrossSalary">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Fit For Promotion
-                                <input type="checkbox" class="form-check-input" id="FitForPromotion">
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Fit In Current Possition
-                                <input type="checkbox" class="form-check-input" id="FitInCurrentPossition">
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Not Fit For Promotion But Likely To Become
-                                <input type="checkbox" class="form-check-input" id="NotFitForPromotionButLikelyToBecome">
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Unfit For Promotion Has Reached His Ceiling
-                                <input type="checkbox" class="form-check-input" id="UnfitForPromotionHasReachedHisCeiling">
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Eligible For Bonus
-                                <input type="checkbox" class="form-check-input" id="EligibleForBonus">
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12">
-                        <div class="form-group g-mb-30">
-                            <label class="g-mb-10 md-name" for="inputGroup-1_1">Eligible For Increment Percentage</label> <span style="color:red">*</span>
-                            <div class="g-pos-rel">
-                                <input id="EligibleForIncrementPercentage" class="form-control" type="number">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-2">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                Active
-                                <input type="checkbox" class="form-check-input" id="Active">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
+                @*</div>*@
 
             </div>
             <div class="modal-footer" id="divAddTask">
-                <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Update" onclick="Update();"><i class="fas fa-plus tm-fa-plus"></i>Update</button>
-                <button type="button" class="btn btn-inverse-primary u-btn-3d  my-auto ml-auto" id="Save" onclick="SaveManagerKeyResults();"><i class="fas fa-plus tm-fa-plus"></i>Save</button>
+                <button type="button" class="btn btn-primary" id="Process" onclick="Process();"><i class="fas fa-plus tm-fa-plus"></i>Process</button>
             </div>
         </div>
     </div>
@@ -239,10 +229,151 @@
 
     <script>
 
+
+        function Process() {
+            debugger;
+
+        }
+
+
+        function SelectAll() {
+            debugger;
+
+            var checkAll = $("#checkAll").prop("checked");
+
+            if (checkAll) {
+                $(".checkRow").prop("checked", true);
+            }
+            else {
+                $(".checkRow").prop("checked", false);
+            }
+        }
+
+        function RemoveCheck() {
+            debugger;
+
+            $("#checkAll").prop("checked", false);
+
+            if ($(".checkRow").filter(":checked").length == $(".checkRow").length) {
+
+                $("#checkAll").prop("checked", true);
+            }
+        }
+
+       
+        function ProcessPayroll() {
+            debugger;
+
+            var str = '';
+
+            $.ajax({
+
+                type: "GET",
+                url: "/PayRoll/GetPayrollCalculationTableData",
+                success: function (data) {
+                    debugger;
+
+                    $.each(data, function (index, obj) {
+
+                        str += '<tr>' +
+                            '<td>' +
+                            '<input type="checkbox" class="checkRow" onchange="RemoveCheck();"/>' +
+                            '</td>' +
+                            '<td>' +
+                            obj.EmployeeId +
+                            '</td>' +
+                            '<td>' +
+                            obj.EmployeeName +
+                            '</td>' +
+                            '<td>' +
+                            obj.DateofJoining +
+                            '</td>' +
+                            '<td>' +
+                            obj.Designation +
+                            '</td>' +
+                            '<td>' +
+                            obj.Department +
+                            '</td>' +
+                            '<td>' +
+                            obj.BasicSalary +
+                            '</td>' +
+                            '<td>' +
+                            obj.Allowances1 +
+                            '</td>' +
+                            '<td>' +
+                            obj.Allowances2 +
+                            '</td>' +
+                            '<td>' +
+                            obj.Allowances3 +
+                            '</td>' +
+                            '<td>' +
+                            (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
+                            '</td>' +
+                            '<td>' +
+                            'NULL' +
+                            '</td>' +
+                            '<td>' +
+                            'NULL' +
+                            '</td>' +
+                            '</tr>';
+                    });
+
+                    $("#FixedSectionPerMonthModal").html(str);
+
+                    var str2 = '';
+
+                    $.ajax({
+
+                        type: "GET",
+                        url: "/PayRoll/GetPayrollCalculationDeductionData",
+                        success: function (data) {
+                            debugger;
+
+                            $.each(data, function (index, obj) {
+
+                                str2 += '<tr>' +
+                                    '<td>' +
+                                    obj.Deductions +
+                                    '</td>' +
+                                    '<td>' +
+                                    obj.Advance +
+                                    '</td>' +
+                                    '<td>' +
+                                    obj.Loan +
+                                    '</td>' +
+                                    '<td>' +
+                                    obj.IncomeTax +
+                                    '</td>' +
+                                    '<td>' +
+                                    obj.EOBI +
+                                    '</td>' +
+                                    '<td>' +
+                                    obj.ProvidentFund +
+                                    '</td>' +
+                                    '</tr>';
+                            });
+
+                            $("#DeductionsModal").html(str2);
+
+                        }
+                    });
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+
+            $("#checkAll").prop("checked", false);
+
+            $("#DownloadSheet").modal('show');
+        }
+
+
+
         function DownloadSheet() {
             debugger;
 
-            $("#DownloadSheet").modal('show');
+           // $("#DownloadSheet").modal('show');
 
         }
 
