@@ -25,7 +25,7 @@
 
         <input type="button" value="Process Payroll" onclick="ProcessPayroll();" class="btn btn-primary" />
 
-        <input type="button" value="Download Sheet" onclick="DownloadSheet();" class="btn btn-primary" />
+        <input type="button" value="Download Sheet" onclick="DownloadSheetForEmployee();" class="btn btn-primary" />
 
     </center>
 
@@ -118,7 +118,7 @@
 
 </div>
 
-
+@*Modal*@
 <div class="modal fade" id="DownloadSheet" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="display:flex;justify-content:center;align-items:center;">
         <div class="modal-content" style="width:1400px;">
@@ -226,6 +226,137 @@
     </div>
 </div>
 
+@*Modal*@
+<div class="modal fade" id="DownloadSheetForEmployee" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="display:flex;justify-content:center;align-items:center;">
+        <div class="modal-content" style="height: 950px; width: 1400px;">
+            <div class="modal-header modal-header">
+                <h5 class="modal-title" style="color:white">Salary Slip</h5>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" style="width:1200px;">
+
+                        <div style="height:100%; width: 100%; overflow: auto;padding:0;">
+                            <div style="text-align:center;font-size:25px;font-weight:bold;background-color:yellow;">Salary Slip</div>
+                            <table class="table table-bordered">
+
+                                <tr>
+                                    <th style="width:25%;">Employee ID</th>
+                                    <th style="width:25%;"></th>
+                                    <th style="width:25%;">Employee Name</th>
+                                    <th style="width:25%;"></th>
+                                </tr>
+                                <tr>
+                                    <th>Designation</th>
+                                    <th></th>
+                                    <th>Department</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Date of Joining</th>
+                                    <th></th>
+                                    <th>Salary Month</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Basic Salary</th>
+                                    <th></th>
+                                    <th>Allowance 1</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Allowance 2</th>
+                                    <th></th>
+                                    <th>Other Payment</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Total Monthly Salary</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Present Days</th>
+                                    <th></th>
+                                    <th>Absent Days</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Bank Name</th>
+                                    <th></th>
+                                    <th>Account Number</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" style="background-color: yellow; text-align: center;">*If applicable for Overtime add in OT colums and hours</th>
+                                </tr>
+                                <tr style="background-color: yellow;">
+                                    <th>Normal OT hours</th>
+                                    <th></th>
+                                    <th>Fri OT hours</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" style="background-color:lightgrey; text-align:center;">CALCULATION</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" style="text-align:center;">Salary (A)</th>
+                                    <th colspan="2" style="text-align:center;">Deductions (B)</th>
+                                </tr>
+                                <tr>
+                                    <th>Monthly Salary</th>
+                                    <th></th>
+                                    <th>Income Tax</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Normal OT</th>
+                                    <th></th>
+                                    <th>Loan</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Friday OT</th>
+                                    <th></th>
+                                    <th>EOBI</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Bonus</th>
+                                    <th></th>
+                                    <th>Provident</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Advance</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Other Deduction</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <th>Total Salary</th>
+                                    <th></th>
+                                    <th>Gross Salary (A-B)</th>
+                                    <th></th>
+                                </tr>
+
+                            </table>
+                        </div>
+
+            </div>
+            <div class="modal-footer" id="divAddTask">
+                <button type="button" class="btn btn-primary" id="Process" onclick="Download();">Download</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script>
 
@@ -235,6 +366,10 @@
 
         }
 
+        function Download() {
+            debugger;
+
+        }
 
         function SelectAll() {
             debugger;
@@ -370,10 +505,10 @@
 
 
 
-        function DownloadSheet() {
+        function DownloadSheetForEmployee() {
             debugger;
 
-           // $("#DownloadSheet").modal('show');
+            $("#DownloadSheetForEmployee").modal('show');
 
         }
 
