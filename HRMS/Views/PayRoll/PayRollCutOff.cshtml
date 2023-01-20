@@ -90,7 +90,7 @@
         <div class="col-12">
             <h3 class="all-md">Pay Roll CutOffs List</h3>
             <hr />
-            <button type="button" class="btn btn-inverse-primary u-btn-3d  d-block ml-auto" data-toggle="modal" data-target="#TradeLicenseModal" onclick="clearfields()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>
+            <button type="button" id="createButton" class="btn btn-inverse-primary u-btn-3d  d-block ml-auto" data-toggle="modal" data-target="#TradeLicenseModal" onclick="clearfields()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>
             <br />
             <div class="table-responsive-xl table-bordered cell-border g-mb-40" id="AllTradeLicenseList"></div>
             
@@ -134,6 +134,7 @@
 
     <script>
 
+
         $(document).ready(function () {
             
             $("#AddTask").show();
@@ -143,10 +144,10 @@
         });
 
 
-       
 
         function LoadingTradeDetails() {
-            debugger
+            debugger;
+
             $.ajax({
                 type: "GET",
                 contentType: "application/json; charset=utf-8",
@@ -160,6 +161,8 @@
         }
 
         function onSuccessTradeList(data) {
+
+            debugger;
 
             $("#AllTradeLicenseList").empty();
             $("#AllTradeLicenseList").append("<table id='AlldatadetailTable' class='table u-table--v3 g-color-black'>");
@@ -178,22 +181,22 @@
                 var val = '';
                 debugger
                 for (var i = 0; i < data.length; i++) {
-                    var fullDatestart = new Date(data[i].CutOffDate);
+                    //var fullDatestart = new Date(data[i].CutOffDate);
 
-                    var twoDigitMonthstart = (fullDatestart.getMonth() + 1) + "";
-                    if (twoDigitMonthstart.length == 1)
-                        twoDigitMonthstart = "0" + twoDigitMonthstart;
-                    var twoDigitDatestart = fullDatestart.getDate() + "";
-                    if (twoDigitDatestart.length == 1)
-                        twoDigitDatestart = "0" + twoDigitDatestart;
+                    //var twoDigitMonthstart = (fullDatestart.getMonth() + 1) + "";
+                    //if (twoDigitMonthstart.length == 1)
+                    //    twoDigitMonthstart = "0" + twoDigitMonthstart;
+                    //var twoDigitDatestart = fullDatestart.getDate() + "";
+                    //if (twoDigitDatestart.length == 1)
+                    //    twoDigitDatestart = "0" + twoDigitDatestart;
 
-                    var currentDatestart = twoDigitDatestart + "/" + twoDigitMonthstart + "/" + fullDatestart.getFullYear();
+                    //var currentDatestart = twoDigitDatestart + "/" + twoDigitMonthstart + "/" + fullDatestart.getFullYear();
 
-                    
+
                     if (data[i].Active == true) {
                         val = "<tr>" +
                             /* "<td class='first-td'>" + data[i].Id + "</td>" +*/
-                            
+
                             "<td>" + data[i].CutOffDate + "</td>" +
                             "<td class='last-td'><a class='btn btn-default btn-sm' title='Edit' style='cursor: pointer;' onclick='LoadingEditData(" + data[i].Id + ")' data-toggle='modal' data-target='#TradeLicenseModal'><i class='fa fas fa-pencil'></i></a><a class='btn  btn-sm' title='Delete' style='cursor: pointer;' onclick = Delete(" + data[i].Id + ") > <i class='fa fa-trash'></i></a > "
                             // "<td class='last-td'><label class='form-check-inline u-check g-mr-20 mx-0 mb-0'> <input class='g-hidden-xs-up g-pos-abs g-top-0 g-right-0' id='btnEdit' onclick='LoadingEditData(" + data.data[i].pK_MetaDataID + ")' name = 'radGroup1_1' data-toggle='modal' data-target='#myModal'><i class='fa fa-pencil'></i></label ></td>" +
@@ -203,6 +206,11 @@
                         $('#values1').append(val);
                     }
                 }
+
+                $("#createButton").prop("disabled", true);
+            }
+            else {
+                $("#createButton").prop("disabled", false);
             }
 
             $('#AlldatadetailTable').dataTable({
@@ -216,6 +224,8 @@
         }
 
         function LoadingEditData(ID) {
+            debugger;
+
             console.log(ID);
             Mode = "Update";
             $("#AddTask").hide();
@@ -236,44 +246,11 @@
         }
 
         function onSuccessTradeLicenseDetails(data) {
-            debugger
-            var { data, dteJoiningDate } = $.parseJSON(Data);
-            data.CutOffDate = dteJoiningDate;
-            alert(data.CutOffDate);
-            //var fullDatestart = new Date(data.CutOffDate);
-            //var twoDigitMonthstart = (fullDatestart.getMonth() + 1) + "";
-            //if (twoDigitMonthstart.length == 1)
-            //    twoDigitMonthstart = "0" + twoDigitMonthstart;
-            //var twoDigitDatestart = fullDatestart.getDate() + "";
-            //if (twoDigitDatestart.length == 1)
-            //    twoDigitDatestart = "0" + twoDigitDatestart;
+            debugger;
+        
+            $("#CutOffDate").val(data.CutOffDate);
 
-            //var currentDatestart = fullDatestart.getFullYear() + "/" + twoDigitMonthstart + "/" + twoDigitDatestart;
-
-            var fullDatestart = new Date(data.CutOffDate);
-            var twoDigitMonthstart = (fullDatestart.getMonth() + 1) + "";
-            if (twoDigitMonthstart.length == 1)
-                twoDigitMonthstart = "0" + twoDigitMonthstart;
-            var twoDigitDatestart = fullDatestart.getDate() + "";
-            if (twoDigitDatestart.length == 1)
-                twoDigitDatestart = "0" + twoDigitDatestart;
-
-            var currentDatestart = fullDatestart.getFullYear() + "/" + twoDigitMonthstart + "/" + twoDigitDatestart;
-
-            var fullDatestart = new Date(data.LastModifiedBy);
-            var twoDigitMonthstart = (fullDatestart.getMonth() + 1) + "";
-            if (twoDigitMonthstart.length == 1)
-                twoDigitMonthstart = "0" + twoDigitMonthstart;
-            var twoDigitDatestart = fullDatestart.getDate() + "";
-            if (twoDigitDatestart.length == 1)
-                twoDigitDatestart = "0" + twoDigitDatestart;
-
-            var currentDatestart1 = fullDatestart.getFullYear() + "/" + twoDigitMonthstart + "/" + twoDigitDatestart;
-            $('#CutOffDate').datepicker({ dateformat: "yy-mm-dd" }).find('input').val(currentDatestart);
-           
-          /*  $("#CutOffDate").val(currentDatestart);*/
-            $("#Activechk").prop('checked', data.Active);
-           
+            $("#Activechk").prop('checked', data.Active);        
         }
 
         function SaveData() {

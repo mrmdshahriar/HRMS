@@ -1277,19 +1277,18 @@ namespace HRMS.Controllers
         {
             try
             {
-                JsonSerializerSettings jss = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                var dd = _hrms.PayRollCutOffs.Where(x => x.Active == true).FirstOrDefault();
-                var TradeLicenseList = _hrms.PayRollCutOffs.Select(x => x).ToList();
+                //JsonSerializerSettings jss = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
+                //JavaScriptSerializer serializer = new JavaScriptSerializer();
+                //var dd = _hrms.PayRollCutOffs.Where(x => x.Active == true).FirstOrDefault();
+
+                var TradeLicenseList = _hrms.PayRollCutOffs.Where(x => x.Active == true).ToList();
+
                 var result = TradeLicenseList.Select(S => new
                 {
                     Id = S.Id,
                     Active = S.Active,
-                    CutOffDate = S.CutOffDate.ToString(),
-                   
+                    CutOffDate = S.CutOffDate?.ToLongDateString(),
                 });
-                var data = new List<object>();
-                
 
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
@@ -1302,38 +1301,17 @@ namespace HRMS.Controllers
         [HttpGet]
         public ActionResult EditPayRollCutOff(int id)
         {
-            //_hrms.Configuration.ProxyCreationEnabled = false;
-            //JsonSerializerSettings jss = new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore };
-            //JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-            var result = _hrms.PayRollCutOffs.Where(x => x.Id == id).FirstOrDefault<PayRollCutOff>();
-            //var TradeLicenseList = _hrms.PayRollCutOffs.Where(x => x.Id == id).FirstOrDefault<PayRollCutOff>();
-            //var result = TradeLicenseList.Select(S => new
-            //{
-            //    Id = S.Id,
-            //    Active = S.Active,
-            //    CutOffDate = S.CutOffDate.ToString(),
-
-            //});
-            //var data = new List<object>();
-
-            //foreach (var item in result)
-            //{
-
-            //    var obj = new
-            //    {
-            //        data = item,
-            //        dteJoiningDate = Convert.ToDateTime(item.CutOffDate),
-
-            //    };
-            //    data.Add(obj);
-
-            //}
-            //var result1 = JsonConvert.SerializeObject(data, jss);
-            //return Json(result1, JsonRequestBehavior.AllowGet);
-            return Json(result, JsonRequestBehavior.AllowGet);
+            var result = _hrms.PayRollCutOffs.Where(x => x.Id == id).ToList();
+  
+            var data = result.Select(S => new
+            {
+                Id = S.Id,
+                Active = S.Active,
+                CutOffDate = S.CutOffDate?.ToString("yyyy-MM-dd"),
+            }).FirstOrDefault();
 
 
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -1701,6 +1679,12 @@ namespace HRMS.Controllers
                 //                //Name = alw.Name,
                 //                //Amount = alwde.Amount
                 //            }).ToList();
+
+
+
+                var ddd = _hrms.HrmEmployees.ToList();
+
+
 
 
                 var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
