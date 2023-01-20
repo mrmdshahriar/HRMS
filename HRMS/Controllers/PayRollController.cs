@@ -1324,6 +1324,10 @@ namespace HRMS.Controllers
                 bool IsrecExisit = _hrms.PayRollCutOffs.Any(x => x.Id == obj.Id);
                 if (IsrecExisit != true)
                 {
+                    if(DateTime.Today > obj.CutOffDate)
+                    {
+                        obj.CutOffDate = obj.CutOffDate?.AddMonths(1);
+                    }
 
                     _hrms.PayRollCutOffs.Add(obj);
                     _hrms.SaveChanges();
