@@ -12,7 +12,7 @@ namespace HRMS.Models
         public decimal? LoanAmount { get; set; }
         public DateTime? DateIssued { get; set; }
         public int? TentativeReturnMonth { get; set; }
-        public int? EmiCalculation { get; set; }
+        public decimal? EmiCalculation { get; set; }
         public DateTime? LoanDeductionStartDate{get;set;}
         public DateTime? LoanDefermentDate { get; set; }
         public bool? Active { get; set; }

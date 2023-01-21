@@ -193,10 +193,36 @@ namespace HRMS.Controllers
             }
         }
 
+
+        //public ActionResult EmployeeChangeSalarySetup(long JobId)
+        //{
+        //    var data = (from emp in _hrms.HrmEmployees
+
+        //                join loan in _hrms.LoanSanctions on emp.Id equals loan.EmployeeId
+
+        //                where emp.Id == JobId
+        //                select new
+        //                {
+        //                    //EmployeeNumber = emp.EmployeeCode,
+        //                    //EmployeeName = emp.FirstName + " " + emp.LastName,
+        //                    //Designation = dsg.Name,
+        //                    //Department = dpt.Name,
+        //                    //BasicSalary = emp.BasicSalary
+
+
+
+        //                }).ToList();
+
+        //    return Json(data, JsonRequestBehavior.AllowGet);
+        //}
+
+
+
+
         #endregion LoanSanctions
 
 
-        
+
     }
 }
 

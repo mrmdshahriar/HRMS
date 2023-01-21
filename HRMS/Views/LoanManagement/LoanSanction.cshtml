@@ -65,7 +65,7 @@
                             <div class="form-group g-mb-30">
                                 <label class="g-mb-10 md-name" for="inputGroup-1_1"> Loan Amount </label> <span style="color:red">*</span>
                                 <div class="g-pos-rel">
-                                    <input id="LoanAmount" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="text" placeholder="Enter Loan Amount" onkeypress=" return isNumberKey(event);">
+                                    <input id="LoanAmount" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="number" placeholder="Enter Loan Amount">
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                             <div class="form-group g-mb-30">
                                 <label class="g-mb-10 md-name" for="inputGroup-1_1"> EmiCalculation </label> <span style="color:red">*</span>
                                 <div class="g-pos-rel">
-                                    <input id="EmiCalculation" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="number" placeholder="EmiCalculation">
+                                    <input id="EmiCalculation" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="number" readonly placeholder="EmiCalculation">
                                 </div>
                             </div>
                         </div>
@@ -189,6 +189,34 @@
             GetEmployeeId();
 
         });
+
+
+        $("#LoanAmount").keyup(function () {
+
+            var LoanAmount = $(this).val();
+
+            var TentativeReturnMonth = $("#TentativeReturnMonth").val();
+
+            var emi = LoanAmount / TentativeReturnMonth;
+
+            $("#EmiCalculation").val(emi);
+
+        });
+
+        $("#TentativeReturnMonth").keyup(function () {
+
+            var TentativeReturnMonth = $(this).val();
+
+            var LoanAmount = $("#LoanAmount").val();
+
+            var emi = LoanAmount / TentativeReturnMonth;
+
+            $("#EmiCalculation").val(emi);
+        });
+
+
+
+
 
         $('#EmployeeId').select2({
             selectOnClose: true
@@ -328,6 +356,7 @@
         }
 
         function SaveData() {
+            debugger;
             
             var EmployeeId = $('#EmployeeId').val();
             var LoanAmount = $('#LoanAmount').val();
