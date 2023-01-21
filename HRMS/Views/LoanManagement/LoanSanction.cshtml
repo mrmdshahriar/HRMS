@@ -236,12 +236,16 @@
             });
         }
         function onSuccessLoanSanctionDetails(data) {
+
+            var SL = 1;
+
             $("#AllDeductionList").empty();
             $("#AllDeductionList").append("<table id='AllCountrydatadetailTable' class='table u-table--v3 g-color-black'>");
             $("#AllCountrydatadetailTable").empty();
             $("#AllCountrydatadetailTable").append("<thead>" +
                 "<tr class='ob_gC'>" +
-                /*"<th>ID</th>" +*/
+            /*"<th>ID</th>" +*/
+                "<th> SL </th>" +
                 "<th> Employee </th>" +
                 "<th> Loan Amount </th>" +
                 "<th> DateIssued </th>" +
@@ -290,7 +294,8 @@
                     //var currentDatestart2 = twoDigitDatestart + "/" + twoDigitMonthstart + "/" + fullDatestart.getFullYear();
 
                     val = "<tr>" +
-                        /* "<td class='first-td'>" + data[i].Id + "</td>" +*/
+                    /* "<td class='first-td'>" + data[i].Id + "</td>" +*/
+                        "<td>" + (SL++) + "</td>" +
                         "<td>" + data[i].EmployeeName + "</td>" +
                         "<td>" + data[i].LoanAmount + "</td>" +
                         "<td>" + data[i].DateIssued + "</td>" +
