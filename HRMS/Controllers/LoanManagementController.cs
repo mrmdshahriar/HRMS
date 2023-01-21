@@ -64,7 +64,7 @@ namespace HRMS.Controllers
             try
             {
 
-                var data = (from cs in _hrms.LoanSanctions
+                var data = (from cs in _hrms.LoanSanctions.AsEnumerable()
                             join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
                             select new
                             {
@@ -72,14 +72,17 @@ namespace HRMS.Controllers
                                 EmployeeId = cs.EmployeeId,
                                 EmployeeName = emp.FirstName + " " + emp.LastName,
                                 LoanAmount = cs.LoanAmount,
-                                DateIssued = cs.DateIssued,
-                                TentativeReturnDate= cs.TentativeReturnDate,
+                                DateIssued = cs.DateIssued?.ToString("yyyy-MMM-dd"),
+                                LoanDeductionStartDate = cs.LoanDeductionStartDate?.ToString("yyyy-MMM-dd"),
+                                TentativeReturnMonth = cs.TentativeReturnMonth,
                                 EmiCalculation=cs.EmiCalculation,
-                                LoanDefermentDate=cs.LoanDefermentDate
+                                LoanDefermentDate=cs.LoanDefermentDate?.ToString("yyyy-MMM-dd"),
+                                Active = cs.Active
                             }).ToList();
 
-                var result = _hrms.LoanSanctions.Where(x => x.Active == true).ToList();
-                return Json(data, JsonRequestBehavior.AllowGet);
+                var result = data.Where(x => x.Active == true).ToList();
+
+                return Json(result, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -112,12 +115,22 @@ namespace HRMS.Controllers
             //    return Json(e, JsonRequestBehavior.AllowGet);
             //}
 
-            _hrms.Configuration.ProxyCreationEnabled = false;
+           // _hrms.Configuration.ProxyCreationEnabled = false;
 
-            var result = _hrms.LoanSanctions.Where(x => x.Id == id).FirstOrDefault<LoanSanction>();
+            var result = _hrms.LoanSanctions.Where(x => x.Id == id).AsEnumerable().Select(x => new {
+
+                EmployeeId = x.EmployeeId,
+                LoanAmount = x.LoanAmount,
+                DateIssued = x.DateIssued?.ToString("yyyy-MM-dd"),
+                LoanDeductionStartDate = x.LoanDeductionStartDate?.ToString("yyyy-MM-dd"),
+                TentativeReturnMonth = x.TentativeReturnMonth,
+                EmiCalculation = x.EmiCalculation,
+                LoanDefermentDate = x.LoanDefermentDate?.ToString("yyyy-MM-dd"),
+                Active = x.Active
+
+            }).FirstOrDefault();
+
             return Json(result, JsonRequestBehavior.AllowGet);
-
-
         }
 
         [HttpPost]
@@ -125,12 +138,9 @@ namespace HRMS.Controllers
         {
             try
             {
-
-
                 bool IsrecExisit = _hrms.LoanSanctions.Any(x => x.Id == obj.Id);
                 if (IsrecExisit != true)
                 {
-
                     _hrms.LoanSanctions.Add(obj);
                     _hrms.SaveChanges();
                     return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
@@ -154,13 +164,11 @@ namespace HRMS.Controllers
 
             try
             {
-
                 _hrms.Entry(obj).State = EntityState.Modified;
+
                 _hrms.SaveChanges();
 
                 return Json(new { success = true, message = "Updated Successfully", JsonRequestBehavior.AllowGet });
-
-
             }
             catch (Exception ex)
             {
