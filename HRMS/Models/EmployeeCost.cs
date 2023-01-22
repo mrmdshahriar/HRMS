@@ -7,10 +7,9 @@ namespace HRMS.Models
 {
     public class EmployeeCost
     {
-
-     public long   Id { get; set; }
-      public long? EmployeeId { get; set; }
-        public decimal? CostingTab { get; set; }
+        public long Id { get; set; }
+        public long? EmployeeId { get; set; }
+        public long? CostingTabsId { get; set; }
         public decimal? TotalCost { get; set; }
         public bool? Active { get; set; }
         public long? CreatedBy { get; set; }
@@ -18,6 +17,5 @@ namespace HRMS.Models
         public long? LastModifiedBy { get; set; }
         public DateTime? LastModifiedOn { get; set; }
         public bool? IsDeleted { get; set; }
-
     }
 }

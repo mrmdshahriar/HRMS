@@ -449,17 +449,23 @@ namespace HRMS.Controllers
         {
             try
             {
-
                 var data = (from cs in _hrms.EmployeeCosts
-                            join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                            join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id into empGroup
+                            from empg in empGroup.DefaultIfEmpty()
+                            join csTb in _hrms.CostingTabs on cs.CostingTabsId equals csTb.Id into csTbGroup
+                            from csTbg in csTbGroup.DefaultIfEmpty()
+                            where empg.Active == true && csTbg.Active == true
                             select new
                             {
                                 Id = cs.Id,
                                 EmployeeId = cs.EmployeeId,
-                                EmployeeName = emp.FirstName + " " + emp.LastName,
-                                CostingTab = cs.CostingTab,
-                                TotalCost = cs.TotalCost
-                            }).ToList();
+                                EmployeeName = empg.FirstName + " " + empg.LastName,
+                                CostingTabsId = cs.CostingTabsId,
+                                CostingTabsName = csTbg.Name,
+                                TotalCost = cs.TotalCost,
+                                Active = cs.Active
+                            }).Where(x => x.Active == true).ToList();
+
                 //var dd = _hrms.CostingTabs.Where(x => x.Active == true).FirstOrDefault();
                 //List<CostingTab> CostList = _hrms.CostingTabs.ToList<CostingTab>();
                 //var result = CostList.Select(S => new
@@ -470,7 +476,8 @@ namespace HRMS.Controllers
                 //    Active = S.Active
                 //});
               
-                var result = _hrms.EmployeeCosts.Where(x => x.Active == true).ToList();
+                //var result = _hrms.EmployeeCosts.Where(x => x.Active == true).ToList();
+
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -478,15 +485,34 @@ namespace HRMS.Controllers
                 throw ex;
             }
         }
+
+
+        [HttpGet]
+        public ActionResult CostingTabsDdl()
+        {
+
+            List<CostingTab> costingTabList = _hrms.CostingTabs.Where(x => x.Active == true).ToList();
+
+            var result = costingTabList.Select(S => new
+            {
+                Id = S.Id,
+                Name = S.Name
+
+            }).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         [HttpGet]
         public ActionResult EditEmployeeCost(int id)
         {
             _hrms.Configuration.ProxyCreationEnabled = false;
 
             var result = _hrms.EmployeeCosts.Where(x => x.Id == id).FirstOrDefault<EmployeeCost>();
+
             return Json(result, JsonRequestBehavior.AllowGet);
-
-
         }
 
         [HttpPost]
@@ -495,7 +521,9 @@ namespace HRMS.Controllers
             try
             {
                 _hrms.EmployeeCosts.Add(obj);
+
                 _hrms.SaveChanges();
+
                 return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
                 //bool IsrecExisit = _hrms.CostingTabs.Any(x => x.Name == obj.Name);
                 //if (IsrecExisit != true)
