@@ -64,6 +64,8 @@
                             <div class="form-group g-mb-30">
                                 <label class="g-mb-10 md-name" for="inputGroup-1_1"> Loan Amount </label> <span style="color:red">*</span>
                                 <div class="g-pos-rel">
+                                    @*<input id="LoanAmount" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="text" placeholder="Enter Loan Amount" onkeypress="return isNumberKey(event);">*@
+
                                     <input id="LoanAmount" class="form-control form-control-md g-brd-gray-light-v7 g-brd-gray-light-v3--focus g-rounded-4 g-px-14 g-py-10 md-name-input" type="number" placeholder="Enter Loan Amount">
                                 </div>
                             </div>
@@ -198,7 +200,7 @@
 
             var TentativeReturnMonth = $("#TentativeReturnMonth").val();
 
-            var emi = LoanAmount / TentativeReturnMonth;
+            var emi = (LoanAmount / TentativeReturnMonth).toFixed(2);
 
             $("#EmiCalculation").val(emi);
 
@@ -210,7 +212,30 @@
 
             var LoanAmount = $("#LoanAmount").val();
 
-            var emi = LoanAmount / TentativeReturnMonth;
+            var emi = (LoanAmount / TentativeReturnMonth).toFixed(2);
+
+            $("#EmiCalculation").val(emi);
+        });
+
+        $("#LoanAmount").mouseup(function () {
+
+            var LoanAmount = $(this).val();
+
+            var TentativeReturnMonth = $("#TentativeReturnMonth").val();
+
+            var emi = (LoanAmount / TentativeReturnMonth).toFixed(2);
+
+            $("#EmiCalculation").val(emi);
+
+        });
+
+        $("#TentativeReturnMonth").mouseup(function () {
+
+            var TentativeReturnMonth = $(this).val();
+
+            var LoanAmount = $("#LoanAmount").val();
+
+            var emi = (LoanAmount / TentativeReturnMonth).toFixed(2);
 
             $("#EmiCalculation").val(emi);
         });
@@ -559,6 +584,7 @@
 
         }
         function isNumberKey(evt) {
+            debugger;
             var charCode = (evt.which) ? evt.which : evt.keyCode;
             if (charCode != 46 && charCode > 31
                 && (charCode < 48 || charCode > 57))
