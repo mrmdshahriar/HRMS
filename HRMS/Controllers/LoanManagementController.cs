@@ -63,9 +63,9 @@ namespace HRMS.Controllers
         {
             try
             {
-
                 var data = (from cs in _hrms.LoanSanctions.AsEnumerable()
                             join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                            where cs.Active == true && emp.Active == true
                             select new
                             {
                                 Id = cs.Id,
@@ -139,8 +139,10 @@ namespace HRMS.Controllers
             try
             {
                 bool IsrecExisit = _hrms.LoanSanctions.Any(x => x.Id == obj.Id);
+
                 if (IsrecExisit != true)
                 {
+                    obj.CreatedOn = DateTime.Now;
                     _hrms.LoanSanctions.Add(obj);
                     _hrms.SaveChanges();
                     return Json(new { success = true, message = "Saved Successfully", JsonRequestBehavior.AllowGet });
@@ -161,9 +163,10 @@ namespace HRMS.Controllers
         [HttpPost]
         public ActionResult UpdateLoanSanction(LoanSanction obj)
         {
-
             try
             {
+                obj.LastModifiedOn = DateTime.Now;
+
                 _hrms.Entry(obj).State = EntityState.Modified;
 
                 _hrms.SaveChanges();

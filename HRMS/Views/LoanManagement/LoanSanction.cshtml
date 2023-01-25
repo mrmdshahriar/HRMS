@@ -137,7 +137,7 @@
         <div class="col-12">
             <center><h3 class="all-md">Loan Sanction List</h3></center>
             <hr />
-            <button type="button" class="btn btn-inverse-primary u-btn-3d  d-block ml-auto" data-toggle="modal" data-target="#DeductionModal" onclick="clearfields()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>
+            <button type="button" class="btn btn-primary u-btn-3d  d-block ml-auto btn-sm" data-toggle="modal" data-target="#DeductionModal" onclick="clearfields()"><i class="fas fa-plus tm-fa-plus"></i> Create</button>
             <br />
             <div class="table-responsive-xl table-bordered cell-border g-mb-40" id="AllDeductionList"></div>
         </div>
@@ -408,10 +408,50 @@
             if (EmployeeId == null || EmployeeId == -1 || EmployeeId == "") {
                 Swal.fire({
                     icon: 'warning',
-                    text: 'Please Select EmployeeId!'
+                    text: 'Please Select Employee!'
                 });
                 return false;
             }
+
+            if (LoanAmount == null || LoanAmount == -1 || LoanAmount == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Amount!'
+                });
+                return false;
+            }
+
+            if (DateIssued == null || DateIssued == -1 || DateIssued == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Date Issued!'
+                });
+                return false;
+            }
+
+            if (LoanDeductionStartDate == null || LoanDeductionStartDate == -1 || LoanDeductionStartDate == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Deduction Start Date!'
+                });
+                return false;
+            }
+
+            if (TentativeReturnMonth == null || TentativeReturnMonth == -1 || TentativeReturnMonth == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Tentative Return Month!'
+                });
+                return false;
+            }
+
+            if (LoanDefermentDate == null || LoanDefermentDate == -1 || LoanDefermentDate == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Deferment Date!'
+                });
+                return false;
+            }    
 
             var Data = JSON.stringify(
                 {
@@ -472,6 +512,55 @@
             var EmiCalculation = $("#EmiCalculation").val();
             var LoanDefermentDate = $("#LoanDefermentDate").val();
             var Active = $('#Activechk').is(":checked");
+
+            if (EmployeeId == null || EmployeeId == -1 || EmployeeId == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Select Employee!'
+                });
+                return false;
+            }
+
+            if (LoanAmount == null || LoanAmount == -1 || LoanAmount == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Amount!'
+                });
+                return false;
+            }
+
+            if (DateIssued == null || DateIssued == -1 || DateIssued == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Date Issued!'
+                });
+                return false;
+            }
+
+            if (LoanDeductionStartDate == null || LoanDeductionStartDate == -1 || LoanDeductionStartDate == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Deduction Start Date!'
+                });
+                return false;
+            }
+
+            if (TentativeReturnMonth == null || TentativeReturnMonth == -1 || TentativeReturnMonth == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Tentative Return Month!'
+                });
+                return false;
+            }
+
+            if (LoanDefermentDate == null || LoanDefermentDate == -1 || LoanDefermentDate == "") {
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Please Enter Loan Deferment Date!'
+                });
+                return false;
+            }
+
 
             var Data = JSON.stringify(
                 {
