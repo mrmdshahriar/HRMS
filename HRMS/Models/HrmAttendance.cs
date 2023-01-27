@@ -10,20 +10,20 @@ namespace HRMS.Models
     {
         [Key]
         public int Id { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.DateTime> TimeIn { get; set; }
-        public Nullable<System.DateTime> TimeOut { get; set; }
-        public Nullable<bool> IsPresent { get; set; }
-        public Nullable<bool> IsAbsent { get; set; }
-        public Nullable<bool> IsLeave { get; set; }
+        public DateTime? Date { get; set; }
+        public DateTime? TimeIn { get; set; }
+        public DateTime? TimeOut { get; set; }
+        public bool? IsPresent { get; set; }
+        public bool? IsAbsent { get; set; }
+        public bool? IsLeave { get; set; }
         public string LeaveType { get; set; }
-        public Nullable<bool> IsHoliday { get; set; }
+        public bool? IsHoliday { get; set; }
         public string Holiday { get; set; }
-        public Nullable<bool> IsHalfDay { get; set; }
-        public Nullable<bool> IsLate { get; set; }
-        public Nullable<bool> IsEarly { get; set; }
-        public Nullable<int> Department { get; set; }
-        public Nullable<int> Employee { get; set; }
+        public bool? IsHalfDay { get; set; }
+        public bool? IsLate { get; set; }
+        public bool? IsEarly { get; set; }
+        public int? Department { get; set; }
+        public int? Employee { get; set; }
         public string Month { get; set; }
 
     }
