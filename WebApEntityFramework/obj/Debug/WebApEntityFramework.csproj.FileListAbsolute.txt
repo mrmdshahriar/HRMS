@@ -315,8 +315,8 @@ C:\HRMS With Git\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.Twitter.x
 C:\HRMS With Git\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\HRMS With Git\HRMS\WebApEntityFramework\bin\Microsoft.Owin.Security.OAuth.xml
 C:\HRMS With Git\HRMS\WebApEntityFramework\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.AssemblyReference.cache
 C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CoreCompileInputs.cache
 C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.CopyComplete
 C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.dll
 C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.pdb
+C:\HRMS With Git\HRMS\WebApEntityFramework\obj\Debug\WebApEntityFramework.csproj.AssemblyReference.cache

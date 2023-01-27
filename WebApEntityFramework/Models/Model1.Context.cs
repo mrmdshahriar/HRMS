@@ -66,10 +66,12 @@ namespace WebApEntityFramework.Models
         public virtual DbSet<LeaveRequest> LeaveRequests { get; set; }
         public virtual DbSet<LoanSanction> LoanSanctions { get; set; }
         public virtual DbSet<LoanType> LoanTypes { get; set; }
+        public virtual DbSet<ManagerKeyResult> ManagerKeyResults { get; set; }
         public virtual DbSet<OfferLetter> OfferLetters { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<OverTimeSetup> OverTimeSetups { get; set; }
         public virtual DbSet<PayRollCutOff> PayRollCutOffs { get; set; }
+        public virtual DbSet<QuartzTableData> QuartzTableDatas { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<SalarySetup> SalarySetups { get; set; }
         public virtual DbSet<ShiftMaster> ShiftMasters { get; set; }

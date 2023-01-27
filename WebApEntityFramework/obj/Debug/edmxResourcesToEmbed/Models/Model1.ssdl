@@ -229,6 +229,8 @@ warning 6002: The table/view 'HRMS.dbo.AllowanceTypes' does not have a primary k
     <Property Name="CreatedBy" Type="bigint" />
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="IsPublicHoliday" Type="bit" />
+    <Property Name="Department" Type="bigint" />
   </EntityType>
   <EntityType Name="BonusSetups">
     <Key>
@@ -946,6 +948,27 @@ warning 6002: The table/view 'HRMS.dbo.LeaveTypes' does not have a primary key d
     <Property Name="LastModifiedOn" Type="datetime" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>
+  <EntityType Name="ManagerKeyResults">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="bigint" />
+    <Property Name="DateOfJoining" Type="datetime" />
+    <Property Name="GrossSalary" Type="bigint" />
+    <Property Name="FitForPromotion" Type="bit" />
+    <Property Name="FitInCurrentPossition" Type="bit" />
+    <Property Name="NotFitForPromotionButLikelyToBecome" Type="bit" />
+    <Property Name="UnfitForPromotionHasReachedHisCeiling" Type="bit" />
+    <Property Name="EligibleForBonus" Type="bit" />
+    <Property Name="EligibleForIncrementPercentage" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="bigint" />
+    <Property Name="LastModifiedOn" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
   <EntityType Name="OfferLetters">
     <Key>
       <PropertyRef Name="PK_OfferLetterId" />
@@ -1020,6 +1043,14 @@ warning 6002: The table/view 'HRMS.dbo.PublicHolidays' does not have a primary k
     <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="50" />
     <Property Name="LastModifiedOn" Type="datetime" />
     <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="QuartzTableData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
   </EntityType>
   <EntityType Name="Regions">
     <Key>
@@ -1685,10 +1716,12 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
     <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequests" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanSanctions" EntityType="Self.LoanSanctions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoanTypes" EntityType="Self.LoanTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManagerKeyResults" EntityType="Self.ManagerKeyResults" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OfferLetters" EntityType="Self.OfferLetters" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OverTimeSetups" EntityType="Self.OverTimeSetups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PayRollCutOffs" EntityType="Self.PayRollCutOffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuartzTableData" EntityType="Self.QuartzTableData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalarySetups" EntityType="Self.SalarySetups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMasters" Schema="dbo" store:Type="Tables" />

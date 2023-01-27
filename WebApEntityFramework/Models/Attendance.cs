@@ -32,5 +32,7 @@ namespace WebApEntityFramework.Models
         public Nullable<long> CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
         public Nullable<long> UpdatedBy { get; set; }
+        public Nullable<bool> IsPublicHoliday { get; set; }
+        public Nullable<long> Department { get; set; }
     }
 }

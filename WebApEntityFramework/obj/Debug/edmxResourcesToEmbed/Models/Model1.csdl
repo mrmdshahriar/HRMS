@@ -1,5 +1,222 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdvanceSalarys" EntityType="HRMSModel.AdvanceSalary" />
+    <EntitySet Name="Applieds" EntityType="HRMSModel.Applied" />
+    <EntitySet Name="ApplyCandidates" EntityType="HRMSModel.ApplyCandidate" />
+    <EntitySet Name="Arrears" EntityType="HRMSModel.Arrear" />
+    <EntitySet Name="AspNetRoles" EntityType="HRMSModel.AspNetRole" />
+    <EntitySet Name="AspNetUserLogins" EntityType="HRMSModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="HRMSModel.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="HRMSModel.AspNetUser" />
+    <EntitySet Name="Attendances" EntityType="HRMSModel.Attendance" />
+    <EntitySet Name="BonusSetups" EntityType="HRMSModel.BonusSetup" />
+    <EntitySet Name="Cities" EntityType="HRMSModel.City" />
+    <EntitySet Name="CostingTabs" EntityType="HRMSModel.CostingTab" />
+    <EntitySet Name="Countries" EntityType="HRMSModel.Country" />
+    <EntitySet Name="Deductions" EntityType="HRMSModel.Deduction" />
+    <EntitySet Name="Departments" EntityType="HRMSModel.Department" />
+    <EntitySet Name="Designations" EntityType="HRMSModel.Designation" />
+    <EntitySet Name="EmployeeCosts" EntityType="HRMSModel.EmployeeCost" />
+    <EntitySet Name="EmployeeGroups" EntityType="HRMSModel.EmployeeGroup" />
+    <EntitySet Name="EmployeeTransfers" EntityType="HRMSModel.EmployeeTransfer" />
+    <EntitySet Name="EmployeeVisaDetails" EntityType="HRMSModel.EmployeeVisaDetail" />
+    <EntitySet Name="HrmEmployeeEducations" EntityType="HRMSModel.HrmEmployeeEducation" />
+    <EntitySet Name="HrmEmployeeHealths" EntityType="HRMSModel.HrmEmployeeHealth" />
+    <EntitySet Name="HrmEmployeementHistories" EntityType="HRMSModel.HrmEmployeementHistory" />
+    <EntitySet Name="HrmEmployeeRefrences" EntityType="HRMSModel.HrmEmployeeRefrence" />
+    <EntitySet Name="HrmEmployeeRelations" EntityType="HRMSModel.HrmEmployeeRelation" />
+    <EntitySet Name="HrmEmployees" EntityType="HRMSModel.HrmEmployee" />
+    <EntitySet Name="HrmInternalRequisitions" EntityType="HRMSModel.HrmInternalRequisition" />
+    <EntitySet Name="HrmInterviewDetails" EntityType="HRMSModel.HrmInterviewDetail" />
+    <EntitySet Name="HrmInterviews" EntityType="HRMSModel.HrmInterview" />
+    <EntitySet Name="HrmJobPosts" EntityType="HRMSModel.HrmJobPost" />
+    <EntitySet Name="HrmJobTypes" EntityType="HRMSModel.HrmJobType" />
+    <EntitySet Name="HrmSkills" EntityType="HRMSModel.HrmSkill" />
+    <EntitySet Name="InterviewAssessments" EntityType="HRMSModel.InterviewAssessment" />
+    <EntitySet Name="JobRequisitions" EntityType="HRMSModel.JobRequisition" />
+    <EntitySet Name="Jobs" EntityType="HRMSModel.Job" />
+    <EntitySet Name="KeyObjectives" EntityType="HRMSModel.KeyObjective" />
+    <EntitySet Name="KeyResults" EntityType="HRMSModel.KeyResult" />
+    <EntitySet Name="LeavePolicies" EntityType="HRMSModel.LeavePolicy" />
+    <EntitySet Name="LeaveRequests" EntityType="HRMSModel.LeaveRequest" />
+    <EntitySet Name="LoanSanctions" EntityType="HRMSModel.LoanSanction" />
+    <EntitySet Name="LoanTypes" EntityType="HRMSModel.LoanType" />
+    <EntitySet Name="ManagerKeyResults" EntityType="HRMSModel.ManagerKeyResult" />
+    <EntitySet Name="OfferLetters" EntityType="HRMSModel.OfferLetter" />
+    <EntitySet Name="Organizations" EntityType="HRMSModel.Organization" />
+    <EntitySet Name="OverTimeSetups" EntityType="HRMSModel.OverTimeSetup" />
+    <EntitySet Name="PayRollCutOffs" EntityType="HRMSModel.PayRollCutOff" />
+    <EntitySet Name="QuartzTableDatas" EntityType="HRMSModel.QuartzTableData" />
+    <EntitySet Name="Regions" EntityType="HRMSModel.Region" />
+    <EntitySet Name="SalarySetups" EntityType="HRMSModel.SalarySetup" />
+    <EntitySet Name="ShiftMasters" EntityType="HRMSModel.ShiftMaster" />
+    <EntitySet Name="SpecialAllowances" EntityType="HRMSModel.SpecialAllowance" />
+    <EntitySet Name="States" EntityType="HRMSModel.State" />
+    <EntitySet Name="Terminations" EntityType="HRMSModel.Termination" />
+    <EntitySet Name="TradeLicenses" EntityType="HRMSModel.TradeLicens" />
+    <EntitySet Name="Users" EntityType="HRMSModel.User" />
+    <EntitySet Name="UserTypes" EntityType="HRMSModel.UserType" />
+    <EntitySet Name="Allowances" EntityType="HRMSModel.Allowance" />
+    <EntitySet Name="AllowancesDeductions" EntityType="HRMSModel.AllowancesDeduction" />
+    <EntitySet Name="AllowanceTypes" EntityType="HRMSModel.AllowanceType" />
+    <EntitySet Name="HrmAttendances" EntityType="HRMSModel.HrmAttendance" />
+    <EntitySet Name="LeaveTypes" EntityType="HRMSModel.LeaveType" />
+    <EntitySet Name="PublicHolidays" EntityType="HRMSModel.PublicHoliday" />
+    <EntitySet Name="tbl_EmployeeAttendanceCalculations" EntityType="HRMSModel.tbl_EmployeeAttendanceCalculations" />
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRole" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="HRMSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRole" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CityId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CityId">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Countries_dbo_Regions_RegionId" Association="HRMSModel.FK_dbo_Countries_dbo_Regions_RegionId">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_Country_Id" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_Country_Id">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Departments_dbo_Departments_ParentDepartmentId" Association="HRMSModel.FK_dbo_Departments_dbo_Departments_ParentDepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Department1" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" Association="HRMSModel.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Designations_DesignationId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_Designations_DesignationId">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" Association="HRMSModel.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmEmployee1" EntitySet="HrmEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" Association="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" Association="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmInterviewDetail" EntitySet="HrmInterviewDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" Association="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmInterview" EntitySet="HrmInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyResults_KeyResults" Association="HRMSModel.FK_KeyResults_KeyResults">
+      <End Role="HrmEmployee" EntitySet="HrmEmployees" />
+      <End Role="KeyResult" EntitySet="KeyResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId">
+      <End Role="HrmInternalRequisition" EntitySet="HrmInternalRequisitions" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" Association="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId">
+      <End Role="HrmInterview" EntitySet="HrmInterviews" />
+      <End Role="HrmInterviewDetail" EntitySet="HrmInterviewDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" Association="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId">
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+      <End Role="HrmInterview" EntitySet="HrmInterviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id">
+      <End Role="HrmJobType" EntitySet="HrmJobTypes" />
+      <End Role="HrmJobPost" EntitySet="HrmJobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyObjectives_KeyObjectives" Association="HRMSModel.FK_KeyObjectives_KeyObjectives">
+      <End Role="KeyObjective" EntitySet="KeyObjectives" />
+      <End Role="KeyObjective1" EntitySet="KeyObjectives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KeyResults_KeyObjectives" Association="HRMSModel.FK_KeyResults_KeyObjectives">
+      <End Role="KeyObjective" EntitySet="KeyObjectives" />
+      <End Role="KeyResult" EntitySet="KeyResults" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="AdvanceSalary">
     <Key>
       <PropertyRef Name="Id" />
@@ -96,16 +313,16 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="RoleCategoryId" Type="Int32" />
     <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="AspNetUserRoles" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="AspNetRoles" ToRole="HrmEmployees" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetRole" ToRole="AspNetUserRole" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="AspNetRole" ToRole="HrmEmployee" />
   </EntityType>
   <EntityType Name="AspNetUserLogin">
     <Key>
@@ -113,27 +330,27 @@
       <PropertyRef Name="ProviderKey" />
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="HRMSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="AspNetUserRole">
     <Key>
       <PropertyRef Name="UserId" />
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRoles" ToRole="AspNetRoles" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRoles" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetRole" Relationship="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" FromRole="AspNetUserRole" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetUser" Relationship="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUserRole" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="AspNetUser">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
@@ -158,10 +375,10 @@
     <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
     <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-    <NavigationProperty Name="AspNetUserRoles" Relationship="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserRoles" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="AspNetUsers" ToRole="HrmEmployees" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="HRMSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetUserRoles" Relationship="HRMSModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserRole" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="AspNetUser" ToRole="HrmEmployee" />
   </EntityType>
   <EntityType Name="Attendance">
     <Key>
@@ -185,6 +402,8 @@
     <Property Name="CreatedBy" Type="Int64" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="IsPublicHoliday" Type="Boolean" />
+    <Property Name="Department" Type="Int64" />
   </EntityType>
   <EntityType Name="BonusSetup">
     <Key>
@@ -214,8 +433,8 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="Cities" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="Cities" ToRole="HrmEmployees" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="City" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="City" ToRole="HrmEmployee" />
   </EntityType>
   <EntityType Name="CostingTab">
     <Key>
@@ -247,11 +466,11 @@
     <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CountryCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CountryPhoneCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Region" Relationship="Self.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Countries" ToRole="Regions" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="Countries" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="Countries" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees2" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="Countries" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees3" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="Countries" ToRole="HrmEmployees" />
+    <NavigationProperty Name="Region" Relationship="HRMSModel.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Country" ToRole="Region" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="Country" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="Country" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees2" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="Country" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees3" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="Country" ToRole="HrmEmployee" />
   </EntityType>
   <EntityType Name="Deduction">
     <Key>
@@ -287,16 +506,16 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="Departments1" Relationship="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Departments" ToRole="Departments1" />
-    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Departments1" ToRole="Departments" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="Departments" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="Departments" ToRole="HrmJobPosts" />
-    <NavigationProperty Name="HrmJobPosts1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="Departments" ToRole="HrmJobPosts" />
-    <NavigationProperty Name="HrmJobPosts2" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="Departments" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="Departments1" Relationship="HRMSModel.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Department" ToRole="Department1" />
+    <NavigationProperty Name="Department1" Relationship="HRMSModel.FK_dbo_Departments_dbo_Departments_ParentDepartmentId" FromRole="Department1" ToRole="Department" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="Department" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="Department" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="Department" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="Department" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="Department" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="Department" ToRole="HrmJobPost" />
+    <NavigationProperty Name="HrmJobPosts1" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="Department" ToRole="HrmJobPost" />
+    <NavigationProperty Name="HrmJobPosts2" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="Department" ToRole="HrmJobPost" />
   </EntityType>
   <EntityType Name="Designation">
     <Key>
@@ -313,10 +532,10 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="HrmEmployees" Relationship="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="Designations" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="Designations" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="HrmEmployees" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="Designation" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="Designation" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="Designation" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="Designation" ToRole="HrmJobPost" />
   </EntityType>
   <EntityType Name="EmployeeCost">
     <Key>
@@ -567,26 +786,26 @@
     <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PassportExpiryDate" Type="DateTime" Precision="3" />
     <Property Name="ShiftId" Type="Int64" />
-    <NavigationProperty Name="AspNetRole" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="HrmEmployees" ToRole="AspNetRoles" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="HrmEmployees" ToRole="AspNetUsers" />
-    <NavigationProperty Name="City" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="HrmEmployees" ToRole="Cities" />
-    <NavigationProperty Name="City1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="HrmEmployees" ToRole="Cities" />
-    <NavigationProperty Name="Country" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="HrmEmployees" ToRole="Countries" />
-    <NavigationProperty Name="Country1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="HrmEmployees" ToRole="Countries" />
-    <NavigationProperty Name="Country2" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="HrmEmployees" ToRole="Countries" />
-    <NavigationProperty Name="Country3" Relationship="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="HrmEmployees" ToRole="Countries" />
-    <NavigationProperty Name="Departments" Relationship="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="HrmEmployees" ToRole="Departments" />
-    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="HrmEmployees" ToRole="Departments" />
-    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="HrmEmployees" ToRole="Departments" />
-    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="HrmEmployees" ToRole="Designations" />
-    <NavigationProperty Name="HrmEmployees1" Relationship="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployees" ToRole="HrmEmployees1" />
-    <NavigationProperty Name="HrmEmployee1" Relationship="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployees1" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInternalRequisitions" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmEmployees" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmInterviewDetails" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmInterviewDetails" />
-    <NavigationProperty Name="HrmInterviews" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmEmployees" ToRole="HrmInterviews" />
-    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployees" ToRole="HrmJobPosts" />
-    <NavigationProperty Name="KeyResults" Relationship="Self.FK_KeyResults_KeyResults" FromRole="HrmEmployees" ToRole="KeyResults" />
+    <NavigationProperty Name="AspNetRole" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" FromRole="HrmEmployee" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetUser" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" FromRole="HrmEmployee" ToRole="AspNetUser" />
+    <NavigationProperty Name="City" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CityId" FromRole="HrmEmployee" ToRole="City" />
+    <NavigationProperty Name="City1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" FromRole="HrmEmployee" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_Country_Id" FromRole="HrmEmployee" ToRole="Country" />
+    <NavigationProperty Name="Country1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" FromRole="HrmEmployee" ToRole="Country" />
+    <NavigationProperty Name="Country2" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" FromRole="HrmEmployee" ToRole="Country" />
+    <NavigationProperty Name="Country3" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" FromRole="HrmEmployee" ToRole="Country" />
+    <NavigationProperty Name="Departments" Relationship="HRMSModel.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" FromRole="HrmEmployee" ToRole="Department" />
+    <NavigationProperty Name="Department" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" FromRole="HrmEmployee" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" FromRole="HrmEmployee" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_Designations_DesignationId" FromRole="HrmEmployee" ToRole="Designation" />
+    <NavigationProperty Name="HrmEmployees1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployee" ToRole="HrmEmployee1" />
+    <NavigationProperty Name="HrmEmployee1" Relationship="HRMSModel.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" FromRole="HrmEmployee1" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInternalRequisitions" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployee" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmInternalRequisitions1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmEmployee" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmInterviewDetails" Relationship="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployee" ToRole="HrmInterviewDetail" />
+    <NavigationProperty Name="HrmInterviews" Relationship="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmEmployee" ToRole="HrmInterview" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmEmployee" ToRole="HrmJobPost" />
+    <NavigationProperty Name="KeyResults" Relationship="HRMSModel.FK_KeyResults_KeyResults" FromRole="HrmEmployee" ToRole="KeyResult" />
   </EntityType>
   <EntityType Name="HrmInternalRequisition">
     <Key>
@@ -617,13 +836,13 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="HrmInternalRequisitions" ToRole="Departments" />
-    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="HrmInternalRequisitions" ToRole="Departments" />
-    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="HrmInternalRequisitions" ToRole="Designations" />
-    <NavigationProperty Name="Designation1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="HrmInternalRequisitions" ToRole="Designations" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInternalRequisitions" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmEmployee1" Relationship="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmInternalRequisitions" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmInternalRequisitions" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="Department" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" FromRole="HrmInternalRequisition" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" FromRole="HrmInternalRequisition" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" FromRole="HrmInternalRequisition" ToRole="Designation" />
+    <NavigationProperty Name="Designation1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" FromRole="HrmInternalRequisition" ToRole="Designation" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInternalRequisition" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmEmployee1" Relationship="HRMSModel.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" FromRole="HrmInternalRequisition" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmInternalRequisition" ToRole="HrmJobPost" />
   </EntityType>
   <EntityType Name="HrmInterviewDetail">
     <Key>
@@ -644,8 +863,8 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInterviewDetails" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInterview" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterviewDetails" ToRole="HrmInterviews" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmInterviewDetail" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInterview" Relationship="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterviewDetail" ToRole="HrmInterview" />
   </EntityType>
   <EntityType Name="HrmInterview">
     <Key>
@@ -663,9 +882,9 @@
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
     <Property Name="HrmEmployee_Id" Type="Int32" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmInterviews" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInterviewDetails" Relationship="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterviews" ToRole="HrmInterviewDetails" />
-    <NavigationProperty Name="HrmJobPost" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmInterviews" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" FromRole="HrmInterview" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInterviewDetails" Relationship="HRMSModel.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" FromRole="HrmInterview" ToRole="HrmInterviewDetail" />
+    <NavigationProperty Name="HrmJobPost" Relationship="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmInterview" ToRole="HrmJobPost" />
   </EntityType>
   <EntityType Name="HrmJobPost">
     <Key>
@@ -701,14 +920,14 @@
     <Property Name="IsDeleted" Type="Boolean" />
     <Property Name="Department_Id" Type="Int32" />
     <Property Name="HrmJobType_Id" Type="Int32" />
-    <NavigationProperty Name="Department" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="HrmJobPosts" ToRole="Departments" />
-    <NavigationProperty Name="Department1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="HrmJobPosts" ToRole="Departments" />
-    <NavigationProperty Name="Department2" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="HrmJobPosts" ToRole="Departments" />
-    <NavigationProperty Name="Designation" Relationship="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="HrmJobPosts" ToRole="Designations" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmJobPosts" ToRole="HrmEmployees" />
-    <NavigationProperty Name="HrmInternalRequisition" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmJobPosts" ToRole="HrmInternalRequisitions" />
-    <NavigationProperty Name="HrmInterviews" Relationship="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmJobPosts" ToRole="HrmInterviews" />
-    <NavigationProperty Name="HrmJobType1" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobPosts" ToRole="HrmJobTypes" />
+    <NavigationProperty Name="Department" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" FromRole="HrmJobPost" ToRole="Department" />
+    <NavigationProperty Name="Department1" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" FromRole="HrmJobPost" ToRole="Department" />
+    <NavigationProperty Name="Department2" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" FromRole="HrmJobPost" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" FromRole="HrmJobPost" ToRole="Designation" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" FromRole="HrmJobPost" ToRole="HrmEmployee" />
+    <NavigationProperty Name="HrmInternalRequisition" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" FromRole="HrmJobPost" ToRole="HrmInternalRequisition" />
+    <NavigationProperty Name="HrmInterviews" Relationship="HRMSModel.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" FromRole="HrmJobPost" ToRole="HrmInterview" />
+    <NavigationProperty Name="HrmJobType1" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobPost" ToRole="HrmJobType" />
   </EntityType>
   <EntityType Name="HrmJobType">
     <Key>
@@ -723,7 +942,7 @@
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
     <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="HrmJobPosts" Relationship="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobTypes" ToRole="HrmJobPosts" />
+    <NavigationProperty Name="HrmJobPosts" Relationship="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" FromRole="HrmJobType" ToRole="HrmJobPost" />
   </EntityType>
   <EntityType Name="HrmSkill">
     <Key>
@@ -835,9 +1054,9 @@
     <Property Name="LastModifiedBy" Type="Int64" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Boolean" />
-    <NavigationProperty Name="KeyObjectives1" Relationship="Self.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjectives" ToRole="KeyObjectives1" />
-    <NavigationProperty Name="KeyObjective1" Relationship="Self.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjectives1" ToRole="KeyObjectives" />
-    <NavigationProperty Name="KeyResults" Relationship="Self.FK_KeyResults_KeyObjectives" FromRole="KeyObjectives" ToRole="KeyResults" />
+    <NavigationProperty Name="KeyObjectives1" Relationship="HRMSModel.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjective" ToRole="KeyObjective1" />
+    <NavigationProperty Name="KeyObjective1" Relationship="HRMSModel.FK_KeyObjectives_KeyObjectives" FromRole="KeyObjective1" ToRole="KeyObjective" />
+    <NavigationProperty Name="KeyResults" Relationship="HRMSModel.FK_KeyResults_KeyObjectives" FromRole="KeyObjective" ToRole="KeyResult" />
   </EntityType>
   <EntityType Name="KeyResult">
     <Key>
@@ -862,8 +1081,8 @@
     <Property Name="LastModifiedBy" Type="Int64" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Boolean" />
-    <NavigationProperty Name="HrmEmployee" Relationship="Self.FK_KeyResults_KeyResults" FromRole="KeyResults" ToRole="HrmEmployees" />
-    <NavigationProperty Name="KeyObjective" Relationship="Self.FK_KeyResults_KeyObjectives" FromRole="KeyResults" ToRole="KeyObjectives" />
+    <NavigationProperty Name="HrmEmployee" Relationship="HRMSModel.FK_KeyResults_KeyResults" FromRole="KeyResult" ToRole="HrmEmployee" />
+    <NavigationProperty Name="KeyObjective" Relationship="HRMSModel.FK_KeyResults_KeyObjectives" FromRole="KeyResult" ToRole="KeyObjective" />
   </EntityType>
   <EntityType Name="LeavePolicy">
     <Key>
@@ -930,6 +1149,27 @@
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
   </EntityType>
+  <EntityType Name="ManagerKeyResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="Int64" />
+    <Property Name="DateOfJoining" Type="DateTime" Precision="3" />
+    <Property Name="GrossSalary" Type="Int64" />
+    <Property Name="FitForPromotion" Type="Boolean" />
+    <Property Name="FitInCurrentPossition" Type="Boolean" />
+    <Property Name="NotFitForPromotionButLikelyToBecome" Type="Boolean" />
+    <Property Name="UnfitForPromotionHasReachedHisCeiling" Type="Boolean" />
+    <Property Name="EligibleForBonus" Type="Boolean" />
+    <Property Name="EligibleForIncrementPercentage" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int64" />
+    <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
   <EntityType Name="OfferLetter">
     <Key>
       <PropertyRef Name="PK_OfferLetterId" />
@@ -985,6 +1225,14 @@
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
   </EntityType>
+  <EntityType Name="QuartzTableData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+  </EntityType>
   <EntityType Name="Region">
     <Key>
       <PropertyRef Name="Id" />
@@ -998,7 +1246,7 @@
     <Property Name="LastModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" />
-    <NavigationProperty Name="Countries" Relationship="Self.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Regions" ToRole="Countries" />
+    <NavigationProperty Name="Countries" Relationship="HRMSModel.FK_dbo_Countries_dbo_Regions_RegionId" FromRole="Region" ToRole="Country" />
   </EntityType>
   <EntityType Name="SalarySetup">
     <Key>
@@ -1250,674 +1498,459 @@
     <Property Name="PublicHolidaysOTHours" Type="Int32" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <End Type="HRMSModel.AspNetRole" Role="AspNetRole" Multiplicity="1" />
+    <End Type="HRMSModel.AspNetUserRole" Role="AspNetUserRole" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
+      <Principal Role="AspNetRole">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="AspNetUserRoles">
+      <Dependent Role="AspNetUserRole">
         <PropertyRef Name="RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation">
-    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.AspNetRole" Role="AspNetRole" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetRoles">
+      <Principal Role="AspNetRole">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="SoftRoleinformation" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <End Type="HRMSModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HRMSModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
+      <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="AspNetUserLogins">
+      <Dependent Role="AspNetUserLogin">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="Self.AspNetUserRole" Multiplicity="*" />
+    <End Type="HRMSModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="HRMSModel.AspNetUserRole" Role="AspNetUserRole" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
+      <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="AspNetUserRoles">
+      <Dependent Role="AspNetUserRole">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
+      <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="ApplicationUserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Cities_CityId">
-    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cities">
+      <Principal Role="City">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="CityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId">
-    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cities">
+      <Principal Role="City">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="CurrentCityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Countries_dbo_Regions_RegionId">
-    <End Role="Regions" Type="Self.Region" Multiplicity="0..1" />
-    <End Role="Countries" Type="Self.Country" Multiplicity="*" />
+    <End Type="HRMSModel.Region" Role="Region" Multiplicity="0..1" />
+    <End Type="HRMSModel.Country" Role="Country" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Regions">
+      <Principal Role="Region">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Countries">
+      <Dependent Role="Country">
         <PropertyRef Name="RegionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Countries_Country_Id">
-    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Countries">
+      <Principal Role="Country">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="Country_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId">
-    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Countries">
+      <Principal Role="Country">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="CurrentCountryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId">
-    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Countries">
+      <Principal Role="Country">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="LivingCountryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId">
-    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Countries">
+      <Principal Role="Country">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="NationalCountryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Departments_dbo_Departments_ParentDepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="Departments1" Type="Self.Department" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.Department" Role="Department1" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Departments1">
+      <Dependent Role="Department1">
         <PropertyRef Name="ParentDepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="Departments" Type="Self.Department" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Departments">
+      <Dependent Role="Department">
         <PropertyRef Name="HrmDepartmentHeadId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Departments_DepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="SubDepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="SubDepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_Department_Id">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="Department_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId">
-    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Departments">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="SubDepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_Designations_DesignationId">
-    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Designations">
+      <Principal Role="Designation">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees">
+      <Dependent Role="HrmEmployee">
         <PropertyRef Name="DesignationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId">
-    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Designations">
+      <Principal Role="Designation">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="DesignationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId">
-    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Designations">
+      <Principal Role="Designation">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="ReplacePositionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_Designations_DesignationId">
-    <End Role="Designations" Type="Self.Designation" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Designations">
+      <Principal Role="Designation">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="DesignationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmEmployees1" Type="Self.HrmEmployee" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee1" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmEmployees1">
+      <Dependent Role="HrmEmployee1">
         <PropertyRef Name="ReportToId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="RequestedBy" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInternalRequisitions">
+      <Dependent Role="HrmInternalRequisition">
         <PropertyRef Name="RepalceToId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmInterviewDetails" Type="Self.HrmInterviewDetail" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInterviewDetail" Role="HrmInterviewDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInterviewDetails">
+      <Dependent Role="HrmInterviewDetail">
         <PropertyRef Name="HrmEmployeeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInterview" Role="HrmInterview" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInterviews">
+      <Dependent Role="HrmInterview">
         <PropertyRef Name="HrmEmployee_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="Req" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_KeyResults_KeyResults">
-    <End Role="HrmEmployees" Type="Self.HrmEmployee" Multiplicity="0..1" />
-    <End Role="KeyResults" Type="Self.KeyResult" Multiplicity="*" />
+    <End Type="HRMSModel.HrmEmployee" Role="HrmEmployee" Multiplicity="0..1" />
+    <End Type="HRMSModel.KeyResult" Role="KeyResult" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmEmployees">
+      <Principal Role="HrmEmployee">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="KeyResults">
+      <Dependent Role="KeyResult">
         <PropertyRef Name="AssignedTo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId">
-    <End Role="HrmInternalRequisitions" Type="Self.HrmInternalRequisition" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.HrmInternalRequisition" Role="HrmInternalRequisition" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmInternalRequisitions">
+      <Principal Role="HrmInternalRequisition">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="HrmInternalRequisitionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId">
-    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="0..1" />
-    <End Role="HrmInterviewDetails" Type="Self.HrmInterviewDetail" Multiplicity="*" />
+    <End Type="HRMSModel.HrmInterview" Role="HrmInterview" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInterviewDetail" Role="HrmInterviewDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmInterviews">
+      <Principal Role="HrmInterview">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInterviewDetails">
+      <Dependent Role="HrmInterviewDetail">
         <PropertyRef Name="HrmInterviewId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId">
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="0..1" />
-    <End Role="HrmInterviews" Type="Self.HrmInterview" Multiplicity="*" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmInterview" Role="HrmInterview" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmJobPosts">
+      <Principal Role="HrmJobPost">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmInterviews">
+      <Dependent Role="HrmInterview">
         <PropertyRef Name="HrmJobPostId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id">
-    <End Role="HrmJobTypes" Type="Self.HrmJobType" Multiplicity="0..1" />
-    <End Role="HrmJobPosts" Type="Self.HrmJobPost" Multiplicity="*" />
+    <End Type="HRMSModel.HrmJobType" Role="HrmJobType" Multiplicity="0..1" />
+    <End Type="HRMSModel.HrmJobPost" Role="HrmJobPost" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HrmJobTypes">
+      <Principal Role="HrmJobType">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="HrmJobPosts">
+      <Dependent Role="HrmJobPost">
         <PropertyRef Name="HrmJobType_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_KeyObjectives_KeyObjectives">
-    <End Role="KeyObjectives" Type="Self.KeyObjective" Multiplicity="1" />
-    <End Role="KeyObjectives1" Type="Self.KeyObjective" Multiplicity="0..1" />
+    <End Type="HRMSModel.KeyObjective" Role="KeyObjective" Multiplicity="1" />
+    <End Type="HRMSModel.KeyObjective" Role="KeyObjective1" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="KeyObjectives">
+      <Principal Role="KeyObjective">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="KeyObjectives1">
+      <Dependent Role="KeyObjective1">
         <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_KeyResults_KeyObjectives">
-    <End Role="KeyObjectives" Type="Self.KeyObjective" Multiplicity="0..1" />
-    <End Role="KeyResults" Type="Self.KeyResult" Multiplicity="*" />
+    <End Type="HRMSModel.KeyObjective" Role="KeyObjective" Multiplicity="0..1" />
+    <End Type="HRMSModel.KeyResult" Role="KeyResult" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="KeyObjectives">
+      <Principal Role="KeyObjective">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="KeyResults">
+      <Dependent Role="KeyResult">
         <PropertyRef Name="KeyObjectiveId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AdvanceSalarys" EntityType="Self.AdvanceSalary" />
-    <EntitySet Name="Applieds" EntityType="Self.Applied" />
-    <EntitySet Name="ApplyCandidates" EntityType="Self.ApplyCandidate" />
-    <EntitySet Name="Arrears" EntityType="Self.Arrear" />
-    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
-    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
-    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
-    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
-    <EntitySet Name="BonusSetups" EntityType="Self.BonusSetup" />
-    <EntitySet Name="Cities" EntityType="Self.City" />
-    <EntitySet Name="CostingTabs" EntityType="Self.CostingTab" />
-    <EntitySet Name="Countries" EntityType="Self.Country" />
-    <EntitySet Name="Deductions" EntityType="Self.Deduction" />
-    <EntitySet Name="Departments" EntityType="Self.Department" />
-    <EntitySet Name="Designations" EntityType="Self.Designation" />
-    <EntitySet Name="EmployeeCosts" EntityType="Self.EmployeeCost" />
-    <EntitySet Name="EmployeeGroups" EntityType="Self.EmployeeGroup" />
-    <EntitySet Name="EmployeeTransfers" EntityType="Self.EmployeeTransfer" />
-    <EntitySet Name="EmployeeVisaDetails" EntityType="Self.EmployeeVisaDetail" />
-    <EntitySet Name="HrmEmployeeEducations" EntityType="Self.HrmEmployeeEducation" />
-    <EntitySet Name="HrmEmployeeHealths" EntityType="Self.HrmEmployeeHealth" />
-    <EntitySet Name="HrmEmployeementHistories" EntityType="Self.HrmEmployeementHistory" />
-    <EntitySet Name="HrmEmployeeRefrences" EntityType="Self.HrmEmployeeRefrence" />
-    <EntitySet Name="HrmEmployeeRelations" EntityType="Self.HrmEmployeeRelation" />
-    <EntitySet Name="HrmEmployees" EntityType="Self.HrmEmployee" />
-    <EntitySet Name="HrmInternalRequisitions" EntityType="Self.HrmInternalRequisition" />
-    <EntitySet Name="HrmInterviewDetails" EntityType="Self.HrmInterviewDetail" />
-    <EntitySet Name="HrmInterviews" EntityType="Self.HrmInterview" />
-    <EntitySet Name="HrmJobPosts" EntityType="Self.HrmJobPost" />
-    <EntitySet Name="HrmJobTypes" EntityType="Self.HrmJobType" />
-    <EntitySet Name="HrmSkills" EntityType="Self.HrmSkill" />
-    <EntitySet Name="InterviewAssessments" EntityType="Self.InterviewAssessment" />
-    <EntitySet Name="JobRequisitions" EntityType="Self.JobRequisition" />
-    <EntitySet Name="Jobs" EntityType="Self.Job" />
-    <EntitySet Name="KeyObjectives" EntityType="Self.KeyObjective" />
-    <EntitySet Name="KeyResults" EntityType="Self.KeyResult" />
-    <EntitySet Name="LeavePolicies" EntityType="Self.LeavePolicy" />
-    <EntitySet Name="LeaveRequests" EntityType="Self.LeaveRequest" />
-    <EntitySet Name="LoanSanctions" EntityType="Self.LoanSanction" />
-    <EntitySet Name="LoanTypes" EntityType="Self.LoanType" />
-    <EntitySet Name="OfferLetters" EntityType="Self.OfferLetter" />
-    <EntitySet Name="Organizations" EntityType="Self.Organization" />
-    <EntitySet Name="OverTimeSetups" EntityType="Self.OverTimeSetup" />
-    <EntitySet Name="PayRollCutOffs" EntityType="Self.PayRollCutOff" />
-    <EntitySet Name="Regions" EntityType="Self.Region" />
-    <EntitySet Name="SalarySetups" EntityType="Self.SalarySetup" />
-    <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMaster" />
-    <EntitySet Name="SpecialAllowances" EntityType="Self.SpecialAllowance" />
-    <EntitySet Name="States" EntityType="Self.State" />
-    <EntitySet Name="Terminations" EntityType="Self.Termination" />
-    <EntitySet Name="TradeLicenses" EntityType="Self.TradeLicens" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-    <EntitySet Name="Allowances" EntityType="Self.Allowance" />
-    <EntitySet Name="AllowancesDeductions" EntityType="Self.AllowancesDeduction" />
-    <EntitySet Name="AllowanceTypes" EntityType="Self.AllowanceType" />
-    <EntitySet Name="HrmAttendances" EntityType="Self.HrmAttendance" />
-    <EntitySet Name="LeaveTypes" EntityType="Self.LeaveType" />
-    <EntitySet Name="PublicHolidays" EntityType="Self.PublicHoliday" />
-    <EntitySet Name="tbl_EmployeeAttendanceCalculations" EntityType="Self.tbl_EmployeeAttendanceCalculations" />
-    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation" Association="Self.FK_dbo_HrmEmployees_dbo_AspNetRoles_SoftRoleinformation">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId" Association="Self.FK_dbo_HrmEmployees_dbo_AspNetUsers_ApplicationUserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CityId" Association="Self.FK_dbo_HrmEmployees_dbo_Cities_CityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId" Association="Self.FK_dbo_HrmEmployees_dbo_Cities_CurrentCityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Countries_dbo_Regions_RegionId" Association="Self.FK_dbo_Countries_dbo_Regions_RegionId">
-      <End Role="Regions" EntitySet="Regions" />
-      <End Role="Countries" EntitySet="Countries" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_Country_Id" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_Country_Id">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_CurrentCountryId">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_LivingCountryId">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId" Association="Self.FK_dbo_HrmEmployees_dbo_Countries_NationalCountryId">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Departments_dbo_Departments_ParentDepartmentId" Association="Self.FK_dbo_Departments_dbo_Departments_ParentDepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="Departments1" EntitySet="Departments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId" Association="Self.FK_dbo_Departments_dbo_HrmEmployees_HrmDepartmentHeadId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="Departments" EntitySet="Departments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmEmployees_dbo_Departments_DepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmEmployees_dbo_Departments_SubDepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_DepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Departments_SubDepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_Department_Id" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_Department_Id">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_DepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId" Association="Self.FK_dbo_HrmJobPosts_dbo_Departments_SubDepartmentId">
-      <End Role="Departments" EntitySet="Departments" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmEmployees_dbo_Designations_DesignationId">
-      <End Role="Designations" EntitySet="Designations" />
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_DesignationId">
-      <End Role="Designations" EntitySet="Designations" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_Designations_ReplacePositionId">
-      <End Role="Designations" EntitySet="Designations" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_Designations_DesignationId" Association="Self.FK_dbo_HrmJobPosts_dbo_Designations_DesignationId">
-      <End Role="Designations" EntitySet="Designations" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId" Association="Self.FK_dbo_HrmEmployees_dbo_HrmEmployees_ReportToId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmEmployees1" EntitySet="HrmEmployees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_HrmEmployeeId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId" Association="Self.FK_dbo_HrmInternalRequisitions_dbo_HrmEmployees_RepalceToId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmInterviewDetails_dbo_HrmEmployees_HrmEmployeeId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmInterviewDetails" EntitySet="HrmInterviewDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id" Association="Self.FK_dbo_HrmInterviews_dbo_HrmEmployees_HrmEmployee_Id">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmEmployees_HrmEmployeeId">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KeyResults_KeyResults" Association="Self.FK_KeyResults_KeyResults">
-      <End Role="HrmEmployees" EntitySet="HrmEmployees" />
-      <End Role="KeyResults" EntitySet="KeyResults" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmInternalRequisitions_HrmInternalRequisitionId">
-      <End Role="HrmInternalRequisitions" EntitySet="HrmInternalRequisitions" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId" Association="Self.FK_dbo_HrmInterviewDetails_dbo_HrmInterviews_HrmInterviewId">
-      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
-      <End Role="HrmInterviewDetails" EntitySet="HrmInterviewDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId" Association="Self.FK_dbo_HrmInterviews_dbo_HrmJobPosts_HrmJobPostId">
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-      <End Role="HrmInterviews" EntitySet="HrmInterviews" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" Association="Self.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id">
-      <End Role="HrmJobTypes" EntitySet="HrmJobTypes" />
-      <End Role="HrmJobPosts" EntitySet="HrmJobPosts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KeyObjectives_KeyObjectives" Association="Self.FK_KeyObjectives_KeyObjectives">
-      <End Role="KeyObjectives" EntitySet="KeyObjectives" />
-      <End Role="KeyObjectives1" EntitySet="KeyObjectives" />
-    </AssociationSet>
-    <AssociationSet Name="FK_KeyResults_KeyObjectives" Association="Self.FK_KeyResults_KeyObjectives">
-      <End Role="KeyObjectives" EntitySet="KeyObjectives" />
-      <End Role="KeyResults" EntitySet="KeyResults" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>
