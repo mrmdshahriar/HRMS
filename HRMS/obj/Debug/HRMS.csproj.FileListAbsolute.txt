@@ -348,3 +348,4 @@ F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CoreCompil
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.csproj.CopyComplete
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.dll
 F:\Zaru ji HRMS Project in Office-Git\HRMS\HRMS\obj\Debug\HRMS.pdb
+C:\HRMS With Git\HRMS\HRMS\obj\Debug\HRMS.csproj.AssemblyReference.cache
