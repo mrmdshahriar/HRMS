@@ -27,5 +27,7 @@ namespace HRMS.Models
         public long CreatedBy { get; set; }
         public DateTime UpdatedOn { get; set; }
         public long UpdatedBy { get; set; }
+        public bool IsPublicHoliday { get; set; }
+        public long Department { get; set; }
     }
 }
