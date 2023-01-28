@@ -1722,7 +1722,11 @@ namespace HRMS.Controllers
                              from dptg in DepartmentGroup.DefaultIfEmpty()
                              join atdcal in _hrms.tbl_EmployeeAttendanceCalculations on cs.EmployeeId equals atdcal.EmployeeId into EmployeeAttendanceCalculationsGroup
                              from atdcalg in EmployeeAttendanceCalculationsGroup.DefaultIfEmpty()
-
+                             join arrs in _hrms.Arrears on cs.EmployeeId equals arrs.EmployeeId into ArrearsGroup
+                             from arrsg in ArrearsGroup.DefaultIfEmpty()
+                             join bonus in _hrms.BonusSetups on cs.EmployeeId equals bonus.EmployeeId into BonusSetupsGroup
+                             from bonusg in BonusSetupsGroup.DefaultIfEmpty()
+                             where cs.Active == true && alw.IsActive == true && emp.Active == true && dsg?.Active == true && dptg?.Active == true && arrsg?.Active == true && bonusg?.Active == true
                              select new
                              {
                                  Id = cs.Id,
@@ -1739,10 +1743,12 @@ namespace HRMS.Controllers
                                  AllowanceName = alw.Name,
                                  //Amount = alwde.Amount,
                                  SalaryMonth = DateTime.Now.ToString("MMMM"),
-                                 TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcalg.AbsentDays,
-                                 NormalOTHours = atdcalg.NormalOTHours,
-                                 WeekendOTHours = atdcalg.WeekendOTHours,
-                                 PublicHolidaysOTHours = atdcalg.PublicHolidaysOTHours
+                                 TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcalg?.AbsentDays,
+                                 NormalOTHours = atdcalg?.NormalOTHours,
+                                 WeekendOTHours = atdcalg?.WeekendOTHours,
+                                 PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
+                                 ArrearsAmount = arrsg?.Amount,
+                                 BonusAmount = bonusg?.Amount,
 
                              }).ToList();
 
@@ -1766,7 +1772,9 @@ namespace HRMS.Controllers
                     TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault(),
                     NormalOTHours = y.ToList().Select(z => z.NormalOTHours).FirstOrDefault(),
                     WeekendOTHours = y.ToList().Select(z => z.WeekendOTHours).FirstOrDefault(),
-                    PublicHolidaysOTHours = y.ToList().Select(z => z.PublicHolidaysOTHours).FirstOrDefault()
+                    PublicHolidaysOTHours = y.ToList().Select(z => z.PublicHolidaysOTHours).FirstOrDefault(),
+                    ArrearsAmount = y.ToList().Select(z => z.ArrearsAmount).FirstOrDefault(),
+                    BonusAmount = y.ToList().Select(z => z.BonusAmount).FirstOrDefault()
                 }).ToList();
 
                 return Json(data, JsonRequestBehavior.AllowGet);

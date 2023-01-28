@@ -158,6 +158,9 @@
                 <th>Weekend OT Salary</th>
                 <th>Public Holiday OT Hours</th>
                 <th>Public Holiday OT Salary</th>
+                <th>Arrears</th>
+                <th>Bonus</th>
+                <th>Total Salary</th>
             </tr>
         </thead>
         <tbody id="FixedSectionPerMonth">
@@ -658,6 +661,15 @@
                         '</td>' +
                         '<td>' +
                         ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours).toFixed(2) +
+                        '</td>' +      
+                        '<td>' +
+                        obj.ArrearsAmount +
+                        '</td>' +
+                        '<td>' +
+                        obj.BonusAmount +
+                        '</td>' +
+                        '<td>' +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays) + obj.ArrearsAmount + obj.BonusAmount).toFixed(2) +   //+ (Overtime to add)
                         '</td>' +
                         '</tr>';
                 });
@@ -668,6 +680,8 @@
             },
             error: function (data) {
                 debugger;
+
+                alert("Error Occured! Please Review Console Log.");
 
                 console.log(data);
 
