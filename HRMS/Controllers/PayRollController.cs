@@ -1728,8 +1728,8 @@ namespace HRMS.Controllers
                              from dsg in DesignationGroup.DefaultIfEmpty()
                              join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id into DepartmentGroup
                              from dptg in DepartmentGroup.DefaultIfEmpty()
-                             join atd in _hrms.Attendances on cs.EmployeeId equals atd.EmployeeId into AttendancesGroup
-                             from atdg in AttendancesGroup.DefaultIfEmpty()
+                             join atdcal in _hrms.tbl_EmployeeAttendanceCalculations on cs.EmployeeId equals atdcal.EmployeeId into EmployeeAttendanceCalculationsGroup
+                             from atdcalg in EmployeeAttendanceCalculationsGroup.DefaultIfEmpty()
 
                              select new
                              {
@@ -1747,7 +1747,7 @@ namespace HRMS.Controllers
                                  AllowanceName = alw.Name,
                                  //Amount = alwde.Amount,
                                  SalaryMonth = DateTime.Now.ToString("MMMM"),
-                                 //TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdg.
+                                 TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcalg.AbsentDays
                              }).ToList();
 
                 var data = data1.GroupBy(x => x.EmployeeId).Select(y => new
@@ -1767,6 +1767,7 @@ namespace HRMS.Controllers
                     TotalAmount2 = y.ToList().Select(z => z.TotalAmount).Skip(1).FirstOrDefault(),
                     TotalAmount3 = y.ToList().Select(z => z.TotalAmount).Skip(2).FirstOrDefault(),
                     SalaryMonth = y.ToList().Select(z => z.SalaryMonth).FirstOrDefault(),
+                    TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault(),
 
                 }).ToList();
 
