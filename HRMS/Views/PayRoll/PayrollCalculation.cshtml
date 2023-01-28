@@ -60,6 +60,12 @@
                                     <th>Salary Month</th>
                                     <th>Total Payable Days</th>
                                     <th>Monthly Salary</th>
+                                    <th>Normal OT Hours</th>
+                                    <th>Normal OT1 Salary</th>
+                                    <th>Weekend OT</th>
+                                    <th>Weekend OT Salary</th>
+                                    <th>Public Holiday OT Hours</th>
+                                    <th>Public Holiday OT Salary</th>
                                 </tr>
                             </thead>
                             <tbody id="FixedSectionPerMonth">
@@ -514,13 +520,6 @@
 
         }
 
-        //function CalendarDaysInMonth() {
-
-        //    var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
-
-        //    return d.getDate();
-        //}
-
 
         function viewPayroll() {
             debugger;
@@ -579,6 +578,24 @@
                             '</td>' +
                             '<td>' +
                             (((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays).toFixed(2) +
+                            '</td>' +
+                            '<td>' +
+                            obj.NormalOTHours +
+                            '</td>' +
+                            '<td>' +
+                            ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours).toFixed(2) +
+                            '</td>' +
+                            '<td>' +
+                            obj.WeekendOTHours +
+                            '</td>' +
+                            '<td>' +
+                            ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours).toFixed(2) +
+                            '</td>' +
+                            '<td>' +
+                            obj.PublicHolidaysOTHours +
+                            '</td>' +
+                            '<td>' +
+                            ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours).toFixed(2) +
                             '</td>' +
                             '</tr>';
                     });

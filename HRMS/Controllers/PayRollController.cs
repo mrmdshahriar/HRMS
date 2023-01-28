@@ -1739,7 +1739,11 @@ namespace HRMS.Controllers
                                  AllowanceName = alw.Name,
                                  //Amount = alwde.Amount,
                                  SalaryMonth = DateTime.Now.ToString("MMMM"),
-                                 TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcalg.AbsentDays
+                                 TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcalg.AbsentDays,
+                                 NormalOTHours = atdcalg.NormalOTHours,
+                                 WeekendOTHours = atdcalg.WeekendOTHours,
+                                 PublicHolidaysOTHours = atdcalg.PublicHolidaysOTHours
+
                              }).ToList();
 
                 var data = data1.GroupBy(x => x.EmployeeId).Select(y => new
@@ -1759,7 +1763,10 @@ namespace HRMS.Controllers
                     TotalAmount2 = y.ToList().Select(z => z.TotalAmount).Skip(1).FirstOrDefault(),
                     TotalAmount3 = y.ToList().Select(z => z.TotalAmount).Skip(2).FirstOrDefault(),
                     SalaryMonth = y.ToList().Select(z => z.SalaryMonth).FirstOrDefault(),
-                    TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault()
+                    TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault(),
+                    NormalOTHours = y.ToList().Select(z => z.NormalOTHours).FirstOrDefault(),
+                    WeekendOTHours = y.ToList().Select(z => z.WeekendOTHours).FirstOrDefault(),
+                    PublicHolidaysOTHours = y.ToList().Select(z => z.PublicHolidaysOTHours).FirstOrDefault()
                 }).ToList();
 
                 return Json(data, JsonRequestBehavior.AllowGet);
