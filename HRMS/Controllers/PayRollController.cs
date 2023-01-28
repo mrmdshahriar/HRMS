@@ -1713,14 +1713,6 @@ namespace HRMS.Controllers
                 //            }).ToList();
 
 
-
-                var ddd = _hrms.HrmEmployees.ToList();
-
-                
-
-
-
-
                 var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
                              join alw in _hrms.Allowances on cs.AllowanceId equals alw.Id.ToString()
                              join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
@@ -1767,8 +1759,7 @@ namespace HRMS.Controllers
                     TotalAmount2 = y.ToList().Select(z => z.TotalAmount).Skip(1).FirstOrDefault(),
                     TotalAmount3 = y.ToList().Select(z => z.TotalAmount).Skip(2).FirstOrDefault(),
                     SalaryMonth = y.ToList().Select(z => z.SalaryMonth).FirstOrDefault(),
-                    TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault(),
-
+                    TotalPayableDays = y.ToList().Select(z => z.TotalPayableDays).FirstOrDefault()
                 }).ToList();
 
                 return Json(data, JsonRequestBehavior.AllowGet);
@@ -1779,6 +1770,7 @@ namespace HRMS.Controllers
             }
         }
 
+
         #endregion Payroll Calculation
-        }
+    }
 }

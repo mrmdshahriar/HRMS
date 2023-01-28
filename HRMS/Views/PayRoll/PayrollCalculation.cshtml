@@ -59,6 +59,7 @@
                                     <th>Total Salary</th>
                                     <th>Salary Month</th>
                                     <th>Total Payable Days</th>
+                                    <th>Monthly Salary</th>
                                 </tr>
                             </thead>
                             <tbody id="FixedSectionPerMonth">
@@ -160,6 +161,7 @@
                                                     <th>Total Salary</th>
                                                     <th>Salary Month</th>
                                                     <th>Total Payable Days</th>
+                                                    <th>Monthly Salary</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="FixedSectionPerMonthModal">
@@ -512,9 +514,20 @@
 
         }
 
+        //function CalendarDaysInMonth() {
+
+        //    var d = new Date(this.getFullYear(), this.getMonth() + 1, 0);
+
+        //    return d.getDate();
+        //}
+
 
         function viewPayroll() {
             debugger;
+
+            var currentDate = new Date();
+
+            var CalendarDaysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
 
             var str = '';
 
@@ -564,6 +577,9 @@
                             '<td>' +
                             obj.TotalPayableDays +
                             '</td>' +
+                            '<td>' +
+                            (((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays).toFixed(2) +
+                            '</td>' +
                             '</tr>';
                     });
 
@@ -576,6 +592,7 @@
                 }
             });
         }
+
 
         function DeductionsAndTaxCalculations() {
             debugger;
