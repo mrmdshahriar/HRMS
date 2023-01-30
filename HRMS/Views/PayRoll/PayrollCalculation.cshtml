@@ -136,7 +136,7 @@
         <thead>
             <tr>
                 <th colspan="12" style="background-color:lightgreen;text-align:center;">Fixed Section Per Month</th>
-                <th colspan="7" style="background-color:lightpink;text-align:center;">Total Salary</th>
+                <th colspan="10" style="background-color:lightpink;text-align:center;">Total Salary</th>
             </tr>
             <tr style="background-color:lightskyblue;text-align:center;">
                 <th style="width:90px;">Emp ID</th>
@@ -594,6 +594,27 @@
             success: function (data) {
                 debugger;
 
+                var overTimeSetupsList = data.OverTimeSetupsList;
+
+                //var NormalOTHourRate = overTimeSetupsList.filter(x => x.Id == 1)[0].OverTimeRate;
+
+                //var WeekendOTHourRate = overTimeSetupsList.filter(x => x.Id == 2)[0].OverTimeRate;
+
+                //var PublicHolidayOTHourRate = overTimeSetupsList.filter(x => x.Id == 3)[0].OverTimeRate;
+
+                var NormalOTHourRate = overTimeSetupsList[0].OverTimeRate;
+
+                var WeekendOTHourRate = overTimeSetupsList[1].OverTimeRate;
+
+                var PublicHolidayOTHourRate = overTimeSetupsList[2].OverTimeRate;
+
+                console.log('NormalOTHourRate: ' + NormalOTHourRate);
+
+                console.log('WeekendOTHourRate: ' + WeekendOTHourRate);
+
+                console.log('PublicHolidayOTHourRate: ' + PublicHolidayOTHourRate);
+
+
                 $(btn).prop("disabled", false);
 
                 $(btn).removeClass("btn-danger");
@@ -602,7 +623,18 @@
 
                 $(btn).val("View Payroll");
 
-                $.each(data, function (index, obj) {
+                $.each(data.Data, function (index, obj) {
+
+
+                    var PublicHolidayOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate);
+
+                    var WeekendOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours * WeekendOTHourRate);
+
+                    var NormalOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours * NormalOTHourRate);
+
+                    var MonthlySalary = (((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays);
+
+                    var TotalSalary = MonthlySalary + NormalOTSalary + WeekendOTSalary + PublicHolidayOTSalary + obj.ArrearsAmount + obj.BonusAmount;
 
                     str += '<tr>' +
                         '<td>' +
@@ -648,19 +680,19 @@
                         obj.NormalOTHours +
                         '</td>' +
                         '<td>' +
-                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours).toFixed(2) +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours * NormalOTHourRate).toFixed(2) +    
                         '</td>' +
                         '<td>' +
                         obj.WeekendOTHours +
                         '</td>' +
                         '<td>' +
-                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours).toFixed(2) +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours * WeekendOTHourRate).toFixed(2) +
                         '</td>' +
                         '<td>' +
                         obj.PublicHolidaysOTHours +
                         '</td>' +
                         '<td>' +
-                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours).toFixed(2) +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate).toFixed(2) +
                         '</td>' +      
                         '<td>' +
                         obj.ArrearsAmount +
@@ -669,7 +701,7 @@
                         obj.BonusAmount +
                         '</td>' +
                         '<td>' +
-                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays) + obj.ArrearsAmount + obj.BonusAmount).toFixed(2) +   //+ (Overtime to add)
+                         parseFloat(TotalSalary).toFixed(2) +
                         '</td>' +
                         '</tr>';
                 });

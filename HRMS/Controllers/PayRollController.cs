@@ -1749,7 +1749,6 @@ namespace HRMS.Controllers
                                  PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
                                  ArrearsAmount = arrsg?.Amount,
                                  BonusAmount = bonusg?.Amount,
-
                              }).ToList();
 
                 var data = data1.GroupBy(x => x.EmployeeId).Select(y => new
@@ -1777,7 +1776,9 @@ namespace HRMS.Controllers
                     BonusAmount = y.ToList().Select(z => z.BonusAmount).FirstOrDefault()
                 }).ToList();
 
-                return Json(data, JsonRequestBehavior.AllowGet);
+                var overTimeSetupsList = _hrms.OverTimeSetups.Where(x => x.Active == true).ToList();
+
+                return Json(new { Data = data, OverTimeSetupsList = overTimeSetupsList }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
