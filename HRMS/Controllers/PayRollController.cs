@@ -1650,31 +1650,31 @@ namespace HRMS.Controllers
         {
             double totalTax = 0.0;
 
-            if(salary <= 600000)       ////1111
+            if(salary <= 600000)      
             {
                 totalTax = 0.0;
             }
-            else if(salary >= 600000 && salary <= 1200000){   ///222222
+            else if(salary >= 600000 && salary <= 1200000){   
 
                 totalTax = (((salary.Value - 600000) * 2.5) / 100);
             }
-            else if (salary >= 1200000 && salary <= 2400000) //////333333
+            else if (salary >= 1200000 && salary <= 2400000) 
             {
                 totalTax = 15000 + (((salary.Value - 1200000) * 12.5) / 100);
             }
-            else if (salary >= 2400000 && salary <= 3600000)   /////4444444
+            else if (salary >= 2400000 && salary <= 3600000)   
             {
                 totalTax = 165000 + (((salary.Value - 2400000) * 20) / 100);
             }
-            else if (salary >= 3600000 && salary <= 6000000)   /////55555555
+            else if (salary >= 3600000 && salary <= 6000000)   
             {
                 totalTax = 405000 + (((salary.Value - 3600000) * 25) / 100);
             }
-            else if (salary >= 6000000 && salary <= 12000000)   /////66666666
+            else if (salary >= 6000000 && salary <= 12000000)   
             {
                 totalTax = 1005000 + (((salary.Value - 6000000) * 32.5) / 100);
             }
-            else if (salary > 12000000)   /////77777
+            else if (salary > 12000000)   
             {
                 totalTax = 2955000 + (((salary.Value - 12000000) * 35) / 100);
             }
