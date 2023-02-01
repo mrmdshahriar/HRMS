@@ -596,17 +596,12 @@
 
                 var overTimeSetupsList = data.OverTimeSetupsList;
 
-                //var NormalOTHourRate = overTimeSetupsList.filter(x => x.Id == 1)[0].OverTimeRate;
+                var NormalOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType.trim() == "Normal Overtime")[0].OverTimeRate;
 
-                //var WeekendOTHourRate = overTimeSetupsList.filter(x => x.Id == 2)[0].OverTimeRate;
+                var WeekendOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType == "Weekend OT")[0].OverTimeRate;
 
-                //var PublicHolidayOTHourRate = overTimeSetupsList.filter(x => x.Id == 3)[0].OverTimeRate;
+                var PublicHolidayOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType.trim() == 'Public Holiday OT')[0].OverTimeRate;
 
-                var NormalOTHourRate = overTimeSetupsList[0].OverTimeRate;
-
-                var WeekendOTHourRate = overTimeSetupsList[1].OverTimeRate;
-
-                var PublicHolidayOTHourRate = overTimeSetupsList[2].OverTimeRate;
 
                 console.log('NormalOTHourRate: ' + NormalOTHourRate);
 
