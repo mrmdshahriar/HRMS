@@ -1726,6 +1726,12 @@ namespace HRMS.Controllers
                              from arrsg in ArrearsGroup.DefaultIfEmpty()
                              join bonus in _hrms.BonusSetups on cs.EmployeeId equals bonus.EmployeeId into BonusSetupsGroup
                              from bonusg in BonusSetupsGroup.DefaultIfEmpty()
+                             join dedct in _hrms.Deductions on emp.Id equals dedct.EmployeeId into DeductionsGroup
+                             from dedctg in DeductionsGroup.DefaultIfEmpty()
+                             join loan in _hrms.LoanSanctions on emp.Id equals loan.EmployeeId into LoanSanctionsGroup
+                             from loang in LoanSanctionsGroup.DefaultIfEmpty()
+                             join advc in _hrms.AdvaceSalarys on emp.Id equals advc.EmployeeId into AdvaceSalarysGroup
+                             from advcg in AdvaceSalarysGroup.DefaultIfEmpty()
                              where cs.Active == true && alw.IsActive == true && emp.Active == true && dsg?.Active == true && dptg?.Active == true && arrsg?.Active == true && bonusg?.Active == true
                              select new
                              {
@@ -1737,6 +1743,7 @@ namespace HRMS.Controllers
                                  Designation = dsg.Name,
                                  Department = dptg.Name,
                                  BasicSalary = emp.BasicSalary,
+                                 AnnualSalary = emp.BasicSalary * 12,
                                  //Allowances = cs.Allowances,
                                  TotalAmount = cs.TotalAmount,
                                  OverTime = cs.OverTime,
@@ -1749,6 +1756,14 @@ namespace HRMS.Controllers
                                  PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
                                  ArrearsAmount = arrsg?.Amount,
                                  BonusAmount = bonusg?.Amount,
+                                 Deductions = dedctg?.Amount,
+                                 Advance = advcg?.Amount,
+                                 Loan = loang?.LoanAmount,
+                                 IncomeTax = IncomeTaxCalculation(emp.BasicSalary * 12),
+                                 ProvidentFund = ProvidentFundCalculation(),
+                                 EOBI = ((emp.BasicSalary * 1) / 100),
+                                 Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
+
                              }).ToList();
 
                 var data = data1.GroupBy(x => x.EmployeeId).Select(y => new
@@ -1773,7 +1788,15 @@ namespace HRMS.Controllers
                     WeekendOTHours = y.ToList().Select(z => z.WeekendOTHours).FirstOrDefault(),
                     PublicHolidaysOTHours = y.ToList().Select(z => z.PublicHolidaysOTHours).FirstOrDefault(),
                     ArrearsAmount = y.ToList().Select(z => z.ArrearsAmount).FirstOrDefault(),
-                    BonusAmount = y.ToList().Select(z => z.BonusAmount).FirstOrDefault()
+                    BonusAmount = y.ToList().Select(z => z.BonusAmount).FirstOrDefault(),
+                    AnnualSalary = y.ToList().Select(z => z.AnnualSalary).FirstOrDefault(),
+                    IncomeTax = y.ToList().Select(z => z.IncomeTax).FirstOrDefault(),
+                    ProvidentFund = y.ToList().Select(z => z.ProvidentFund).FirstOrDefault(),
+                    EOBI = y.ToList().Select(z => z.EOBI).FirstOrDefault(),
+                    Graduity = y.ToList().Select(z => z.Graduity).FirstOrDefault(),
+                    Deductions = y.ToList().Select(z => z.Deductions).FirstOrDefault(),
+                    Advance = y.ToList().Select(z => z.Advance).FirstOrDefault(),
+                    Loan = y.ToList().Select(z => z.Loan).FirstOrDefault(),
                 }).ToList();
 
                 var overTimeSetupsList = _hrms.OverTimeSetups.Where(x => x.Active == true).ToList();

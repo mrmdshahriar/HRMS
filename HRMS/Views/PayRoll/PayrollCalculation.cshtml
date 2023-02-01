@@ -32,7 +32,7 @@
     @*<div style="height:530px;width:2200px;overflow:auto;">*@
 
 
-    <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:200px;">
+    @*<table class="table table-bordered table-responsive table-condensed" style="width:100%;height:200px;">
         <thead>
             <tr>
                 <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
@@ -122,7 +122,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table>*@
 
 
     @*</div>*@
@@ -131,14 +131,18 @@
 
 
 
-<div style="width:1700px;overflow:auto;margin:20px;padding-right:50px;height:400px;">
+<div style="width:1700px;overflow:auto;margin:20px;padding-right:50px;height:600px;">
     <table class="table table-bordered table-striped table-hover" style="width:1900px;">
+
         <thead>
             <tr>
-                <th colspan="12" style="background-color:lightgreen;text-align:center;">Fixed Section Per Month</th>
+                <th colspan="13" style="background-color:lightgreen;text-align:center;">Fixed Section Per Month</th>
                 <th colspan="10" style="background-color:lightpink;text-align:center;">Total Salary</th>
+                <th colspan="6" style="background-color:yellow;text-align:center;">Deductions</th>
+                <th rowspan="2" style="background-color:lightblue;text-align:center;">Gross Payable Salary</th>
             </tr>
             <tr style="background-color:lightskyblue;text-align:center;">
+                <th>No.</th>
                 <th style="width:90px;">Emp ID</th>
                 <th style="width:100px;">Emp Name</th>
                 <th style="width:100px;">Date of Joining</th>
@@ -161,6 +165,13 @@
                 <th>Arrears</th>
                 <th>Bonus</th>
                 <th>Total Salary</th>
+                <th>Deductions</th>
+                <th>Advance</th>
+                <th>Loan</th>
+                <th>Income Tax</th>
+                <th>EOBI</th>
+                <th>Provident Fund</th>
+                
             </tr>
         </thead>
         <tbody id="FixedSectionPerMonth">
@@ -603,13 +614,6 @@
                 var PublicHolidayOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType.trim() == 'Public Holiday OT')[0].OverTimeRate;
 
 
-                console.log('NormalOTHourRate: ' + NormalOTHourRate);
-
-                console.log('WeekendOTHourRate: ' + WeekendOTHourRate);
-
-                console.log('PublicHolidayOTHourRate: ' + PublicHolidayOTHourRate);
-
-
                 $(btn).prop("disabled", false);
 
                 $(btn).removeClass("btn-danger");
@@ -618,8 +622,9 @@
 
                 $(btn).val("View Payroll");
 
-                $.each(data.Data, function (index, obj) {
+                var SL = 1;
 
+                $.each(data.Data, function (index, obj) {
 
                     var PublicHolidayOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate);
 
@@ -632,6 +637,9 @@
                     var TotalSalary = MonthlySalary + NormalOTSalary + WeekendOTSalary + PublicHolidayOTSalary + obj.ArrearsAmount + obj.BonusAmount;
 
                     str += '<tr>' +
+                        '<td>' +
+                        (SL++) +
+                        '</td>' +
                         '<td>' +
                         obj.EmployeeId +
                         '</td>' +
@@ -698,12 +706,31 @@
                         '<td>' +
                          parseFloat(TotalSalary).toFixed(2) +
                         '</td>' +
+                        '<td>' +
+                        obj.Deductions +
+                        '</td>' +
+                        '<td>' +
+                        obj.Advance +
+                        '</td>' +
+                        '<td>' +
+                        obj.Loan +
+                        '</td>' +
+                        '<td>' +
+                        obj.IncomeTax +
+                        '</td>' +
+                        '<td>' +
+                        obj.EOBI +
+                        '</td>' +
+                        '<td>' +
+                        obj.ProvidentFund +
+                        '</td>' +
+                        '<td>' +
+                        'Null'
+                        '</td>' +
                         '</tr>';
                 });
 
                 $("#FixedSectionPerMonth").html(str);
-
-                DeductionsAndTaxCalculations();
             },
             error: function (data) {
                 debugger;
