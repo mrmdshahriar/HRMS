@@ -32,104 +32,6 @@
 
     </center>
 
-    @*<div style="height:530px;width:2200px;overflow:auto;">*@
-
-
-    @*<table class="table table-bordered table-responsive table-condensed" style="width:100%;height:200px;">
-            <thead>
-                <tr>
-                    <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
-                    <th style="text-align: center; background-color: lightgreen;">Total Salary</th>
-                    <th style="text-align: center; background-color: lightyellow;">Deductions</th>
-                    <th style="text-align: center; background-color: lightblue;">Gross Payable Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th colspan="12" style="background-color:lightgreen;text-align:center;">Fixed Section Per Month</th>
-                                    <th colspan="7" style="background-color:lightpink;text-align:center;">Total Salary</th>
-                                </tr>
-                                <tr style="background-color:lightskyblue;text-align:center;">
-                                    <th style="width:50px;">Emp ID</th>
-                                    <th style="width:200px;">Emp Name</th>
-                                    <th style="width:200px;">Date of Joining</th>
-                                    <th>Designation</th>
-                                    <th>Department</th>
-                                    <th>Basic Salary</th>
-                                    <th>Allowance 1</th>
-                                    <th>Allowance 2</th>
-                                    <th>Allowance 3</th>
-                                    <th>Total Salary</th>
-                                    <th>Salary Month</th>
-                                    <th>Total Payable Days</th>
-                                    <th>Monthly Salary</th>
-                                    <th>Normal OT Hours</th>
-                                    <th>Normal OT1 Salary</th>
-                                    <th>Weekend OT</th>
-                                    <th>Weekend OT Salary</th>
-                                    <th>Public Holiday OT Hours</th>
-                                    <th>Public Holiday OT Salary</th>
-                                </tr>
-                            </thead>
-                            <tbody id="FixedSectionPerMonth2">
-                            </tbody>
-                        </table>
-                    </td>
-                    <td>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Monthly Salary</th>
-                                    <th>Normal OT Hours</th>
-                                    <th>Normal OT1 Salary</th>
-                                    <th>Weekend OT</th>
-                                    <th>Weekend OT Salary</th>
-                                    <th>Public Holiday OT Hours</th>
-                                    <th>Public Holiday OT Salary</th>
-                                    <th>OT4</th>
-                                    <th>OT5</th>
-                                    <th>Arrears</th>
-                                    <th>Bonus</th>
-                                    <th>Total Salary</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-
-                    </td>
-                    <td>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Deductions</th>
-                                    <th>Advance</th>
-                                    <th>Loan</th>
-                                    <th>Income Tax</th>
-                                    <th>EOBI</th>
-                                    <th>Provident Fund</th>
-                                </tr>
-                            </thead>
-                            <tbody id="Deductions">
-                            </tbody>
-                        </table>
-                    </td>
-                    <td>
-
-                        <h1>Demo</h1>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>*@
-
-
-    @*</div>*@
-
 </div>
 
 
@@ -183,110 +85,61 @@
 </div>
 
 
-
-
-
-
-
 @*Modal*@
-<div class="modal fade" id="DownloadSheet" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
+<div class="modal fade" id="PayrollCalculationModal" tabindex="-1" role="dialog" aria-labelledby="CountryModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="display:flex;justify-content:center;align-items:center;">
-        <div class="modal-content" style="width:1400px;">
+        <div class="modal-content" style="width: 1850px;">
             <div class="modal-header modal-header">
                 <h5 class="modal-title" style="color:white">Salary Sheet Details</h5>
                 <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width: 1700px; overflow: auto; height: 700px;">
 
-                @*<div class="row">*@
-
-                <div style="height: 600px; width: 100%; overflow: auto;">
-
-                    <table class="table table-bordered table-responsive table-condensed" style="width:100%;height:100%;">
+                    <table id="salaryCal" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th style="text-align: center; background-color: lightblue;">Fixed Section Per Month</th>
-                                <th style="text-align: center; background-color: lightgreen;">Total Salary</th>
-                                <th style="text-align: center; background-color: lightyellow;">Deductions</th>
-                                <th style="text-align: center; background-color: lightblue;">Gross Payable Salary</th>
+                                <th colspan="14" style="background-color:lightgreen;text-align:center;">Fixed Section Per Month</th>
+                                <th colspan="10" style="background-color:lightpink;text-align:center;">Total Salary</th>
+                                <th colspan="6" style="background-color:yellow;text-align:center;">Deductions</th>
+                                <th rowspan="2" style="background-color:lightblue;text-align:center;">Gross Payable Salary</th>
+                            </tr>
+                            <tr style="background-color:lightskyblue;text-align:center;">
+                                <th><input type="checkbox" id="checkAll" onchange="SelectAll();" />All</th>
+                                <th>No.</th>
+                                <th style="width:90px;">Emp ID</th>
+                                <th style="width:100px;">Emp Name</th>
+                                <th style="width:100px;">Date of Joining</th>
+                                <th>Designation</th>
+                                <th>Department</th>
+                                <th>Basic Salary</th>
+                                <th>Allowance1</th>
+                                <th>Allowance2</th>
+                                <th>Allowance3</th>
+                                <th>Total Salary</th>
+                                <th>Salary Month</th>
+                                <th>Total Payable Days</th>
+                                <th>Monthly Salary</th>
+                                <th>Normal OT Hours</th>
+                                <th>Normal OT1 Salary</th>
+                                <th>Weekend OT</th>
+                                <th>Weekend OT Salary</th>
+                                <th>Public Holiday OT Hours</th>
+                                <th>Public Holiday OT Salary</th>
+                                <th>Arrears</th>
+                                <th>Bonus</th>
+                                <th>Total Salary</th>
+                                <th>Deductions</th>
+                                <th>Advance</th>
+                                <th>Loan</th>
+                                <th>Income Tax</th>
+                                <th>EOBI</th>
+                                <th>Provident Fund</th>
+
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th><input type="checkbox" id="checkAll" onchange="SelectAll();" />Select All</th>
-                                                <th style="width:200px;">Emp ID</th>
-                                                <th style="width:200px;">Emp Name</th>
-                                                <th>Date of Joining</th>
-                                                <th>Designation</th>
-                                                <th>Department</th>
-                                                <th>Basic Salary</th>
-                                                <th>Allowance 1</th>
-                                                <th>Allowance 2</th>
-                                                <th>Allowance 3</th>
-                                                <th>Total Salary</th>
-                                                <th>Salary Month</th>
-                                                <th>Total Payable Days</th>
-                                                <th>Monthly Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="FixedSectionPerMonthModal">
-                                        </tbody>
-                                    </table>
-                                </td>
-                                <td>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Monthly Salary</th>
-                                                <th>Normal OT Hours</th>
-                                                <th>Normal OT1 Salary</th>
-                                                <th>Weekend OT</th>
-                                                <th>Weekend OT Salary</th>
-                                                <th>Public Holiday OT Hours</th>
-                                                <th>Public Holiday OT Salary</th>
-                                                <th>OT4</th>
-                                                <th>OT5</th>
-                                                <th>Arrears</th>
-                                                <th>Bonus</th>
-                                                <th>Total Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-
-                                </td>
-                                <td>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>Deductions</th>
-                                                <th>Advance</th>
-                                                <th>Loan</th>
-                                                <th>Income Tax</th>
-                                                <th>EOBI</th>
-                                                <th>Provident Fund</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="DeductionsModal">
-                                        </tbody>
-                                    </table>
-                                </td>
-                                <td>
-
-                                    <h1>Demo</h1>
-
-                                </td>
-                            </tr>
+                        <tbody id="PayrollCalculationModalData">
                         </tbody>
                     </table>
-
-                </div>
-
                 @*</div>*@
 
             </div>
@@ -431,15 +284,6 @@
 
 <script>
 
-    //$('#salaryCal').dataTable({
-    //    "bProcessing": true,
-    //    "bPaginate": true,
-    //    "sPaginationType": "full_numbers",
-    //    "responsive": true,
-    //    "ordering": true
-    //});
-
-
     function Process() {
         debugger;
 
@@ -475,8 +319,121 @@
     }
 
 
+    //function ProcessPayroll2() {
+    //    debugger;
+
+    //    var str = '';
+
+    //    $.ajax({
+
+    //        type: "GET",
+    //        url: "/PayRoll/GetPayrollCalculationTableData",
+    //        success: function (data) {
+    //            debugger;
+
+    //            $.each(data, function (index, obj) {
+
+    //                str += '<tr>' +
+    //                    '<td>' +
+    //                    '<input type="checkbox" class="checkRow" onchange="RemoveCheck();"/>' +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.EmployeeId +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.EmployeeName +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.DateofJoining +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Designation +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Department +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.BasicSalary +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Allowances1 +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Allowances2 +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Allowances3 +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.SalaryMonth +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.TotalPayableDays +
+    //                    '</td>' +
+    //                    '</tr>';
+    //            });
+
+    //            $("#FixedSectionPerMonthModal").html(str);
+
+    //            var str2 = '';
+
+    //            $.ajax({
+
+    //                type: "GET",
+    //                url: "/PayRoll/GetPayrollCalculationDeductionData",
+    //                success: function (data) {
+    //                    debugger;
+
+    //                    $.each(data, function (index, obj) {
+
+    //                        str2 += '<tr>' +
+    //                            '<td>' +
+    //                            obj.Deductions +
+    //                            '</td>' +
+    //                            '<td>' +
+    //                            obj.Advance +
+    //                            '</td>' +
+    //                            '<td>' +
+    //                            obj.Loan +
+    //                            '</td>' +
+    //                            '<td>' +
+    //                            obj.IncomeTax +
+    //                            '</td>' +
+    //                            '<td>' +
+    //                            obj.EOBI +
+    //                            '</td>' +
+    //                            '<td>' +
+    //                            obj.ProvidentFund +
+    //                            '</td>' +
+    //                            '</tr>';
+    //                    });
+
+    //                    $("#DeductionsModal").html(str2);
+
+    //                }
+    //            });
+    //        },
+    //        error: function (data) {
+    //            console.log(data);
+    //        }
+    //    });
+
+    //    //$("#checkAll").prop("checked", false);
+
+    //    $("#DownloadSheet").modal('show');
+    //}
+
+
+
     function ProcessPayroll() {
         debugger;
+
+        var currentDate = new Date();
+
+        var CalendarDaysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
 
         var str = '';
 
@@ -487,11 +444,35 @@
             success: function (data) {
                 debugger;
 
-                $.each(data, function (index, obj) {
+                var overTimeSetupsList = data.OverTimeSetupsList;
+
+                var NormalOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType.trim() == "Normal Overtime")[0].OverTimeRate;
+
+                var WeekendOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType == "Weekend OT")[0].OverTimeRate;
+
+                var PublicHolidayOTHourRate = overTimeSetupsList.filter(x => x.OverTimeType.trim() == 'Public Holiday OT')[0].OverTimeRate;
+
+
+                var SL = 1;
+
+                $.each(data.Data, function (index, obj) {
+
+                    var PublicHolidayOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate);
+
+                    var WeekendOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours * WeekendOTHourRate);
+
+                    var NormalOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours * NormalOTHourRate);
+
+                    var MonthlySalary = (((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays);
+
+                    var TotalSalary = MonthlySalary + NormalOTSalary + WeekendOTSalary + PublicHolidayOTSalary + obj.ArrearsAmount + obj.BonusAmount;
 
                     str += '<tr>' +
                         '<td>' +
                         '<input type="checkbox" class="checkRow" onchange="RemoveCheck();"/>' +
+                        '</td>' +
+                        '<td>' +
+                        (SL++) +
                         '</td>' +
                         '<td>' +
                         obj.EmployeeId +
@@ -529,59 +510,73 @@
                         '<td>' +
                         obj.TotalPayableDays +
                         '</td>' +
+                        '<td>' +
+                        (((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / CalendarDaysInMonth) * obj.TotalPayableDays).toFixed(2) +
+                        '</td>' +
+                        '<td>' +
+                        obj.NormalOTHours +
+                        '</td>' +
+                        '<td>' +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.NormalOTHours * NormalOTHourRate).toFixed(2) +
+                        '</td>' +
+                        '<td>' +
+                        obj.WeekendOTHours +
+                        '</td>' +
+                        '<td>' +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours * WeekendOTHourRate).toFixed(2) +
+                        '</td>' +
+                        '<td>' +
+                        obj.PublicHolidaysOTHours +
+                        '</td>' +
+                        '<td>' +
+                        ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate).toFixed(2) +
+                        '</td>' +
+                        '<td>' +
+                        obj.ArrearsAmount +
+                        '</td>' +
+                        '<td>' +
+                        obj.BonusAmount +
+                        '</td>' +
+                        '<td>' +
+                        parseFloat(TotalSalary).toFixed(2) +
+                        '</td>' +
+                        '<td>' +
+                        obj.Deductions +
+                        '</td>' +
+                        '<td>' +
+                        obj.Advance +
+                        '</td>' +
+                        '<td>' +
+                        obj.Loan +
+                        '</td>' +
+                        '<td>' +
+                        obj.IncomeTax +
+                        '</td>' +
+                        '<td>' +
+                        obj.EOBI +
+                        '</td>' +
+                        '<td>' +
+                        obj.ProvidentFund +
+                        '</td>' +
+                        '<td>' +
+                        (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)).toFixed(2) +
+                        '</td>' +
                         '</tr>';
                 });
 
-                $("#FixedSectionPerMonthModal").html(str);
-
-                var str2 = '';
-
-                $.ajax({
-
-                    type: "GET",
-                    url: "/PayRoll/GetPayrollCalculationDeductionData",
-                    success: function (data) {
-                        debugger;
-
-                        $.each(data, function (index, obj) {
-
-                            str2 += '<tr>' +
-                                '<td>' +
-                                obj.Deductions +
-                                '</td>' +
-                                '<td>' +
-                                obj.Advance +
-                                '</td>' +
-                                '<td>' +
-                                obj.Loan +
-                                '</td>' +
-                                '<td>' +
-                                obj.IncomeTax +
-                                '</td>' +
-                                '<td>' +
-                                obj.EOBI +
-                                '</td>' +
-                                '<td>' +
-                                obj.ProvidentFund +
-                                '</td>' +
-                                '</tr>';
-                        });
-
-                        $("#DeductionsModal").html(str2);
-
-                    }
-                });
+                $("#PayrollCalculationModalData").html(str);
             },
             error: function (data) {
+                debugger;
+
+                alert("Error Occured! Please Review Console Log.");
+
                 console.log(data);
             }
         });
 
-        $("#checkAll").prop("checked", false);
-
-        $("#DownloadSheet").modal('show');
+        $("#PayrollCalculationModal").modal('show');
     }
-
 
 
     function DownloadSheetForEmployee() {
@@ -762,47 +757,47 @@
     }
 
 
-    function DeductionsAndTaxCalculations() {
-        debugger;
+    //function DeductionsAndTaxCalculations() {
+    //    debugger;
 
-        var str2 = '';
+    //    var str2 = '';
 
-        $.ajax({
+    //    $.ajax({
 
-            type: "GET",
-            url: "/PayRoll/GetPayrollCalculationDeductionData",
-            success: function (data) {
-                debugger;
+    //        type: "GET",
+    //        url: "/PayRoll/GetPayrollCalculationDeductionData",
+    //        success: function (data) {
+    //            debugger;
 
-                $.each(data, function (index, obj) {
+    //            $.each(data, function (index, obj) {
 
-                    str2 += '<tr>' +
-                        '<td>' +
-                        obj.Deductions +
-                        '</td>' +
-                        '<td>' +
-                        obj.Advance +
-                        '</td>' +
-                        '<td>' +
-                        obj.Loan +
-                        '</td>' +
-                        '<td>' +
-                        obj.IncomeTax +
-                        '</td>' +
-                        '<td>' +
-                        obj.EOBI +
-                        '</td>' +
-                        '<td>' +
-                        obj.ProvidentFund +
-                        '</td>' +
-                        '</tr>';
-                });
+    //                str2 += '<tr>' +
+    //                    '<td>' +
+    //                    obj.Deductions +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Advance +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.Loan +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.IncomeTax +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.EOBI +
+    //                    '</td>' +
+    //                    '<td>' +
+    //                    obj.ProvidentFund +
+    //                    '</td>' +
+    //                    '</tr>';
+    //            });
 
-                $("#Deductions").html(str2);
+    //            $("#Deductions").html(str2);
 
-            }
-        });
+    //        }
+    //    });
 
-    }
+    //}
 
 </script>
