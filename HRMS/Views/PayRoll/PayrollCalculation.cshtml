@@ -318,116 +318,6 @@
         }
     }
 
-
-    //function ProcessPayroll2() {
-    //    debugger;
-
-    //    var str = '';
-
-    //    $.ajax({
-
-    //        type: "GET",
-    //        url: "/PayRoll/GetPayrollCalculationTableData",
-    //        success: function (data) {
-    //            debugger;
-
-    //            $.each(data, function (index, obj) {
-
-    //                str += '<tr>' +
-    //                    '<td>' +
-    //                    '<input type="checkbox" class="checkRow" onchange="RemoveCheck();"/>' +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.EmployeeId +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.EmployeeName +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.DateofJoining +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Designation +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Department +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.BasicSalary +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Allowances1 +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Allowances2 +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Allowances3 +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    (obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.SalaryMonth +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.TotalPayableDays +
-    //                    '</td>' +
-    //                    '</tr>';
-    //            });
-
-    //            $("#FixedSectionPerMonthModal").html(str);
-
-    //            var str2 = '';
-
-    //            $.ajax({
-
-    //                type: "GET",
-    //                url: "/PayRoll/GetPayrollCalculationDeductionData",
-    //                success: function (data) {
-    //                    debugger;
-
-    //                    $.each(data, function (index, obj) {
-
-    //                        str2 += '<tr>' +
-    //                            '<td>' +
-    //                            obj.Deductions +
-    //                            '</td>' +
-    //                            '<td>' +
-    //                            obj.Advance +
-    //                            '</td>' +
-    //                            '<td>' +
-    //                            obj.Loan +
-    //                            '</td>' +
-    //                            '<td>' +
-    //                            obj.IncomeTax +
-    //                            '</td>' +
-    //                            '<td>' +
-    //                            obj.EOBI +
-    //                            '</td>' +
-    //                            '<td>' +
-    //                            obj.ProvidentFund +
-    //                            '</td>' +
-    //                            '</tr>';
-    //                    });
-
-    //                    $("#DeductionsModal").html(str2);
-
-    //                }
-    //            });
-    //        },
-    //        error: function (data) {
-    //            console.log(data);
-    //        }
-    //    });
-
-    //    //$("#checkAll").prop("checked", false);
-
-    //    $("#DownloadSheet").modal('show');
-    //}
-
-
-
     function ProcessPayroll() {
         debugger;
 
@@ -574,6 +464,8 @@
                 console.log(data);
             }
         });
+
+        $("#checkAll").prop("checked", false);
 
         $("#PayrollCalculationModal").modal('show');
     }
@@ -755,49 +647,5 @@
             }
         });
     }
-
-
-    //function DeductionsAndTaxCalculations() {
-    //    debugger;
-
-    //    var str2 = '';
-
-    //    $.ajax({
-
-    //        type: "GET",
-    //        url: "/PayRoll/GetPayrollCalculationDeductionData",
-    //        success: function (data) {
-    //            debugger;
-
-    //            $.each(data, function (index, obj) {
-
-    //                str2 += '<tr>' +
-    //                    '<td>' +
-    //                    obj.Deductions +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Advance +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.Loan +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.IncomeTax +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.EOBI +
-    //                    '</td>' +
-    //                    '<td>' +
-    //                    obj.ProvidentFund +
-    //                    '</td>' +
-    //                    '</tr>';
-    //            });
-
-    //            $("#Deductions").html(str2);
-
-    //        }
-    //    });
-
-    //}
 
 </script>
