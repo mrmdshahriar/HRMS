@@ -524,6 +524,8 @@
 
                 $.each(data.Data, function (index, obj) {
 
+                    debugger;
+
                     var PublicHolidayOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.PublicHolidaysOTHours * PublicHolidayOTHourRate);
 
                     var WeekendOTSalary = ((((obj.BasicSalary + obj.TotalAmount1 + obj.TotalAmount2 + obj.TotalAmount3) / 30) / 8) * obj.WeekendOTHours * WeekendOTHourRate);
