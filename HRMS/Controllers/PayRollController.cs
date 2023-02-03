@@ -1796,7 +1796,7 @@ namespace HRMS.Controllers
                                   AllowanceName = alw.Name,
                                   //Amount = alwde.Amount,
                                   SalaryMonth = DateTime.Now.ToString("MMMM"),
-                                  TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcal?.AbsentDays,
+                                  //TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcal?.AbsentDays,
                                   NormalOTHours = atdcalg?.NormalOTHours,
                                   WeekendOTHours = atdcalg?.WeekendOTHours,
                                   PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
