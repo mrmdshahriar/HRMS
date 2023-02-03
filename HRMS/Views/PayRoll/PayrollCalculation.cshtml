@@ -736,8 +736,8 @@
                         obj.ProvidentFund +
                         '</td>' +
                         '<td>' +
-                        'Null'
-                    '</td>' +
+                        (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)).toFixed(2) +
+                        '</td>' +
                         '</tr>';
                 });
 
