@@ -49,7 +49,7 @@
             <tr style="background-color:lightskyblue;text-align:center;">
                 <th>No.</th>
                 <th>Emp ID</th>
-                <th>Emp</th>
+                <th>Emp Name</th>
                 <th>Date of Joining</th>
                 <th>Designation</th>
                 <th>Department</th>
@@ -449,7 +449,7 @@
                         obj.ProvidentFund +
                         '</td>' +
                         '<td>' +
-                        (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)).toFixed(2) +
+                        ((TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)) < 0 ? 0 : (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund))).toFixed(2) +
                         '</td>' +
                         '</tr>';
                 });
@@ -623,7 +623,9 @@
                         obj.ProvidentFund +
                         '</td>' +
                         '<td>' +
-                        (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)).toFixed(2) +
+                        //(TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)).toFixed(2) +
+
+                        ((TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund)) < 0 ? 0 : (TotalSalary - (obj.Deductions + obj.Advance + obj.Loan + obj.IncomeTax + obj.EOBI + obj.ProvidentFund))).toFixed(2) +
                         '</td>' +
                         '</tr>';
                 });
