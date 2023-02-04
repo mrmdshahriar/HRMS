@@ -1683,10 +1683,31 @@ namespace HRMS.Controllers
         }
 
 
+      //,[EmployeeId]
+      //,[SalaryMonth]
+      //,[SalaryDate]
+      //,[BasicSalary]
+      //,[OThours]
+      //,[OTAmount]
+      //,[TotalSalaryAmount]
+
         public void SavePaidPayrollData(List<SalaryArray> salaryArray)
         {
+            foreach(var x in salaryArray)
+            {
+                SalaryCalculationHeader header = new SalaryCalculationHeader();
 
+                header.EmployeeId = x.EmpID;
+                header.SalaryMonth = x.SalaryMonth;
+                // header.SalaryDate = x.salary
+                header.BasicSalary = x.BasicSalary;
+                header.OThours = (x.NormalOTHours + x.WeekendOT + x.PublicHolidayOTHours);
+                header.OTAmount = (x.NormalOTSalary + x.WeekendOTSalary + x.PublicHolidayOTSalary);
+                header.TotalSalaryAmount = x.GrossPayableSalary;
 
+                _hrms.SalaryCalculationHeaders.Add(header);
+                _hrms.SaveChanges();
+            }
         }
 
         public ActionResult GetPayrollCalculationTableData()
