@@ -368,13 +368,28 @@
 
             data: {salaryArray: EmployeesArray},
 
-            success: function (data) {
+            success: function (response) {
                 debugger;
 
+                if (response.Success == true) {
+
+                    Swal.fire({
+                        icon: 'success',
+                        text: response.Data
+                    });
+                }
+
+                if (response.Success == false) {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        text: response.Data
+                    });
+                }
+
+                $("#PayrollCalculationModal").modal('hide');
             }
         });
-
-        $("#PayrollCalculationModal").modal('hide');
     }
 
     function Download() {

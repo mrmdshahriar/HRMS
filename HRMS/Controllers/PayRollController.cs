@@ -1691,23 +1691,31 @@ namespace HRMS.Controllers
       //,[OTAmount]
       //,[TotalSalaryAmount]
 
-        public void SavePaidPayrollData(List<SalaryArray> salaryArray)
+        public ActionResult SavePaidPayrollData(List<SalaryArray> salaryArray)
         {
-            foreach(var x in salaryArray)
+            try
             {
-                SalaryCalculationHeader header = new SalaryCalculationHeader();
+                foreach (var x in salaryArray)
+                {
+                    SalaryCalculationHeader header = new SalaryCalculationHeader();
 
-                header.EmployeeId = x.EmpID;
-                header.SalaryMonth = x.SalaryMonth;
-                // header.SalaryDate = x.salary
-                header.BasicSalary = x.BasicSalary;
-                header.OThours = (x.NormalOTHours + x.WeekendOT + x.PublicHolidayOTHours);
-                header.OTAmount = (x.NormalOTSalary + x.WeekendOTSalary + x.PublicHolidayOTSalary);
-                header.TotalSalaryAmount = x.GrossPayableSalary;
+                    header.EmployeeId = x.EmpID;
+                    header.SalaryMonth = x.SalaryMonth;
+                    // header.SalaryDate = x.salary
+                    header.BasicSalary = x.BasicSalary;
+                    header.OThours = (x.NormalOTHours + x.WeekendOT + x.PublicHolidayOTHours);
+                    header.OTAmount = (x.NormalOTSalary + x.WeekendOTSalary + x.PublicHolidayOTSalary);
+                    header.TotalSalaryAmount = x.GrossPayableSalary;
 
-                _hrms.SalaryCalculationHeaders.Add(header);
-                _hrms.SaveChanges();
+                    _hrms.SalaryCalculationHeaders.Add(header);
+                    _hrms.SaveChanges();
+                }
             }
+            catch(Exception ex)
+            {
+                return Json(new { Success = false, Data = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { Success = true, Data = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetPayrollCalculationTableData()
