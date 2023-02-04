@@ -216,6 +216,12 @@
       <End Role="KeyObjective" EntitySet="KeyObjectives" />
       <End Role="KeyResult" EntitySet="KeyResults" />
     </AssociationSet>
+    <EntitySet Name="SalaryCalculationDetails" EntityType="HRMSModel.SalaryCalculationDetail" />
+    <EntitySet Name="SalaryCalculationHeaders" EntityType="HRMSModel.SalaryCalculationHeader" />
+    <AssociationSet Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders" Association="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+      <End Role="SalaryCalculationHeader" EntitySet="SalaryCalculationHeaders" />
+      <End Role="SalaryCalculationDetail" EntitySet="SalaryCalculationDetails" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdvanceSalary">
     <Key>
@@ -1950,6 +1956,48 @@
       </Principal>
       <Dependent Role="KeyResult">
         <PropertyRef Name="KeyObjectiveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SalaryCalculationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalaryHdrId" Type="Int64" />
+    <Property Name="AllowanceId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Arrears" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BonusSetup" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="LoanInstallment" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="SalaryCalculationHeader" Relationship="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders" FromRole="SalaryCalculationDetail" ToRole="SalaryCalculationHeader" />
+  </EntityType>
+  <EntityType Name="SalaryCalculationHeader">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="SalaryMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryDate" Type="DateTime" Precision="3" />
+    <Property Name="BasicSalary" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="OThours" Type="Int32" />
+    <Property Name="OTAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalSalaryAmount" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="SalaryCalculationDetails" Relationship="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders" FromRole="SalaryCalculationHeader" ToRole="SalaryCalculationDetail" />
+  </EntityType>
+  <Association Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+    <End Type="HRMSModel.SalaryCalculationHeader" Role="SalaryCalculationHeader" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="HRMSModel.SalaryCalculationDetail" Role="SalaryCalculationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalaryCalculationHeader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalaryCalculationDetail">
+        <PropertyRef Name="SalaryHdrId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

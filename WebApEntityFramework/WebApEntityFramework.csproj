@@ -355,6 +355,12 @@
     <Compile Include="Models\Region.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SalaryCalculationDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SalaryCalculationHeader.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SalarySetup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

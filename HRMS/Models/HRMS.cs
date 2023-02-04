@@ -79,6 +79,8 @@ namespace HRMS.Models
         public virtual DbSet<ManagerKeyResult> ManagerKeyResults { get; set; }
         public virtual DbSet<tbl_EmployeeAttendanceCalculations> tbl_EmployeeAttendanceCalculations { get; set; }
         public virtual DbSet<HrmAttendance> HrmAttendances { get; set; }
+        public virtual DbSet<SalaryCalculationHeader> SalaryCalculationHeaders { get; set; }
+        public virtual DbSet<SalaryCalculationDetail> SalaryCalculationDetails { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

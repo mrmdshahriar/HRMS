@@ -1066,6 +1066,32 @@ warning 6002: The table/view 'HRMS.dbo.PublicHolidays' does not have a primary k
     <Property Name="LastModifiedOn" Type="datetime" />
     <Property Name="IsDeleted" Type="bit" />
   </EntityType>
+  <EntityType Name="SalaryCalculationDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalaryHdrId" Type="bigint" />
+    <Property Name="AllowanceId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Arrears" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BonusSetup" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LoanInstallment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SalaryCalculationHeaders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="SalaryMonth" Type="varchar" MaxLength="50" />
+    <Property Name="SalaryDate" Type="datetime" />
+    <Property Name="BasicSalary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OThours" Type="int" />
+    <Property Name="OTAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalSalaryAmount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityType Name="SalarySetups">
     <Key>
       <PropertyRef Name="Id" />
@@ -1674,6 +1700,20 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+    <End Role="SalaryCalculationHeaders" Type="Self.SalaryCalculationHeaders" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SalaryCalculationDetails" Type="Self.SalaryCalculationDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalaryCalculationHeaders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalaryCalculationDetails">
+        <PropertyRef Name="SalaryHdrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="HRMSModelStoreContainer">
     <EntitySet Name="AdvanceSalarys" EntityType="Self.AdvanceSalarys" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Applieds" EntityType="Self.Applieds" Schema="dbo" store:Type="Tables" />
@@ -1723,6 +1763,8 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
     <EntitySet Name="PayRollCutOffs" EntityType="Self.PayRollCutOffs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuartzTableData" EntityType="Self.QuartzTableData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalaryCalculationDetails" EntityType="Self.SalaryCalculationDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalaryCalculationHeaders" EntityType="Self.SalaryCalculationHeaders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalarySetups" EntityType="Self.SalarySetups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMasters" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SpecialAllowances" EntityType="Self.SpecialAllowances" Schema="dbo" store:Type="Tables" />
@@ -1989,6 +2031,10 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
     <AssociationSet Name="FK_KeyResults_KeyResults" Association="Self.FK_KeyResults_KeyResults">
       <End Role="HrmEmployees" EntitySet="HrmEmployees" />
       <End Role="KeyResults" EntitySet="KeyResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders" Association="Self.FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+      <End Role="SalaryCalculationHeaders" EntitySet="SalaryCalculationHeaders" />
+      <End Role="SalaryCalculationDetails" EntitySet="SalaryCalculationDetails" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

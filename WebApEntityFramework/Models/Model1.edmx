@@ -1071,6 +1071,32 @@ warning 6002: The table/view 'HRMS.dbo.PublicHolidays' does not have a primary k
           <Property Name="LastModifiedOn" Type="datetime" />
           <Property Name="IsDeleted" Type="bit" />
         </EntityType>
+        <EntityType Name="SalaryCalculationDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaryHdrId" Type="bigint" />
+          <Property Name="AllowanceId" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Arrears" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BonusSetup" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LoanInstallment" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SalaryCalculationHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+          <Property Name="SalaryMonth" Type="varchar" MaxLength="50" />
+          <Property Name="SalaryDate" Type="datetime" />
+          <Property Name="BasicSalary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OThours" Type="int" />
+          <Property Name="OTAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSalaryAmount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
         <EntityType Name="SalarySetups">
           <Key>
             <PropertyRef Name="Id" />
@@ -1679,6 +1705,20 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+          <End Role="SalaryCalculationHeaders" Type="Self.SalaryCalculationHeaders" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SalaryCalculationDetails" Type="Self.SalaryCalculationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCalculationHeaders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalaryCalculationDetails">
+              <PropertyRef Name="SalaryHdrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HRMSModelStoreContainer">
           <EntitySet Name="AdvanceSalarys" EntityType="Self.AdvanceSalarys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Applieds" EntityType="Self.Applieds" Schema="dbo" store:Type="Tables" />
@@ -1728,6 +1768,8 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
           <EntitySet Name="PayRollCutOffs" EntityType="Self.PayRollCutOffs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QuartzTableData" EntityType="Self.QuartzTableData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryCalculationDetails" EntityType="Self.SalaryCalculationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryCalculationHeaders" EntityType="Self.SalaryCalculationHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalarySetups" EntityType="Self.SalarySetups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMasters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SpecialAllowances" EntityType="Self.SpecialAllowances" Schema="dbo" store:Type="Tables" />
@@ -1995,6 +2037,10 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
             <End Role="HrmEmployees" EntitySet="HrmEmployees" />
             <End Role="KeyResults" EntitySet="KeyResults" />
           </AssociationSet>
+          <AssociationSet Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders" Association="Self.FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+            <End Role="SalaryCalculationHeaders" EntitySet="SalaryCalculationHeaders" />
+            <End Role="SalaryCalculationDetails" EntitySet="SalaryCalculationDetails" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -2215,6 +2261,12 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
           <AssociationSet Name="FK_KeyResults_KeyObjectives" Association="HRMSModel.FK_KeyResults_KeyObjectives">
             <End Role="KeyObjective" EntitySet="KeyObjectives" />
             <End Role="KeyResult" EntitySet="KeyResults" />
+          </AssociationSet>
+          <EntitySet Name="SalaryCalculationDetails" EntityType="HRMSModel.SalaryCalculationDetail" />
+          <EntitySet Name="SalaryCalculationHeaders" EntityType="HRMSModel.SalaryCalculationHeader" />
+          <AssociationSet Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders" Association="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+            <End Role="SalaryCalculationHeader" EntitySet="SalaryCalculationHeaders" />
+            <End Role="SalaryCalculationDetail" EntitySet="SalaryCalculationDetails" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AdvanceSalary">
@@ -3953,6 +4005,48 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SalaryCalculationDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaryHdrId" Type="Int64" />
+          <Property Name="AllowanceId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Arrears" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BonusSetup" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LoanInstallment" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="SalaryCalculationHeader" Relationship="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders" FromRole="SalaryCalculationDetail" ToRole="SalaryCalculationHeader" />
+        </EntityType>
+        <EntityType Name="SalaryCalculationHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+          <Property Name="SalaryMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryDate" Type="DateTime" Precision="3" />
+          <Property Name="BasicSalary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OThours" Type="Int32" />
+          <Property Name="OTAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalSalaryAmount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="SalaryCalculationDetails" Relationship="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders" FromRole="SalaryCalculationHeader" ToRole="SalaryCalculationDetail" />
+        </EntityType>
+        <Association Name="FK_SalaryCalculationDetails_SalaryCalculationHeaders">
+          <End Type="HRMSModel.SalaryCalculationHeader" Role="SalaryCalculationHeader" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="HRMSModel.SalaryCalculationDetail" Role="SalaryCalculationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryCalculationHeader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalaryCalculationDetail">
+              <PropertyRef Name="SalaryHdrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5222,6 +5316,34 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCalculationDetails">
+            <EntityTypeMapping TypeName="HRMSModel.SalaryCalculationDetail">
+              <MappingFragment StoreEntitySet="SalaryCalculationDetails">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="LoanInstallment" ColumnName="LoanInstallment" />
+                <ScalarProperty Name="BonusSetup" ColumnName="BonusSetup" />
+                <ScalarProperty Name="Arrears" ColumnName="Arrears" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+                <ScalarProperty Name="SalaryHdrId" ColumnName="SalaryHdrId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryCalculationHeaders">
+            <EntityTypeMapping TypeName="HRMSModel.SalaryCalculationHeader">
+              <MappingFragment StoreEntitySet="SalaryCalculationHeaders">
+                <ScalarProperty Name="TotalSalaryAmount" ColumnName="TotalSalaryAmount" />
+                <ScalarProperty Name="OTAmount" ColumnName="OTAmount" />
+                <ScalarProperty Name="OThours" ColumnName="OThours" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="SalaryDate" ColumnName="SalaryDate" />
+                <ScalarProperty Name="SalaryMonth" ColumnName="SalaryMonth" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -5346,6 +5468,9 @@ warning 6002: The table/view 'HRMS.dbo.tbl_EmployeeAttendanceCalculations' does 
         <AssociationConnector Association="HRMSModel.FK_dbo_HrmJobPosts_dbo_HrmJobTypes_HrmJobType_Id" />
         <AssociationConnector Association="HRMSModel.FK_KeyObjectives_KeyObjectives" />
         <AssociationConnector Association="HRMSModel.FK_KeyResults_KeyObjectives" />
+        <EntityTypeShape EntityType="HRMSModel.SalaryCalculationDetail" Width="1.5" PointX="30.625" PointY="1" />
+        <EntityTypeShape EntityType="HRMSModel.SalaryCalculationHeader" Width="1.5" PointX="28.375" PointY="1" />
+        <AssociationConnector Association="HRMSModel.FK_SalaryCalculationDetails_SalaryCalculationHeaders" />
       </Diagram>
     </Diagrams>
   </Designer>

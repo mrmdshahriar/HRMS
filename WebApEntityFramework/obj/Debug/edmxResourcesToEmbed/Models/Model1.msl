@@ -1264,5 +1264,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SalaryCalculationDetails">
+      <EntityTypeMapping TypeName="HRMSModel.SalaryCalculationDetail">
+        <MappingFragment StoreEntitySet="SalaryCalculationDetails">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="LoanInstallment" ColumnName="LoanInstallment" />
+          <ScalarProperty Name="BonusSetup" ColumnName="BonusSetup" />
+          <ScalarProperty Name="Arrears" ColumnName="Arrears" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="AllowanceId" ColumnName="AllowanceId" />
+          <ScalarProperty Name="SalaryHdrId" ColumnName="SalaryHdrId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaryCalculationHeaders">
+      <EntityTypeMapping TypeName="HRMSModel.SalaryCalculationHeader">
+        <MappingFragment StoreEntitySet="SalaryCalculationHeaders">
+          <ScalarProperty Name="TotalSalaryAmount" ColumnName="TotalSalaryAmount" />
+          <ScalarProperty Name="OTAmount" ColumnName="OTAmount" />
+          <ScalarProperty Name="OThours" ColumnName="OThours" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="SalaryDate" ColumnName="SalaryDate" />
+          <ScalarProperty Name="SalaryMonth" ColumnName="SalaryMonth" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

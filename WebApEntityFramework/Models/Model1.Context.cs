@@ -88,5 +88,7 @@ namespace WebApEntityFramework.Models
         public virtual DbSet<LeaveType> LeaveTypes { get; set; }
         public virtual DbSet<PublicHoliday> PublicHolidays { get; set; }
         public virtual DbSet<tbl_EmployeeAttendanceCalculations> tbl_EmployeeAttendanceCalculations { get; set; }
+        public virtual DbSet<SalaryCalculationDetail> SalaryCalculationDetails { get; set; }
+        public virtual DbSet<SalaryCalculationHeader> SalaryCalculationHeaders { get; set; }
     }
 }
