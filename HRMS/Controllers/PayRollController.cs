@@ -1683,14 +1683,6 @@ namespace HRMS.Controllers
         }
 
 
-      //,[EmployeeId]
-      //,[SalaryMonth]
-      //,[SalaryDate]
-      //,[BasicSalary]
-      //,[OThours]
-      //,[OTAmount]
-      //,[TotalSalaryAmount]
-
         public ActionResult SavePaidPayrollData(List<SalaryArray> salaryArray)
         {
             try
