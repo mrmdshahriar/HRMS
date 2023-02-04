@@ -216,6 +216,7 @@
     <Compile Include="Models\AspNetUserLogin.cs" />
     <Compile Include="Models\AspNetUserRole.cs" />
     <Compile Include="Models\HrmAttendance.cs" />
+    <Compile Include="Models\SalaryArray.cs" />
     <Compile Include="Models\tbl_EmployeeAttendanceCalculations.cs" />
     <Compile Include="Models\Attendance.cs" />
     <Compile Include="Models\BonusSetup.cs" />

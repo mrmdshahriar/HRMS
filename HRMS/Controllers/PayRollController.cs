@@ -1682,6 +1682,13 @@ namespace HRMS.Controllers
             return totalTax;
         }
 
+
+        public void SavePaidPayrollData(List<SalaryArray> salaryArray)
+        {
+
+
+        }
+
         public ActionResult GetPayrollCalculationTableData()
         {
             try

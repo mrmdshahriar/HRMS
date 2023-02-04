@@ -314,7 +314,7 @@
 
                 empObj.Allowance3 = $(obj).find("td:nth-child(11)").html();
 
-                empObj.TotalSalary = $(obj).find("td:nth-child(12)").html();
+                empObj.TotalSalaryWithAllowances = $(obj).find("td:nth-child(12)").html();
 
                 empObj.SalaryMonth = $(obj).find("td:nth-child(13)").html();
 
@@ -362,11 +362,11 @@
 
         $.ajax({
 
-            type: "GET",
+            type: "POST",
 
-            url: "/PayRoll/GetPayrollCalculationTableData",
+            url: "/PayRoll/SavePaidPayrollData",
 
-            //data: {},
+            data: {salaryArray: EmployeesArray},
 
             success: function (data) {
                 debugger;
