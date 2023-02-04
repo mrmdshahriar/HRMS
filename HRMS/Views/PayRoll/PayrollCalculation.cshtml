@@ -62,7 +62,7 @@
                 <th>Total Payable Days</th>
                 <th>Monthly Salary</th>
                 <th>Normal OT Hours</th>
-                <th>Normal OT1 Salary</th>
+                <th>Normal OT Salary</th>
                 <th>Weekend OT</th>
                 <th>Weekend OT Salary</th>
                 <th>Public Holiday OT Hours</th>
@@ -106,9 +106,9 @@
                             <tr style="background-color:lightskyblue;text-align:center;">
                                 <th><input type="checkbox" id="checkAll" onchange="SelectAll();" />All</th>
                                 <th>No.</th>
-                                <th style="width:90px;">Emp ID</th>
-                                <th style="width:100px;">Emp Name</th>
-                                <th style="width:100px;">Date of Joining</th>
+                                <th>Emp ID</th>
+                                <th>Emp Name</th>
+                                <th>Date of Joining</th>
                                 <th>Designation</th>
                                 <th>Department</th>
                                 <th>Basic Salary</th>
@@ -120,7 +120,7 @@
                                 <th>Total Payable Days</th>
                                 <th>Monthly Salary</th>
                                 <th>Normal OT Hours</th>
-                                <th>Normal OT1 Salary</th>
+                                <th>Normal OT Salary</th>
                                 <th>Weekend OT</th>
                                 <th>Weekend OT Salary</th>
                                 <th>Public Holiday OT Hours</th>
@@ -282,11 +282,83 @@
     </div>
 </div>
 
+
 <script>
+
+    var EmployeesArray = [];
 
     function Process() {
         debugger;
 
+        var tr = $("#PayrollCalculationModalData").find("tr").each(function (index, obj) {
+
+            if ($(obj).find("td:nth-child(1)").find(".checkRow").prop("checked")) {
+
+                var empObj = {};
+
+                empObj.EmpID = $(obj).find("td:nth-child(3)").html();
+
+                empObj.EmpName = $(obj).find("td:nth-child(4)").html();
+
+                empObj.DateofJoining = $(obj).find("td:nth-child(5)").html();
+
+                empObj.Designation = $(obj).find("td:nth-child(6)").html();
+
+                empObj.Department = $(obj).find("td:nth-child(7)").html();
+
+                empObj.BasicSalary = $(obj).find("td:nth-child(8)").html();
+
+                empObj.Allowance1 = $(obj).find("td:nth-child(9)").html();
+
+                empObj.Allowance2 = $(obj).find("td:nth-child(10)").html();
+
+                empObj.Allowance3 = $(obj).find("td:nth-child(11)").html();
+
+                empObj.TotalSalary = $(obj).find("td:nth-child(12)").html();
+
+                empObj.SalaryMonth = $(obj).find("td:nth-child(13)").html();
+
+                empObj.TotalPayableDays = $(obj).find("td:nth-child(14)").html();
+
+                empObj.MonthlySalary = $(obj).find("td:nth-child(15)").html();
+
+                empObj.NormalOTHours = $(obj).find("td:nth-child(16)").html();
+
+                empObj.NormalOTSalary = $(obj).find("td:nth-child(17)").html();
+
+                empObj.WeekendOT = $(obj).find("td:nth-child(18)").html();
+
+                empObj.WeekendOTSalary = $(obj).find("td:nth-child(19)").html();
+
+                empObj.PublicHolidayOTHours = $(obj).find("td:nth-child(20)").html();
+
+                empObj.PublicHolidayOTSalary = $(obj).find("td:nth-child(21)").html();
+
+                empObj.Arrears = $(obj).find("td:nth-child(22)").html();
+
+                empObj.Bonus = $(obj).find("td:nth-child(23)").html();
+
+                empObj.TotalSalary = $(obj).find("td:nth-child(24)").html();
+
+                empObj.Deductions = $(obj).find("td:nth-child(25)").html();
+
+                empObj.Advance = $(obj).find("td:nth-child(26)").html();
+
+                empObj.Loan = $(obj).find("td:nth-child(27)").html();
+
+                empObj.IncomeTax = $(obj).find("td:nth-child(28)").html();
+
+                empObj.EOBI = $(obj).find("td:nth-child(29)").html();
+
+                empObj.ProvidentFund = $(obj).find("td:nth-child(30)").html();
+
+                empObj.GrossPayableSalary = $(obj).find("td:nth-child(31)").html();
+
+                EmployeesArray.push(empObj);
+            }
+        });
+
+        console.log(EmployeesArray);
     }
 
     function Download() {
