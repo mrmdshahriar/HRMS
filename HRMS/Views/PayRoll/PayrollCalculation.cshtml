@@ -359,6 +359,22 @@
         });
 
         console.log(EmployeesArray);
+
+        $.ajax({
+
+            type: "GET",
+
+            url: "/PayRoll/GetPayrollCalculationTableData",
+
+            //data: {},
+
+            success: function (data) {
+                debugger;
+
+            }
+        });
+
+        $("#PayrollCalculationModal").modal('hide');
     }
 
     function Download() {
