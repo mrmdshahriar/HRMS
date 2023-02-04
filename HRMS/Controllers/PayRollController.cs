@@ -1713,7 +1713,7 @@ namespace HRMS.Controllers
                              join dedct in _hrms.Deductions on empg?.Id equals dedct.EmployeeId into DeductionsGroup
                              from dedctg in DeductionsGroup.DefaultIfEmpty()
 
-                             //join loan in _hrms.LoanSanctions on emp.Id equals loan.EmployeeId into LoanSanctionsGroup
+                             //join loan in _hrms.LoanSanctions on empg.Id equals loan.EmployeeId into LoanSanctionsGroup
                              //from loang in LoanSanctionsGroup.DefaultIfEmpty()
 
                              join advc in _hrms.AdvaceSalarys on empg?.Id equals advc.EmployeeId into AdvaceSalarysGroup
@@ -1755,62 +1755,62 @@ namespace HRMS.Controllers
 
                              }).ToList();
 
-                var data18 = (from cs in _hrms.SalarySetups.AsEnumerable()
+                //var data18 = (from cs in _hrms.SalarySetups.AsEnumerable()
 
-                              join alw in _hrms.Allowances on cs.AllowanceId equals alw.Id.ToString()
+                //              join alw in _hrms.Allowances on cs.AllowanceId equals alw.Id.ToString()
 
-                              join atdcal in _hrms.tbl_EmployeeAttendanceCalculations on cs.EmployeeId equals atdcal.EmployeeId into tbl_EmployeeAttendanceCalculationsGroup
-                              from atdcalg in tbl_EmployeeAttendanceCalculationsGroup.DefaultIfEmpty()
+                //              join atdcal in _hrms.tbl_EmployeeAttendanceCalculations on cs.EmployeeId equals atdcal.EmployeeId into tbl_EmployeeAttendanceCalculationsGroup
+                //              from atdcalg in tbl_EmployeeAttendanceCalculationsGroup.DefaultIfEmpty()
 
-                              join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
-                              join ds in _hrms.Designations on emp.DesignationId equals ds.Id
-                              join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id
+                //              join emp in _hrms.HrmEmployees on cs.EmployeeId equals emp.Id
+                //              join ds in _hrms.Designations on emp.DesignationId equals ds.Id
+                //              join dpt in _hrms.Departments on emp.DepartmentId equals dpt.Id
 
-                              join arrs in _hrms.Arrears on cs.EmployeeId equals arrs.EmployeeId into ArrearsGroup
-                              from arrsg in ArrearsGroup.DefaultIfEmpty()
+                //              join arrs in _hrms.Arrears on cs.EmployeeId equals arrs.EmployeeId into ArrearsGroup
+                //              from arrsg in ArrearsGroup.DefaultIfEmpty()
 
-                              join bonus in _hrms.BonusSetups on cs.EmployeeId equals bonus.EmployeeId
-                              join dedct in _hrms.Deductions on emp.Id equals dedct.EmployeeId
-                              join advc in _hrms.AdvaceSalarys on emp.Id equals advc.EmployeeId
+                //              join bonus in _hrms.BonusSetups on cs.EmployeeId equals bonus.EmployeeId
+                //              join dedct in _hrms.Deductions on emp.Id equals dedct.EmployeeId
+                //              join advc in _hrms.AdvaceSalarys on emp.Id equals advc.EmployeeId
 
-                              //join loan in _hrms.LoanSanctions on emp.Id equals loan.EmployeeId
+                //              //join loan in _hrms.LoanSanctions on emp.Id equals loan.EmployeeId
 
-                              where cs.Active == true
+                //              where cs.Active == true
 
-                              select new
-                              {
-                                  AmountArrear = arrsg?.Amount,
-                                  AbsentDays = atdcalg?.AbsentDays,
-                                  Id = cs.Id,
-                                  EmployeeId = cs.EmployeeId,
-                                  EmployeeNumber = emp.EmployeeCode,
-                                  EmployeeName = emp.FirstName + " " + emp.LastName,
-                                  DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
-                                  //Designation = ds.Name,
-                                  //Department = dpt.Name,
-                                  BasicSalary = emp.BasicSalary,
-                                  AnnualSalary = emp.BasicSalary * 12,
-                                  //Allowances = cs.Allowances,
-                                  TotalAmount = cs.TotalAmount,
-                                  OverTime = cs.OverTime,
-                                  AllowanceName = alw.Name,
-                                  //Amount = alwde.Amount,
-                                  SalaryMonth = DateTime.Now.ToString("MMMM"),
-                                  //TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcal?.AbsentDays,
-                                  NormalOTHours = atdcalg?.NormalOTHours,
-                                  WeekendOTHours = atdcalg?.WeekendOTHours,
-                                  PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
-                                  ArrearsAmount = arrsg?.Amount,
-                                  BonusAmount = bonus?.Amount,
-                                  Deductions = dedct?.Amount,
-                                  Advance = advc?.Amount,
-                                  //Loan = loan?.LoanAmount,
-                                  IncomeTax = IncomeTaxCalculation(emp.BasicSalary * 12),
-                                  ProvidentFund = ProvidentFundCalculation(),
-                                  EOBI = ((emp.BasicSalary * 1) / 100),
-                                  Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
+                //              select new
+                //              {
+                //                  AmountArrear = arrsg?.Amount,
+                //                  AbsentDays = atdcalg?.AbsentDays,
+                //                  Id = cs.Id,
+                //                  EmployeeId = cs.EmployeeId,
+                //                  EmployeeNumber = emp.EmployeeCode,
+                //                  EmployeeName = emp.FirstName + " " + emp.LastName,
+                //                  DateofJoining = emp.JoiningDate?.ToString("dd-MMM-yyyy"),
+                //                  //Designation = ds.Name,
+                //                  //Department = dpt.Name,
+                //                  BasicSalary = emp.BasicSalary,
+                //                  AnnualSalary = emp.BasicSalary * 12,
+                //                  //Allowances = cs.Allowances,
+                //                  TotalAmount = cs.TotalAmount,
+                //                  OverTime = cs.OverTime,
+                //                  AllowanceName = alw.Name,
+                //                  //Amount = alwde.Amount,
+                //                  SalaryMonth = DateTime.Now.ToString("MMMM"),
+                //                  //TotalPayableDays = (DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) - atdcal?.AbsentDays,
+                //                  NormalOTHours = atdcalg?.NormalOTHours,
+                //                  WeekendOTHours = atdcalg?.WeekendOTHours,
+                //                  PublicHolidaysOTHours = atdcalg?.PublicHolidaysOTHours,
+                //                  ArrearsAmount = arrsg?.Amount,
+                //                  BonusAmount = bonus?.Amount,
+                //                  Deductions = dedct?.Amount,
+                //                  Advance = advc?.Amount,
+                //                  //Loan = loan?.LoanAmount,
+                //                  IncomeTax = IncomeTaxCalculation(emp.BasicSalary * 12),
+                //                  ProvidentFund = ProvidentFundCalculation(),
+                //                  EOBI = ((emp.BasicSalary * 1) / 100),
+                //                  Graduity = GraduityCalculation(emp.JoiningDate, emp.BasicSalary),
 
-                              }).ToList();
+                //              }).ToList();
 
 
                 //var data1 = (from cs in _hrms.SalarySetups.AsEnumerable()
